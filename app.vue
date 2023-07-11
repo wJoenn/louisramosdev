@@ -1,5 +1,7 @@
 <template>
-  <div id="app">
+  <Blob />
+
+  <div id="app" class="scroll">
     <NuxtHeader />
 
     <main class="container">
@@ -23,10 +25,15 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      overflow-y: scroll;
 
       main {
         flex-grow: 1;
         margin: 50px auto;
+      }
+
+      @media screen and (min-width: 990px) {
+        backdrop-filter: blur(150px);
       }
     }
   }

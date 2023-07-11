@@ -18,7 +18,6 @@
 
 <style scoped lang="scss">
   footer {
-    border-top: 1px solid $secondary-background;
     font-size: 20px;
     margin: 0 50px;
     padding: 20px 0;

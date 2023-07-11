@@ -26,7 +26,7 @@
 
   const shuffleText = (...elements: HTMLElement[]) => {
     elements.forEach(element => {
-      const initialText = element.dataset.text!
+      const initialText = element.dataset.text as string
       const intervalRepeat = 1 / (4 + ((Math.round(initialText.length - 10) / 10) * -2))
 
       let i = 0
@@ -85,6 +85,7 @@
       }
 
       img {
+        border: 2px solid $main-color;
         border-radius: 50px;
         width: 300px;
       }

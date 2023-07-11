@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <img src="assets/images/Nuxt.png" alt="">
+      <img src="@/assets/images/nuxt.png" alt="">
 
       <nav>
         <NuxtLink to="/">Home</NuxtLink>
@@ -23,7 +23,6 @@
   }
 
   header {
-    box-shadow: 0 0 10px black;
     font-size: 20px;
     padding: 20px;
 

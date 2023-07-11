@@ -45,6 +45,7 @@
     "vue/max-attributes-per-line": "off",
     "vue/max-len": ["error", { "code": 120, "template": 1000 }],
     "vue/multi-word-component-names": "off",
+    "vue/no-multiple-template-root": "off",
     "vue/require-default-prop": "off",
     "vue/singleline-html-element-content-newline": "off"
   }

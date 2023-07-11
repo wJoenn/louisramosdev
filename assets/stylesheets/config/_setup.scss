@@ -22,6 +22,7 @@ body {
   font-family: $main-font;
   height: 1px;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 h1, h2, h3 {
@@ -39,4 +40,15 @@ nav, ul {
 .container {
   margin: 0 auto;
   width: Min(1200px, 80%);
+}
+
+.scroll {
+  &::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary-color;
+    border-radius: 10px;
+  }
 }
