@@ -8,7 +8,14 @@ export default defineNuxtConfig({
       "@fortawesome/free-solid-svg-icons"
     ]
   },
+  content: {
+    highlight: {
+      theme: "dark-plus",
+      preload: ["js"]
+    }
+  },
   devtools: { enabled: true },
+  modules: ["@nuxt/content"],
   typescript: {
     shim: false,
     strict: true
