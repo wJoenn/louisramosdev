@@ -15,10 +15,30 @@
 
       <img src="assets/images/pp.jpeg" alt="me">
     </section>
+
+    <section id="blogs">
+      <h2>Latest blogs</h2>
+
+      <ul class="blog-list">
+        <li v-for="blog in blogs" :key="blog._id">
+          <Blog :blog="blog" />
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type Blog from "@/types/Blog"
+
+  const { data: blogs } = await useAsyncData("blogs", () => (
+    queryContent("/blogs")
+      .sort({ date: 1 })
+      .only(["title", "description", "cover_url", "_path", "_id"])
+      .limit(3)
+      .find() as Promise<Blog[]>
+  ))
+
   const title = ref<HTMLSpanElement>()
   const subtitle = ref<HTMLHeadingElement>()
   const repeat = ref<NodeJS.Timer>()
@@ -98,6 +118,10 @@
       @media screen and (min-width: 990px) {
         flex-direction: row;
       }
+    }
+
+    #blogs {
+      margin-top: 40px;
     }
   }
 </style>

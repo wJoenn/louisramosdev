@@ -2,15 +2,23 @@
   <div>
     <h1>Blogs</h1>
 
-    <nav>
-      <NuxtLink v-for="blog in blogs" :key="blog._id" :to="blog._path">{{ blog.title }}</NuxtLink>
-    </nav>
+    <ul class="blog-list">
+      <li v-for="blog in blogs" :key="blog._id">
+        <Blog :blog="blog" />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup lang="ts">
-  const { data: blogs } = await useAsyncData("blogs", () => queryContent("/blogs").find())
+  import type Blog from "@/types/Blog"
+
+  const { data: blogs } = await useAsyncData("blogs", () => (
+    queryContent("/blogs")
+      .only(["title", "description", "cover_url", "_path", "_id"])
+      .find() as Promise<Blog[]>
+  ))
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 </style>

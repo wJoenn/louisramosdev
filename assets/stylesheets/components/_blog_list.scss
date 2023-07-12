@@ -1,0 +1,13 @@
+.blog-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 20px;
+
+  @media screen and (min-width: 560px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 990px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
