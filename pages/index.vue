@@ -21,6 +21,7 @@
 <script setup lang="ts">
   const title = ref<HTMLSpanElement>()
   const subtitle = ref<HTMLHeadingElement>()
+  const repeat = ref<NodeJS.Timer>()
 
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -47,14 +48,23 @@
   onMounted(() => {
     shuffleText(title.value!, subtitle.value!)
 
-    setInterval(() => {
+    repeat.value = setInterval(() => {
       shuffleText(title.value!, subtitle.value!)
     }, 10000)
+  })
+
+  onUnmounted(() => {
+    clearInterval(repeat.value)
   })
 </script>
 
 <style scoped lang="scss">
   #home {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+
     h1 {
       font-family: 'Azeret Mono', monospace;
       font-size: 40px;
@@ -71,17 +81,12 @@
       align-items: center;
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
       gap: 50px;
-      margin-top: 50px;
 
-      div {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        p {
-          line-height: 25px;
-        }
+      p {
+        line-height: 25px;
+        margin: 20px 0;
       }
 
       img {

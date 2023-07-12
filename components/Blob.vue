@@ -7,7 +7,7 @@
   const isSafari = ref(false)
 
   const moveBlob = (x: number, y: number) => {
-    if (isSafari && blob.value) {
+    if (isSafari.value && blob.value) {
       blob.value.style.left = `${x}px`
       blob.value.style.top = `${y}px`
     } else {
@@ -73,7 +73,7 @@
   #blob {
     animation: move 20s infinite, rotate 20s linear infinite;
     aspect-ratio: 1;
-    background-image: linear-gradient(to right, aquamarine, mediumpurple);
+    background-image: linear-gradient(to right, $light-nuxt-green, mediumpurple);
     border-radius: 50%;
     filter: blur(100px);
     left: 50vw;
