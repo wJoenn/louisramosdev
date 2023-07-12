@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: "dark-plus",
-      preload: ["js"]
+      preload: ["erb", "ruby"]
     }
   },
   devtools: { enabled: true },
@@ -24,7 +24,10 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: "@use '~/assets/stylesheets/config/variables' as *;"
+          additionalData: `
+            @use "~/assets/stylesheets/config/variables" as *;
+            @use "~/assets/stylesheets/config/mixins" as *;
+          `
         }
       }
     }

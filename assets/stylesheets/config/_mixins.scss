@@ -1,0 +1,13 @@
+@mixin btn {
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  font-weight: 500;
+  gap: 10px;
+  padding: 0.5rem 1rem;
+  width: max-content;
+
+  svg {
+    width: 20px;
+  }
+}
