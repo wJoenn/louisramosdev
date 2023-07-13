@@ -17,6 +17,15 @@
 <script setup lang="ts">
   import type Blog from "@/types/Blog"
 
+  useHead({
+    meta: [{
+      name: "description",
+      // eslint-disable-next-line vue/max-len
+      content: "Passionate Belgium developer with a strong interest in computer technologies. Proficient in Vue.js, Ruby on Rails and Video Games. I've written a couple blogs, check them out"
+    }],
+    title: "Louis Ramos | RoR Fullstack Developer"
+  })
+
   const { data: blogs } = await useAsyncData("blogs", () => (
     queryContent("/blogs")
       .only(["title", "description", "cover_url", "_path", "_id"])

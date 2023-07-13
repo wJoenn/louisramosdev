@@ -52,6 +52,15 @@
 </template>
 
 <script setup lang="ts">
+  useHead({
+    meta: [{
+      name: "description",
+      // eslint-disable-next-line vue/max-len
+      content: "Passionate Belgium developer with a strong interest in computer technologies. Proficient in Vue.js, Ruby on Rails and Video Games. I've written a couple blogs, check them out"
+    }],
+    title: "Louis Ramos | RoR Fullstack Developer"
+  })
+
   const { data } = await useFetch("/api/tools")
   const frontendTools = ref(data.value!.frontendTools)
   const backendTools = ref(data.value!.backendTools)

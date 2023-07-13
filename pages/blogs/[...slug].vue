@@ -6,6 +6,22 @@
 </template>
 
 <script setup lang="ts">
+  import Blog from "../../types/Blog"
+
+  const route = useRoute()
+  const { data: blog } = await useAsyncData("blog", () => (
+    queryContent(route.path)
+      .only(["title", "description", "cover_url", "_path", "_id"])
+      .findOne() as Promise<Blog>
+  ))
+
+  useServerSeoMeta({
+    ogDescription: blog.value?.description,
+    ogImage: `https://louisramos.dev${blog.value?.cover_url}`,
+    ogTitle: blog.value?.title,
+    ogType: "article",
+    ogUrl: `https://louisramos.dev${route.path}`
+  })
 </script>
 
 <style lang="scss">
