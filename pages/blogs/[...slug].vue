@@ -1,7 +1,6 @@
 <template>
   <div id="blog">
     <ContentDoc tag="article" class="content" />
-
     <NuxtLink to="/blogs" class="back"><fai icon="fa-solid fa-rotate-left" /> Back</NuxtLink>
   </div>
 </template>
@@ -56,33 +55,6 @@
         a {
           color: $light-nuxt-green;
         }
-      }
-
-      pre {
-        background-color: #101010;
-        border: 1px solid $secondary-color;
-        border-radius: 10px;
-        padding: 25px 20px 20px;
-        margin: 10px 0 30px;
-
-        code {
-          border: none;
-          padding: 0;
-        }
-
-        .line {
-          display: flex;
-          flex-wrap: wrap;
-
-          span {
-            white-space: break-spaces;
-          }
-        }
-      }
-
-      .filename {
-        color: #58a458;
-        font-size: 0.8rem;
       }
     }
   }

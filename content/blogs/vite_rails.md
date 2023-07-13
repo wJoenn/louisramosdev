@@ -76,8 +76,8 @@ import FullReload from "vite-plugin-full-reload"
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 }),
-  ],
+    FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 })
+  ]
 })
 ```
 
