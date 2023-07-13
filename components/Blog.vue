@@ -3,7 +3,7 @@
     <img :src="blog.cover_url" :alt="`${blog.title} cover image`">
 
     <div class="details">
-      <h2>{{ blog.title }}</h2>
+      <h3>{{ blog.title }}</h3>
       <p>{{ blog.description }}</p>
 
       <NuxtLink :to="blog._path" class="btn">Show more</NuxtLink>
@@ -25,6 +25,10 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 
+    h3 {
+      font-size: 25px;
+    }
+
     img {
       object-fit: cover;
       object-position: center;
@@ -39,18 +43,6 @@
       p {
         color: $secondary-color;
         line-height: 20px;
-      }
-
-      .btn {
-        @include btn;
-
-        align-self: flex-end;
-        color: $main-color;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: $light-nuxt-green;
-        }
       }
     }
   }

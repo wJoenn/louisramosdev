@@ -1,7 +1,9 @@
 <template>
   <div :class="['code-block', { 'is-bash': language === 'bash' }]" @click="copyFromClick" @copy="copyFromSelection" @mouseleave="copied = false">
     <span class="filename">{{ filename }}</span>
+
     <slot />
+
     <span class="copy">
       <fai ref="icon" :icon="['fa-solid', copied ? 'fa-check-double' : 'fa-copy']" />
     </span>
@@ -27,16 +29,18 @@
 
   const copyFromSelection = () => {
     const selection = document.getSelection()!
+    const formattedSelection = formatSelection(selection)
+
+    navigator.clipboard.writeText(formattedSelection)
+  }
+
+  const formatSelection = (selection: Selection): string => {
     const selectedRange = selection.getRangeAt(0)
     const container = document.createElement("div")
     container.appendChild(selectedRange.cloneContents())
+    const selectedElements = Array.from(container.querySelectorAll("*") as NodeListOf<HTMLElement>)
 
-    const selectedElements = Array.from(container.querySelectorAll("*")) as HTMLElement[]
-    const formattedSelection = selectedElements
-      .map(element => (element.classList.contains("line") ? "" : element.innerText))
-      .join("")
-
-    navigator.clipboard.writeText(formattedSelection)
+    return selectedElements.map(element => (element.classList.contains("line") ? "" : element.innerText)).join("")
   }
 </script>
 
