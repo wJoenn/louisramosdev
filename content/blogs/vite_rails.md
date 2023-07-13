@@ -28,7 +28,7 @@ First thing first, create a new project.<br />
 Vite is gonna handle the whole bundling process, that means we won't need a javascript bundler in our installation nor will we need to use the asset pipeline at all.
 To create the project run the following command in your terminal.
 ```bash
-$ rails new --skip-asset-pipeline --skip-javascript YOUR_PROJECT_NAME
+rails new --skip-asset-pipeline --skip-javascript YOUR_PROJECT_NAME
 ```
 
 Once created you can add a couple gems in your `Gemfile`
@@ -59,8 +59,8 @@ Now just to make sure Vite's installer uses yarn in the next step instead of npm
 Now that the project is created we can begin by installing Vite to our project.
 The gem was added and bundled in our Gemfile in the previous step so you can now run the following commands
 ```bash
-$ bundle exec vite install
-$ yarn add -D vite-plugin-full-reload
+bundle exec vite install
+yarn add -D vite-plugin-full-reload
 ```
 
 The first one will install Vite in the project from the vite_rails gem we installed.<br />
@@ -92,7 +92,7 @@ Vite is installed and ready to run.
 Before installing turbo we're gonna have to create our javascript file ourself as we skipped that step when created the project.<br />
 Create a new `javascript/application.js` file in your root either manually or with
 ```bash
-$ mkdir -p app/javascript && touch app/javascript/application.js
+mkdir -p app/javascript && touch app/javascript/application.js
 ```
 Then run `rails turbo:install` in your terminal.
 That'll take care of Turbo.
@@ -102,7 +102,7 @@ After that run `rails stimulus:install` which will create a `app/javascript/cont
 We now need to move the javascript directory inside our `app/frontend` directory and import it inside our vite entrypoint.<br />
 Run
 ```bash
-$ mv app/javascript app/frontend
+mv app/javascript app/frontend
 ```
 
 Then in your `app/frontend/entrypoints/application.js` file you can add this line at the top
@@ -113,7 +113,7 @@ import "../javascript/application"
 And finally let's wrap up by enabling Hot Module Replacement (HMR) in Stimulus with another Vite plugin.<br />
 Run
 ```bash
-$ yarn add -D vite-plugin-stimulus-hmr
+yarn add -D vite-plugin-stimulus-hmr
 ```
 
 And add
@@ -134,7 +134,7 @@ export default defineConfig({
 PostCSS is a tool for transforming CSS with JavaScript. It is included with Vite and it will allow us to included utilities like Autoprefixer or Tailwindcss.<br />
 Sass is not installed yet though so let's start with that :
 ```bash
-$ yarn add -D sass autoprefixer
+yarn add -D sass autoprefixer
 ```
 
 Create a `postcss.config.js` file in your root directory, this file will automatically be read by Vite and inside of it we'll enable Autoprefixer which will automatically prefix our css to be compatible across browsers.

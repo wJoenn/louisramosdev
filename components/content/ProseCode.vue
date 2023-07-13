@@ -1,5 +1,5 @@
 <template>
-  <div class="code-block" @click="copyFromClick" @copy="copyFromSelection" @mouseleave="copied = false">
+  <div :class="['code-block', { 'is-bash': language === 'bash' }]" @click="copyFromClick" @copy="copyFromSelection" @mouseleave="copied = false">
     <span class="filename">{{ filename }}</span>
     <slot />
     <span class="copy">
@@ -17,7 +17,7 @@
     meta: { type: String, default: null }
   })
 
-  const { code, filename } = toRefs(props)
+  const { code, filename, language } = toRefs(props)
   const copied = ref(false)
 
   const copyFromClick = () => {
@@ -44,9 +44,37 @@
   .code-block {
     position: relative;
 
+    &.is-bash .line::before {
+      content: "$ ";
+      color: $light-nuxt-green;
+    }
+
     &:hover .copy {
       opacity: 1;
       transition: opacity 0.3s ease;
+    }
+
+    pre {
+      background-color: #101010;
+      border: 1px solid $secondary-color;
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 25px 20px 20px;
+      margin: 10px 0 30px;
+
+      code {
+        border: none !important;
+        padding: 0 !important;
+
+        .line {
+          display: flex;
+          flex-wrap: wrap;
+          min-height: 1rem;
+          span {
+            white-space: break-spaces;
+          }
+        }
+      }
     }
 
     .copy {
@@ -58,34 +86,11 @@
     }
 
     .filename {
-      color: #58a458;
+      color: $secondary-color;
       font-size: 0.8rem;
       position: absolute;
       right: 10px;
       top: 10px;
-    }
-  }
-
-  pre {
-    background-color: #101010;
-    border: 1px solid $secondary-color;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 25px 20px 20px;
-    margin: 10px 0 30px;
-
-    code {
-      border: none !important;
-      padding: 0 !important;
-
-      .line {
-        display: flex;
-        flex-wrap: wrap;
-        min-height: 1rem;
-        span {
-          white-space: break-spaces;
-        }
-      }
     }
   }
 </style>
