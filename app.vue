@@ -34,10 +34,6 @@
 
       @media screen and (min-width: 990px) {
         backdrop-filter: blur(150px);
-
-        main {
-          margin-top: 150px;
-        }
       }
     }
   }

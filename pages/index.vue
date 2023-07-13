@@ -87,7 +87,6 @@
 
     h1 {
       font-family: 'Azeret Mono', monospace;
-      font-size: 40px;
     }
 
     h3 {
@@ -122,6 +121,10 @@
 
     #blogs {
       margin-top: 40px;
+    }
+
+    @media screen and (min-width: 990px) {
+      padding-top: 100px;
     }
   }
 </style>
