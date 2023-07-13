@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <img src="@/assets/images/nuxt.png" alt="">
+      <img src="@/assets/images/logos/nuxt.png" alt="">
 
       <nav>
         <NuxtLink to="/" :class="{ current: route.name === 'index' }">Home</NuxtLink>
