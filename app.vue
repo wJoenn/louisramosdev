@@ -5,7 +5,7 @@
     <NuxtHeader />
 
     <main class="container">
-      <NuxtPage />
+      <NuxtPage :transition="{ name: 'page', mode: 'out-in' }" />
     </main>
 
     <NuxtFooter />
@@ -17,6 +17,21 @@
 
 <style lang="scss">
   @import "./assets/stylesheets/application";
+
+  .page-enter-active,
+  .page-leave-active {
+    transition: all 0.3s ease;
+  }
+
+  .page-enter-from {
+    opacity: 0;
+    translate: 100px 0;
+  }
+
+  .page-leave-to {
+    opacity: 0;
+    translate: -100px 0;
+  }
 
   #__nuxt {
     height: 100%;
