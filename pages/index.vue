@@ -133,7 +133,7 @@
     }
 
     @media screen and (min-width: 990px) {
-      padding-top: 100px;
+      padding-top: 50px;
     }
   }
 </style>
