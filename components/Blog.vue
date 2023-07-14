@@ -23,6 +23,9 @@
     background-color: $main-background;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     overflow: hidden;
 
     h3 {
@@ -30,6 +33,8 @@
     }
 
     img {
+      height: 200px;
+      flex-shrink: 0;
       object-fit: cover;
       object-position: center;
     }
@@ -37,11 +42,13 @@
     .details {
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
       gap: 10px;
       padding: 20px;
 
       p {
         color: $secondary-color;
+        flex-grow: 1;
         line-height: 20px;
       }
     }

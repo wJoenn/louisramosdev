@@ -64,6 +64,10 @@
         }
       }
 
+      img {
+        width: 100%;
+      }
+
       p {
         line-height: 30px;
         margin: 20px 0 0;
