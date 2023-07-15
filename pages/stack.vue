@@ -83,7 +83,7 @@
   }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   #stack {
     p {
       margin: 20px 0;
