@@ -1,5 +1,5 @@
 <template>
-  <Blob />
+  <Blob v-if="!isBlog" />
 
   <div id="app" class="scroll">
     <NuxtHeader />
@@ -16,6 +16,9 @@
   useHead({
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
   })
+
+  const route = useRoute()
+  const isBlog = computed(() => /\/blogs\/.+/.test(route.path))
 </script>
 
 <style lang="scss">

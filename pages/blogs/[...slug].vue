@@ -39,7 +39,6 @@
 
     .content {
       font-size: 1.2rem;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 
       code {
         background-color: black;
@@ -69,8 +68,8 @@
       }
 
       p {
-        line-height: 30px;
-        margin: 20px 0 0;
+        line-height: 35px;
+        margin: 30px 0 0;
 
         a {
           color: $light-nuxt-green;
