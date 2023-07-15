@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="blogs" class="t-shadow">
     <h1>Blogs</h1>
 
     <p>I've always enjoyed transmitting whatever knowledge I have to other people. I try to answer to as many questions as I can on forums and such and there are some topics that I tend to repeat on regularly so I figured I could just create a collection of blog posts where I would go over those and share them to whoever is interested instead of rewritting the whole thing everytime.</p>
@@ -34,11 +34,13 @@
 </script>
 
 <style scoped lang="scss">
-  ul {
-    margin-top: 50px;
-  }
+  #blogs {
+    p {
+      margin: 20px 0;
+    }
 
-  p {
-    margin: 20px 0;
+    ul {
+      margin-top: 50px;
+    }
   }
 </style>

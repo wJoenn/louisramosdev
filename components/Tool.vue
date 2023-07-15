@@ -32,6 +32,7 @@
     gap: 20px;
     height: 100%;
     padding: 20px;
+    text-shadow: none;
     transition: scale 0.3s ease;
 
     &:hover {

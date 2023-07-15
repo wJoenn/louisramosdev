@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" class="t-shadow">
     <section id="header">
       <h1>Hello, I'm <span ref="title" data-text="Louis Ramos">Louis Ramos</span></h1>
       <h3 ref="subtitle" data-text="RoR Fullstack Developer">RoR Fullstack Developer</h3>

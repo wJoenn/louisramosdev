@@ -27,6 +27,7 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+    text-shadow: none;
 
     h3 {
       font-size: 25px;

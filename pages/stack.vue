@@ -1,5 +1,5 @@
 <template>
-  <div id="stack">
+  <div id="stack" class="t-shadow">
     <h1>Stack</h1>
 
     <p>I like to talk about my tech stack. I'm a bit of a collector, the kind of guys that aims to get every single achievements in a video game before considering it done, so naturally I became very interested in what are the tools that exists in Web Development and which ones I "collect" to grow my Stack with as many little icons as I can.</p>
