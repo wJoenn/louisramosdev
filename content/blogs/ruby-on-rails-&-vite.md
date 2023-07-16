@@ -23,10 +23,9 @@ Nevertheless, if you wanna give it a try, here's a step-by-step guide on how to 
 ## Creating a new project
 
 First things first, create a new project.<br />
-Vite is gonna handle the whole bundling process from now on, which means we won't need a JavaScript bundler during our installation nor will we need to use the Rails' asset pipeline at all.<br />
-To create the project run the following command in your terminal.
+Vite is gonna handle the whole bundling process from now on, which means we won't need a JavaScript bundler during our installation nor will we need to use the Rails' asset pipeline at all.
 
-Don't forget to add `-d postgresql` if you want to use Postgresql in your application or any other flags you'd like to use.
+To create the project run the following command in your terminal.
 ```bash
 rails new --skip-asset-pipeline --skip-javascript YOUR_PROJECT_NAME
 ```
@@ -44,7 +43,7 @@ gem "vite_rails"
 ```
 
 And run `bundle` in your terminal to install the gems.<br />
-Before moving on we'll create a `package.json` file, either by running `yarn init` in your terminal or by creating the file yourself and adding the following content inside of it
+Before moving on we'll create a `package.json` file, either by running `yarn init` in your terminal or by creating the file yourself and adding the following content inside of it.
 ```json [package.json]
 {
   "name": "app",
@@ -155,12 +154,12 @@ module.exports = {
 ```
 
 Now create a `app/frontend/stylesheets/application.scss` file. This will be our main import hub for all of your Sass partials.<br />
-We also need to create an entrypoint for Vite so let's add a `app/frontend/entrypoints/application.scss` file to our project and import the newly created file inside this one
+We also need to create an entrypoint for Vite so let's add a `app/frontend/entrypoints/application.scss` file to our project and import the newly created file inside this one.
 ```scss [app/frontend/entrypoints/application.scss]
 @import "../stylesheets/application";
 ```
 
-Finally let's go back to the `app/views/layouts/application.html.erb` file and we'll replace the stylesheet with our new entrypoint
+Finally let's go back to the `app/views/layouts/application.html.erb` file and we'll replace the stylesheet with our new entrypoint.
 ```erb [app/views/layouts/application.html.erb]
 <%# stylesheet_link_tag "application" %>
 <%= vite_stylesheet_tag "application.scss" %>
@@ -177,15 +176,14 @@ So, will everything be a smooth ride from now on ? Most of the time, yes.<br />
 But as with any third party library there's always the possibility of having some issues.
 
 One that I encountered for example is that you won't be able to use the Stimulus generator command; `bin/rails generate stimulus CONTROLLER_NAME` in your terminal because stimulus is hardcoded to look for a `app/javascript/controllers` directory.<br />
-I created a <a href="https://github.com/hotwired/stimulus-rails/pull/119" target="_blank">Pull Request</a> to fix that so you can have a look at my solution if you want<br />
-Until it's merged you can use my fork instead of Stimulus' main repository by replacing the gem in your gemfile with my fork :
+I created a <a href="https://github.com/hotwired/stimulus-rails/pull/119" target="_blank">Pull Request</a> for this specific issue in Stimulus-rails and until it's merged, if it'll ever be, I'm using my fork instead of Stimulus' main repository by replacing the gem in my Gemfile with my github repo.
 ```ruby [Gemfile]
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 # Using fork until PR is merged https://github.com/hotwired/stimulus-rails/pull/119
 gem "stimulus-rails", github: "wJoenn/stimulus-rails", branch: "main"
 ```
 
-Once you've reinstalled Stimulus with my fork you should find a `config/initializers/stimulus.rb` file (if not, create it) and inside of it specify the new path for the generator with the following code
+Once I've reinstalled Stimulus with my fork I can configure a new path for the generator in a new initializer, `config/initializers/stimulus.rb`.
 ```ruby [config/initializers/stimulus.rb]
 Stimulus.configure do |config|
   config.controllers_path = "app/frontend/javascript/controllers/"

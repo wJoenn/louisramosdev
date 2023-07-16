@@ -42,10 +42,12 @@
 
   header {
     font-size: 20px;
-    padding: 20px;
+    padding: 20px 0;
 
-    div {
+    > div {
       @include flex-20;
+
+      justify-content: space-between;
 
       img {
         width: 40px;
@@ -71,34 +73,38 @@
           }
         }
       }
-    }
 
-    .logo {
-      gap: 0;
-
-      > div {
-        animation: rotate 20s linear infinite;
+      .logo {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 33px;
-        width: 33px;
-        background-image: linear-gradient(135deg, $light-nuxt-green, mediumpurple);
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
-        &:last-child {
-          margin-left: -10px;
-          z-index: -10;
-        }
-
-        div {
-          height: 28px;
-          width: 28px;
-          background-color: $main-background;
+        > div {
+          animation: rotate 20s linear infinite;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 33px;
+          width: 33px;
+          background-image: linear-gradient(135deg, $light-nuxt-green, mediumpurple);
           border-radius: 50%;
-          z-index: 10;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+          &:last-child {
+            margin-left: -10px;
+            z-index: -10;
+          }
+
+          div {
+            height: 28px;
+            width: 28px;
+            background-color: $main-background;
+            border-radius: 50%;
+            z-index: 10;
+          }
         }
+      }
+
+      @media screen and (min-width: 570px) {
+        justify-content: flex-start;
       }
     }
   }
