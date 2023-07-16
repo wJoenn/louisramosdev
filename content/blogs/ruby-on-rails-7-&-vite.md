@@ -1,12 +1,14 @@
 ---
-  title: Ruby on Rails & Vite
-  description: A guide on how to implement Vite in our Ruby on Rails applications.
+  title: Ruby on Rails 7 & Vite
+  description: A guide on how to setup a Rails application with Sass, Stimulus and Vite.
   cover_url: /images/vite_rails.png
 ---
 
 ![Vite_rails banner](/images/vite_rails.png)
 
-# {{ title }}
+# Ruby on Rails 7 & Vite
+
+### How to setup a Rails application with Sass, Stimulus and Vite.
 
 During my bootcamp at LeWagon we were introduced to a Rails workflow using Sprockets and Webpack (jsbundling-rails).<br />
 
