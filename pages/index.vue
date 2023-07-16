@@ -50,10 +50,8 @@
 
   const title = ref<HTMLSpanElement>()
   const subtitle = ref<HTMLHeadingElement>()
-  const repeat = ref<NodeJS.Timer>()
 
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
   const shuffleText = (...elements: HTMLElement[]) => {
     elements.forEach(element => {
       const initialText = element.dataset.text as string
@@ -74,16 +72,17 @@
     })
   }
 
+  let repeat: NodeJS.Timer
   onMounted(() => {
     shuffleText(title.value!, subtitle.value!)
 
-    repeat.value = setInterval(() => {
+    repeat = setInterval(() => {
       shuffleText(title.value!, subtitle.value!)
     }, 10000)
   })
 
   onUnmounted(() => {
-    clearInterval(repeat.value)
+    clearInterval(repeat)
   })
 </script>
 
@@ -96,6 +95,11 @@
 
     h1 {
       font-family: 'Azeret Mono', monospace;
+
+      span {
+        max-width: 60%;
+        word-break: break-word;
+      }
     }
 
     h3 {

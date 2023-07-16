@@ -62,14 +62,11 @@
   })
 
   const { data } = await useFetch("/api/tools")
-  const frontendTools = ref(data.value!.frontendTools)
-  const backendTools = ref(data.value!.backendTools)
-  const otherTools = ref(data.value!.otherTools)
+  const { frontendTools, backendTools, otherTools } = toRefs(data.value!)
 
   const beforeEnter = (element: Element) => {
     const htmlElement = element as HTMLElement
-    htmlElement.style.opacity = "0"
-    htmlElement.style.translate = "0 100px"
+    htmlElement.classList.add("before-enter")
     htmlElement.style.transition = `all 0.8s ease ${0.1 * +htmlElement.dataset.delay!}s`
   }
 
@@ -77,8 +74,7 @@
     const htmlElement = element as HTMLElement
 
     setTimeout(() => {
-      htmlElement.style.opacity = "1"
-      htmlElement.style.translate = "0 0"
+      htmlElement.classList.remove("before-enter")
     }, 500)
   }
 </script>
@@ -99,11 +95,16 @@
       .title {
         align-items: baseline;
         display: flex;
+        flex-direction: column;
         gap: 20px;
 
         h4 {
           color: $secondary-color;
           font-weight: 400;
+        }
+
+        @media screen and (min-width: 570px) {
+          flex-direction: row;
         }
       }
 
@@ -122,6 +123,11 @@
           grid-template-columns: 1fr 1fr 1fr 1fr;
         }
       }
+    }
+
+    .before-enter {
+      opacity: 0;
+      translate: 0 100px;
     }
   }
 </style>
