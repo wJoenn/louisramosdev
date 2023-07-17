@@ -2,6 +2,7 @@
   title: Ruby on Rails 7 & Vite
   description: A guide on how to setup a Rails application with Sass, Stimulus and Vite.
   cover_url: /images/vite_rails.png
+  date: 1689285600
 ---
 
 ![Vite_rails banner](/images/vite_rails.png)
