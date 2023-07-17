@@ -63,6 +63,11 @@
         }
       }
 
+      h3 {
+        font-size: 25px;
+        font-weight: 300;
+      }
+
       img {
         width: 100%;
       }
