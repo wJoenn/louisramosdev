@@ -48,8 +48,8 @@
       .find() as Promise<Blog[]>
   ))
 
-  const title = ref<HTMLSpanElement>()
-  const subtitle = ref<HTMLHeadingElement>()
+  const title = ref<HTMLSpanElement | null>(null)
+  const subtitle = ref<HTMLHeadingElement | null>(null)
 
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const shuffleText = (...elements: HTMLElement[]) => {

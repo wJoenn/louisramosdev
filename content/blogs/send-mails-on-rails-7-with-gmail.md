@@ -22,8 +22,7 @@ The first thing is gonna be to create an app password in our gmail account to be
 We need to go to that account and access our account settings by clicking on our avatar in the top right corner then on `Manage your Google Account`<br />
 It is a requirement so let's verify that 2-Step Verification is enabled; From the account management home page click on `Security` in the navigation bar on the left of the screen. Then under "How to sign in to Google" make sure "2-Step Verification" is enabled and if not, enable it.
 
-We'll then need to access the app password page for our account. I keep reading about a button to access that page somewhere in "Security" but to be honest with you I've never managed to find that button.<br />
-What I do instead is that I change the url manually and instead of `/security.......` I type `/apppasswords` and boom, we're on the right page.<br />
+We'll then need to access the app password page for our account. From the "Security" tab, under "How to sign in to Google", click on `2-Step Verification`. Once there scroll at the bottom of the page and you'll find a `App passwords` button. Click it.<br />
 When prompted to select an app, choose `Other (Custom name)` and enter your app's name or any other name you wanna use that'll make it easy for you to remember what this is for.<br />
 Then click on `generate` and we'll be given a password of 16 characters. Copy it and keep it somwhere for a minute. We'll need this when setting up our Rails application.
 

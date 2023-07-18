@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-  const blob = ref<HTMLDivElement>()
+  const blob = ref<HTMLDivElement| null>(null)
   const isSafari = ref(false)
 
   const moveBlob = (x: number, y: number) => {
