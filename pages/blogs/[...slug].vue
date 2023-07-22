@@ -1,12 +1,19 @@
 <template>
   <div id="blog">
-    <ContentDoc tag="article" class="content" />
-    <NuxtLink to="/blogs" class="back"><fai icon="fa-solid fa-rotate-left" /> Back</NuxtLink>
+    <ContentDoc tag="article" class="content">
+      <template #not-found>
+        <div ref="notFound" />
+      </template>
+    </ContentDoc>
+
+    <NuxtLink v-if="blog" to="/blogs" class="back"><fai icon="fa-solid fa-rotate-left" /> Back</NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
   import Blog from "../../types/Blog"
+
+  definePageMeta({ middleware: ["router"] })
 
   const route = useRoute()
   const { data: blog } = await useAsyncData("blog", () => (
@@ -22,6 +29,10 @@
     ogType: "article",
     ogUrl: `https://louisramos.dev${route.path}`
   })
+
+  const notFound = ref(null)
+
+  watch(notFound, () => navigateTo("/blogs", { redirectCode: 301 }))
 </script>
 
 <style lang="scss">
@@ -39,7 +50,6 @@
 
     .content {
       font-size: 1.2rem;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 
       code {
         background-color: black;
@@ -64,9 +74,18 @@
         }
       }
 
+      h3 {
+        font-size: 25px;
+        font-weight: 300;
+      }
+
+      img {
+        width: 100%;
+      }
+
       p {
-        line-height: 30px;
-        margin: 20px 0 0;
+        line-height: 35px;
+        margin: 30px 0 0;
 
         a {
           color: $light-nuxt-green;

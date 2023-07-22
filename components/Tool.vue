@@ -29,9 +29,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     height: 100%;
     padding: 20px;
+    text-shadow: none;
     transition: scale 0.3s ease;
 
     &:hover {

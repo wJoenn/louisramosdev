@@ -5,15 +5,15 @@ export default defineEventHandler(() => {
       image_url: "/images/logos/sass.png",
       url: "https://sass-lang.com/"
     },
+    { name: "TailwindCSS",
+      description: "A highly customizable, utility-first CSS framework that provides a set of pre-built CSS classes.",
+      image_url: "/images/logos/tailwindcss.png",
+      url: "https://tailwindcss.com/"
+    },
     { name: "PostCSS",
       description: "A tool for transforming CSS with JavaScript",
       image_url: "/images/logos/postcss.png",
       url: "https://postcss.org/"
-    },
-    { name: "Stimulus",
-      description: "A minimalistic JavaScript framework by Hotwire",
-      image_url: "/images/logos/stimulus.png",
-      url: "https://stimulus.hotwired.dev/"
     },
     { name: "TypeScript",
       description: "A superset of JavaScript that adds static type checking",

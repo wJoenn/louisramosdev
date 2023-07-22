@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" class="t-shadow">
     <section id="header">
       <h1>Hello, I'm <span ref="title" data-text="Louis Ramos">Louis Ramos</span></h1>
       <h3 ref="subtitle" data-text="RoR Fullstack Developer">RoR Fullstack Developer</h3>
@@ -42,18 +42,16 @@
 
   const { data: blogs } = await useAsyncData("blogs", () => (
     queryContent("/blogs")
-      .sort({ date: 1 })
+      .sort({ date: -1 })
       .only(["title", "description", "cover_url", "_path", "_id"])
       .limit(3)
       .find() as Promise<Blog[]>
   ))
 
-  const title = ref<HTMLSpanElement>()
-  const subtitle = ref<HTMLHeadingElement>()
-  const repeat = ref<NodeJS.Timer>()
+  const title = ref<HTMLSpanElement | null>(null)
+  const subtitle = ref<HTMLHeadingElement | null>(null)
 
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
   const shuffleText = (...elements: HTMLElement[]) => {
     elements.forEach(element => {
       const initialText = element.dataset.text as string
@@ -74,16 +72,17 @@
     })
   }
 
+  let repeat: NodeJS.Timer
   onMounted(() => {
     shuffleText(title.value!, subtitle.value!)
 
-    repeat.value = setInterval(() => {
+    repeat = setInterval(() => {
       shuffleText(title.value!, subtitle.value!)
     }, 10000)
   })
 
   onUnmounted(() => {
-    clearInterval(repeat.value)
+    clearInterval(repeat)
   })
 </script>
 
@@ -96,6 +95,11 @@
 
     h1 {
       font-family: 'Azeret Mono', monospace;
+
+      span {
+        max-width: 60%;
+        word-break: break-word;
+      }
     }
 
     h3 {
