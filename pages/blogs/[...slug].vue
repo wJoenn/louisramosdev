@@ -1,7 +1,12 @@
 <template>
   <div id="blog">
-    <ContentDoc tag="article" class="content" />
-    <NuxtLink to="/blogs" class="back"><fai icon="fa-solid fa-rotate-left" /> Back</NuxtLink>
+    <ContentDoc tag="article" class="content">
+      <template #not-found>
+        <div ref="notFound" />
+      </template>
+    </ContentDoc>
+
+    <NuxtLink v-if="blog" to="/blogs" class="back"><fai icon="fa-solid fa-rotate-left" /> Back</NuxtLink>
   </div>
 </template>
 
@@ -24,6 +29,10 @@
     ogType: "article",
     ogUrl: `https://louisramos.dev${route.path}`
   })
+
+  const notFound = ref(null)
+
+  watch(notFound, () => navigateTo("/blogs", { redirectCode: 301 }))
 </script>
 
 <style lang="scss">
