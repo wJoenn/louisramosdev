@@ -8,6 +8,8 @@
 <script setup lang="ts">
   import Blog from "../../types/Blog"
 
+  definePageMeta({ middleware: ["router"] })
+
   const route = useRoute()
   const { data: blog } = await useAsyncData("blog", () => (
     queryContent(route.path)
