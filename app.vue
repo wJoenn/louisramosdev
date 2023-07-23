@@ -1,7 +1,7 @@
 <template>
   <Blob v-if="!isBlog" />
 
-  <div id="app" ref="app" class="scroll">
+  <div id="app" ref="app" class="scroll" :class="{ isBlog: isBlog }">
     <NuxtHeader />
 
     <main class="container">
@@ -72,7 +72,9 @@
       }
 
       @media screen and (min-width: 990px) {
-        backdrop-filter: blur(150px);
+        &:not(.isBlog) {
+          backdrop-filter: blur(150px);
+        }
       }
     }
   }
