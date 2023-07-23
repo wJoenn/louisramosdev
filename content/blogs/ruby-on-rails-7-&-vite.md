@@ -5,7 +5,7 @@
   date: 1689285600
 ---
 
-![Vite_rails banner](/images/vite_rails.png)
+<img src="/images/vite_rails.png" alt="Vite_rails banner" width="800">
 
 # Ruby on Rails 7 & Vite
 

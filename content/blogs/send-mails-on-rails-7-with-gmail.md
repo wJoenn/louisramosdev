@@ -5,7 +5,7 @@
   date: 1689591384
 ---
 
-![RoR + Gmail banner](/images/rails_mailer.png)
+<img src="/images/rails_mailer.png" alt="RoR + Gmail banner" width="800">
 
 # Send mail on Rails 7 with Gmail
 
