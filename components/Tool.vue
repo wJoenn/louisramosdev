@@ -2,7 +2,7 @@
   <div class="tool-card">
     <div class="title">
       <h3>{{ tool.name }}</h3>
-      <img :src="tool.image_url" :alt="`${tool.name} logo`">
+      <NuxtImg :src="tool.image_url" :alt="`${tool.name} logo`" height="40" quality="50" />
     </div>
 
     <p>{{ tool.description }}</p>

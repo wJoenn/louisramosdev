@@ -14,7 +14,14 @@ export default defineNuxtConfig({
       preload: ["erb", "ruby"]
     }
   },
-  modules: ["@nuxt/content"],
+  image: {
+    format: ["webp"],
+    quality: 80
+  },
+  modules: [
+    "@nuxt/content",
+    "@nuxt/image"
+  ],
   typescript: {
     shim: false,
     strict: true
