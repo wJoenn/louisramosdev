@@ -1,6 +1,6 @@
 <template>
   <div class="blog-card">
-    <img :src="blog.cover_url" :alt="`${blog.title} cover image`">
+    <NuxtImg :src="blog.cover_url" :alt="`${blog.title} cover image`" height="200" width="400" />
 
     <div class="details">
       <h3>{{ blog.title }}</h3>

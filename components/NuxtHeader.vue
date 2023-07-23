@@ -49,10 +49,6 @@
 
       justify-content: space-between;
 
-      img {
-        width: 40px;
-      }
-
       nav {
         @include flex-20;
 
