@@ -14,7 +14,6 @@ export default defineNuxtConfig({
       preload: ["erb", "ruby"]
     }
   },
-  devtools: { enabled: true },
   modules: ["@nuxt/content"],
   typescript: {
     shim: false,

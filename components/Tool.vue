@@ -6,7 +6,7 @@
     </div>
 
     <p>{{ tool.description }}</p>
-    <a :href="tool.url" target="_blank" class="btn">Learn more</a>
+    <a :href="tool.url" target="_blank" class="btn" :aria-label="`${tool.name} documentation`">See documentation</a>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <footer>
     <nav class="container">
-      <a v-for="link in links" :key="link.name" :href="link.href" target="_blank">
+      <a v-for="link in links" :key="link.name" :href="link.href" :aria-label="link.label" target="_blank">
         <fai :icon="link.icon" />
       </a>
     </nav>
@@ -10,9 +10,14 @@
 
 <script setup lang="ts">
   const links = [
-    { name: "github", icon: "fa-brands fa-github", href: "https://github.com/wJoenn" },
-    { name: "linkedin", icon: "fa-brands fa-linkedin", href: "https://www.linkedin.com/in/louisramosdev/" },
-    { name: "mail", icon: "fa-solid fa-at", href: "mailto:contact@louisramos.dev" }
+    { name: "github", icon: "fa-brands fa-github", href: "https://github.com/wJoenn", label: "Contact me on Github" },
+    {
+      name: "linkedin",
+      icon: "fa-brands fa-linkedin",
+      href: "https://www.linkedin.com/in/louisramosdev/",
+      label: "Contact me on Linkedin"
+    },
+    { name: "mail", icon: "fa-solid fa-at", href: "mailto:contact@louisramos.dev", label: "Contact me by mail" }
   ]
 </script>
 

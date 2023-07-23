@@ -10,7 +10,7 @@
         <section v-if="frontendTools" id="frontend" data-delay="0">
           <div class="title">
             <h2>Frontend</h2>
-            <h4>This is the Stack that's being used for this website</h4>
+            <span>This is the Stack that's being used for this website</span>
           </div>
 
           <TransitionGroup appear tag="ul" @before-enter="beforeEnter" @enter="enter">
@@ -45,7 +45,7 @@
       </Transition>
 
       <Transition appear name="foot" @before-enter="beforeEnter" @enter="enter">
-        <p v-if="data" :data-delay="(frontendTools?.length || 0) + (backendTools?.length || 0) + (otherTools?.length || 0)">There are more tools that I'd like to get into in the near future like <a href="https://vitest.dev/" target="_blank">Vitest</a>, <a href="https://nodejs.org/en" target="_blank">Node.js</a>, <a href="https://www.docker.com/" target="_blank">Docker</a> and <a href="https://go.dev/" target="_blank">Go</a> but that's it for now.</p>
+        <p v-if="data" :data-delay="(frontendTools?.length || 0) + (backendTools?.length || 0) + (otherTools?.length || 0)">There are more tools that I'd like to get into in the near future like <a href="https://vitest.dev/" target="_blank">Vitest</a>, <a href="https://nodejs.org/en" target="_blank">Node.js</a>, <a href="https://www.docker.com/" target="_blank">Docker</a> and <a href="https://go.dev/" target="_blank">Golang</a> but that's it for now.</p>
       </Transition>
     </ClientOnly>
   </div>
@@ -100,9 +100,8 @@
         flex-direction: column;
         gap: 20px;
 
-        h4 {
+        span {
           color: $secondary-color;
-          font-weight: 400;
         }
 
         @media screen and (min-width: 570px) {

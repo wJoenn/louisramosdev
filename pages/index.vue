@@ -2,7 +2,7 @@
   <div id="home" class="t-shadow">
     <section id="header">
       <h1>Hello, I'm <span ref="title" data-text="Louis Ramos">Louis Ramos</span></h1>
-      <h3 ref="subtitle" data-text="RoR Fullstack Developer">RoR Fullstack Developer</h3>
+      <p ref="subtitle" data-text="RoR Fullstack Developer">RoR Fullstack Developer</p>
     </section>
 
     <section id="about">
@@ -13,7 +13,7 @@
         <p>When I'm not coding, I enjoy playing video games, reading mangas, and pursuing other geeky interests.</p>
       </div>
 
-      <img src="assets/images/pp.jpeg" alt="me">
+      <img src="/images/pp.jpeg" alt="me">
     </section>
 
     <section id="blogs">
@@ -93,22 +93,6 @@
     gap: 20px;
     height: 100%;
 
-    h1 {
-      font-family: 'Azeret Mono', monospace;
-
-      span {
-        max-width: 60%;
-        word-break: break-word;
-      }
-    }
-
-    h3 {
-      font-family: 'Azeret Mono', monospace;
-      font-size: 15px;
-      font-style: italic;
-      font-weight: 300;
-    }
-
     #about {
       align-items: center;
       display: flex;
@@ -134,6 +118,24 @@
 
     #blogs {
       margin-top: 40px;
+    }
+
+    #header {
+      h1 {
+        font-family: 'Azeret Mono', monospace;
+
+        span {
+          max-width: 60%;
+          word-break: break-word;
+        }
+      }
+
+      p {
+        font-family: 'Azeret Mono', monospace;
+        font-size: 15px;
+        font-style: italic;
+        font-weight: 300;
+      }
     }
 
     @media screen and (min-width: 990px) {
