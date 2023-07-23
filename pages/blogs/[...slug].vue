@@ -1,6 +1,8 @@
 <template>
   <div id="blog">
-    <ContentDoc tag="article" class="content">
+    <YoutubeEmbed v-if="showYoutubeEmbed" :src="src" @close="showYoutubeEmbed = false" />
+
+    <ContentDoc ref="content" tag="article" class="content">
       <template #not-found>
         <div ref="notFound" />
       </template>
@@ -30,9 +32,28 @@
     ogUrl: `https://louisramos.dev${route.path}`
   })
 
-  const notFound = ref(null)
+  const content = ref<HTMLElement | null>(null)
+  const notFound = ref<HTMLDivElement | null>(null)
+  const showYoutubeEmbed = ref(false)
+  const src = ref("")
 
-  watch(notFound, () => navigateTo("/blogs", { redirectCode: 301 }))
+  const addEventToEmbeds = () => {
+    if (!notFound.value) {
+      setTimeout(() => {
+        const embedButtons = document.querySelectorAll(".embed") as NodeListOf<HTMLButtonElement>
+        embedButtons.forEach(button => {
+          button.addEventListener("click", (event: MouseEvent) => {
+            src.value = (event.currentTarget as HTMLButtonElement).dataset.src!
+            showYoutubeEmbed.value = true
+          })
+        })
+      }, 1000)
+    }
+  }
+
+  watch(notFound, () => { addEventToEmbeds() })
+
+  watch(content, () => { addEventToEmbeds() })
 </script>
 
 <style lang="scss">
@@ -90,6 +111,15 @@
         a {
           color: $light-nuxt-green;
         }
+      }
+
+      .embed {
+        background-color: transparent;
+        border: none;
+        color: mediumpurple;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 400;
       }
     }
   }
