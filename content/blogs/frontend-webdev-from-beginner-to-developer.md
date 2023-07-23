@@ -11,8 +11,8 @@
 
 ### A detailed roadmap on every steps required to become a ready for production Frontend Developer.
 
-Over the past few months I've met a lot of developers that wanted to either learn Frontend development from scratch, or switch over from Backend, but wasn't sure where to start and what they should expect to learn along the way.<br />
-I talk to some of those people and ended up building a roadmap that would go over this through my discussions with them and I'd like to share it to a broader audience now.
+Over the past few months I've met a lot of people that wanted to either learn Frontend development from scratch, or switch over from Backend, but wasn't sure where to start and what they should expect to learn along the way.<br />
+I talked to some of those about it and ended up building a roadmap that would go over this topic through my discussions with them and I'd like to share it to a broader audience now.
 
 In this article I'll go over what is, in my opinion of course, the best roadmap to follow to learn about everything there is to learn concerning Frontend Web Development from the most basic tool to the most complex.
 
@@ -22,15 +22,15 @@ I'll also share a lot of tutorials from an amazing youtuber called <a href="http
 
 ## Vanilla Roadmap
 
-In this first section we'll go over the underlying languages for everything else and a couple more tools that we can learn before tackling on bigger tools like Frameworks and such.<br /><br />
+In this first section we'll go over the underlying languages for everything else and a couple more tools that we can learn before tackling on bigger ones like Frameworks and such.<br /><br />
 
 ### 1. <button class="embed" data-src="https://youtube.com/embed/ok-plXXHlWw">HTML</button> & <button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button>
 
 These are the first things to learn.
 
-<button class="embed" data-src="https://youtube.com/embed/ok-plXXHlWw">HTML</button> stands for "HyperText Markup Language." It is the fundamental building block of the web and is used to create the structure and content of web pages. If a web application was a body, <button class="embed" data-src="https://youtube.com/embed/ok-plXXHlWw">HTML</button> would be its skeleton. One other important thing about <button class="embed" data-src="https://youtube.com/embed/ok-plXXHlWw">HTML</button> is `accessibility`. Simply put, "accessibility" means making your website as user friendly towards handicaped visitors.
+<button class="embed" data-src="https://youtube.com/embed/ok-plXXHlWw">HTML</button> stands for "HyperText Markup Language." It is the fundamental building block of the web and is used to create the structure and content of web pages. If a web application was a body, <button class="embed" data-src="https://youtube.com/embed/ok-plXXHlWw">HTML</button> would be its skeleton. One other important thing about <button class="embed" data-src="https://youtube.com/embed/ok-plXXHlWw">HTML</button> is `accessibility`. Simply put, "accessibility" means making your website as user friendly for any visitor as possible.
 
-<button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button>, for "Cascading Stylesheet", on the other hand would be the skin and make up of this body. This allows us to apply nearly any style to our websites. Later on I'll mention a couple libraries that allow you to apply <button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button> to your applications in a different way but you have to understand that the better your understanding of Vanilla <button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button> is, the more efficient you will be with any of those tools so make sure to learn as much as you can, especially `flex` and `grid` display propreties.
+<button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button>, for "Cascading Style Sheet", on the other hand would be the skin and make up of this body. It allows us to apply nearly any style to our websites. Later on I'll mention a couple libraries that allow you to apply <button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button> to your applications in a different way but you have to understand that the better your understanding of Vanilla <button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button> is, the more efficient you will be with any of those tools so make sure to learn as much as you can, especially `flex` and `grid` display propreties.
 
 You can click on the following picture to access <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9ivBf_eKCPIAYXWzLlPAm6G" target="_blank">TheNetNinja's HTML & CSS Crash Course</a>.
 <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9ivBf_eKCPIAYXWzLlPAm6G" target="_blank">
@@ -41,13 +41,13 @@ You can click on the following picture to access <a href="https://www.youtube.co
 
 <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> is the muscle of your web application. This is the programming language that will handle everything for you to build dynamic and interactive applications so a good understanding of it is mandatory.
 
-Beyong stuffs like `DOM manipulation` and `event handling`, you should also know about `ES6` syntax like arrow functions and delve into `asynchronousity` (this is a term that means doing stuffs outside of the normal flow of the code), especially using `async` and `await`. Finally <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> can also be used as a `OOP` language so you should learn about Classes.<br /><br />
+Beyond stuffs like `DOM manipulation` and `event handling`, you should also know about `ES6` syntax, like arrow functions, and delve into `asynchronousity` (this is a term that means doing stuff outside of the normal flow of the code), especially using `async` and `await`. Finally <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> can also be used as a `OOP` language so you should learn about Classes.<br /><br />
 
 <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haFPT7J25Q9GRB_ZkFrQAc" target="_blank">
   <img src="https://img.youtube.com/vi/iWOYAxlnaww/maxresdefault.jpg" alt="Modern JavaScript Tutorial youtube serie from TheNetNinja">
 </a>
 
-TheNetNinja also has a <a href="https://netninja.dev/p/modern-javascript-from-novice-to-ninja" target="_blank">paid version</a> that includes the videos above and double more including more complex concepts like `OOP` and `modules` which cost 10$. I really recommend you to dive deeply into Vanilla <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> before attempting to go any further because about everything from now on relies on your understanding of it so I would take the full course if I were you but there's many other resources where you can learn this. What matters is that you take your time learning <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> in details.<br /><br />
+TheNetNinja also has a <a href="https://netninja.dev/p/modern-javascript-from-novice-to-ninja" target="_blank">paid version</a> that includes the videos above and double more including more complex concepts like `OOP` and `modules` which cost 10$. I really recommend you to dive deeply into Vanilla <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> before attempting to go any further because nearly everything from now on relies on your understanding of it. That's why I would take the full course if I were you but there's many other resources where you can learn this. What matters is that you take your time learning <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> in details.<br /><br /><br />
 
 ### 3. <button class="embed" data-src="https://youtube.com/embed/qgRUr-YUk1Q">JavaScript Modules</button>
 
@@ -55,18 +55,18 @@ At this point you're basically done with Vanilla so you're gonna have to delve i
 
 
 That means getting to know what tools like `npm` or `yarn` are.<br />
-This part is more about reading a couple articles to understand what package managers are and what's the difference with both. The main points are to understand how to install a node package and to understand that you must not use both `npm`and `yarn` in the same project. You either stick to one or the other.<br /><br />
+This part is more about reading a couple articles to understand what package managers are and what's the difference between the two I mentionned. The main points are to understand how to install a node package and to understand that you must not use both `npm`and `yarn` in the same project. You either stick to one or the other.<br /><br /><br />
 
 ### 4. <button class="embed" data-src="https://youtube.com/embed/5IG4UmULyoA">Bundlers</button>
 
-At this point you should learn what `Webpack` is, what it does and why we need it. Being able to setup a project with webpack is nice too but to be honest with you I wouldn't bother with that because nowadays, although it's still being used a lot, `Webpack` isn't as interesting or performant compared to new stuffs.
+At this point you should learn what `Webpack` is, what it does and why we need it. Being able to setup a project with webpack is nice too but to be honest with you I wouldn't bother with that because nowadays, although it's still being used a lot, `Webpack` isn't as interesting or performant compared to new stuff.
 
 Look into what other <button class="embed" data-src="https://youtube.com/embed/5IG4UmULyoA">bundlers</button> there are, just learn about the names like `Parcel`, `esBuild` and `Rollup` but more importantly learn about <button class="embed" data-src="https://youtube.com/embed/KCrXgy8qtjM">Vite</button>.
 
 <button class="embed" data-src="https://youtube.com/embed/KCrXgy8qtjM">Vite</button> is the up and coming norm for frontend development. A lot of framework uses that as their default bundler now and you should start using that too.
-Learn how to create a new project with Vite, it's really not complicated and it'll be the foundation of every new project you make for a while.<br /><br />
+Learn how to create a new project with Vite, it's really not complicated and it'll be the foundation of every new project you make for a while.
 
-Quick note but if you keep following along this roadmap and wanna learn some of the tools I mention, make sure to always use <button class="embed" data-src="https://youtube.com/embed/KCrXgy8qtjM">Vite</button>. The tutorials probably won't because it's relatively new but you should definitely make sure to use this tool all the time instead even if it means deviating a bit from the tutorial.<br /><br />
+Quick note but if you keep following along this roadmap and wanna learn some of the tools I mention, make sure to always use <button class="embed" data-src="https://youtube.com/embed/KCrXgy8qtjM">Vite</button>. The tutorials probably won't because it's relatively new but you should definitely make sure to use this tool all the time instead even if it means deviating a bit from the tutorial.<br /><br /><br />
 
 ### 5. CSS Libraries
 
@@ -91,12 +91,12 @@ After you learn about <button class="embed" data-src="https://youtube.com/embed/
 We'll soon get into JavaScript frameworks but first you need to understand what a rendering pattern is and what the different rendering patterns are.
 
 At this point you will probably have an idea of what a `static page` is but acronyms such as `MPA`, `SPA` and `SSR` should ring a bell too. Especially `SPA` because that's what you'll be getting into next.<br />
-It's just theory again here, read a couple articles and stuff like that to understand the concepts.<br /><br />
+It's just theory again here, read a couple articles and stuff like that to understand the concepts.<br /><br /><br />
 
 ### 7. Deployment
 
 Deployment is the final step of this Vanilla Roadmap.<br />
-There are multiple solutions to deploy Frontend Application. The first one is `Github`, it is the easiest one to use and it's a tool we already use in our workflow so it doesn't require much configuration.<br />
+There are multiple solutions to deploy Frontend Application. The first one is `Github`, it is the easiest one to use and it's a tool you'll probably already have in your workflow so it doesn't require much configuration.<br />
 Bear in mind that `Github Pages` only allow you to deploy static pages websites and is not fitted for more complex applications.
 
 The next two are `Netlify` and `Vercel`. I don't have much to say about them, they are great, very well known, both very appreciated. I don't have experience with `Vercel` personally but I've used `Netlify` on some projects and it's always been very easy to setup for me.
@@ -109,9 +109,9 @@ Now's finally time to get into JavaScript frameworks !<br />
 There are a lot of solutions here and the one that fits you the most will depend on your preference or your region. Your first choice should be among <button class="embed" data-src="https://youtube.com/embed/Tn6-PIqc4UM">React</button>, <button class="embed" data-src="https://youtube.com/embed/nhBVL41-_Cw">Vue.js</button> or <button class="embed" data-src="https://youtube.com/embed/Ata9cSC2WpM">Angular</button>. They are the most widely used and tbh the only ones that have a professional demand.
 
 How to choose between them then ?<br />
-The first thing would be to have a glance at each and see if one catches your eye or not. If you don't don't see anything that seems to be more interesting than the rest then the other solution is just to see what's in higher demand in your area. Most often than not that'll mean <button class="embed" data-src="https://youtube.com/embed/Tn6-PIqc4UM">React</button>.
+The first thing would be to have a glance at each and see if one catches your eye or not. If you don't see anything that seems to be more interesting than the rest then the other solution is just to see what's in higher demand in your area. Most often than not that'll mean <button class="embed" data-src="https://youtube.com/embed/Tn6-PIqc4UM">React</button>.
 
-I'm a <button class="embed" data-src="https://youtube.com/embed/nhBVL41-_Cw">Vue.js</button> dev so that's what I'm gonna go with for the rest of this article but any tool I'll mention further down will have its equivalent for other frameworks and it'll be easy for you to figure them out.<br /><br />
+I'm a <button class="embed" data-src="https://youtube.com/embed/nhBVL41-_Cw">Vue.js</button> dev so that's what I'm gonna go with for the rest of this article but any tool I'll mention further down will have its equivalent for other frameworks and it'll be easy for you to figure them out.<br /><br /><br />
 
 ### 8. <button class="embed" data-src="https://youtube.com/embed/nhBVL41-_Cw">Vue.js</button>
 
@@ -127,7 +127,7 @@ The second one is that <button class="embed" data-src="https://youtube.com/embed
   <img src="https://img.youtube.com/vi/YrxBCBibVo0/maxresdefault.jpg" alt="Vue 3 for beginners youtube serie from TheNetNinja">
 </a>
 
-Again, TheNetNinja also has a more complete <a href="https://netninja.dev/p/build-websites-with-vue-3-firebase" target="_blank">paid version</a> of this tutorial which also dabs into <button class="embed" data-src="https://youtube.com/embed/vAoB4VbhRzM">Firebase</button> which is a tool I'll talk about soon. In this paid version he goes over more complex features and builds a few small projects, it's very well made so I recommend this one too.<br /><br />
+Again, TheNetNinja also has a more complete <a href="https://netninja.dev/p/build-websites-with-vue-3-firebase" target="_blank">paid version</a> of this tutorial and also dabs into <button class="embed" data-src="https://youtube.com/embed/vAoB4VbhRzM">Firebase</button> which is a tool I'll talk about soon. In this paid version he goes over more complex features and builds a few small projects, it's very well made so I recommend this one too.<br /><br />
 
 ### 9. Routing
 
@@ -136,11 +136,10 @@ The routing library for Vue is called <button class="embed" data-src="https://yo
 
 ### 10. State Management
 
-I won't go into too much details as to what state management is because it wouldn't make much sense at this point but once you reach this step you'll probably understand what it is and you might have delved into it a bit a already.
+I won't go into too much details as to what state management is because it wouldn't make much sense at this point but once you reach this step you'll probably understand what it is and you might have delved into it a bit a already. In just a few words though, State Management means preserving data across multiple pages in your application.
 
 
-The most known library for state management in Vue.js is called `VueX` but it's not commonly used anymore.<br />
-Nowadays the best solution for a state management library for Vue is be <button class="embed" data-src="https://youtube.com/embed/LfWpPRId5N0">Pinia</button>. It's easier to use and has become the officially supported state management library for Vue so you should definitely go with this one.<br /><br />
+The most known library for state management in Vue.js is called `VueX` but it's not commonly used anymore. Nowadays the best solution for a state management library for Vue is <button class="embed" data-src="https://youtube.com/embed/LfWpPRId5N0">Pinia</button>. It's easier to use and has become the officially supported state management library for Vue so you should definitely go with this one.<br /><br />
 
 <a href="https://www.youtube.com/watch?v=u0B9dysw29A&list=PL4cUxeGkcC9hp28dYyYBy3xoOdoeNw-hD" target="_blank">
   <img src="https://img.youtube.com/vi/u0B9dysw29A/maxresdefault.jpg" alt="Pinia Crash Course youtube serie from TheNetNinja">
@@ -172,7 +171,9 @@ Being able to use one of those will not really help you in a real company becaus
 You know have access to a much more complete tech stack and at this point you can safely start looking for jobs with your current knowledge if that's what you're aiming at.
 
 Right now is a good place to take a break before learning new stuffs.<br />
-Make a couple small projects, get familiar with this stack if you feel the need to and you can continue with the rest once you feel ready to. Then, there's a couple more tools that you should definitely look into. They are tools that you will have probably seen by name in some articles or in some job posts by now and it's finally time to dive into them.<br /><br />
+Make a couple small projects, get familiar with this stack if you feel the need to and you can continue with the rest once you feel ready to.
+
+There are still a couple more tools that you should definitely look into at some point though. They are tools that you will have probably seen by name in some articles or in some job posts by now and it's finally time to dive into them.<br /><br />
 
 ### 11. <button class="embed" data-src="https://youtube.com/embed/zQnBQ4tB3ZA">TypeScript</button>
 
@@ -200,7 +201,7 @@ variable = "1" // This is not possible
 
 ### 12. Meta-Framework
 
-You'll understand what they are along your learnings but in just a few words : They enable `Server Side Rendering` which improves `Search Engine Optimization` as well as include some cool utilities to your current JavaScript framework so improve Developer Experience.
+You'll understand what they are along your learnings but in just a few words : They enable `Server Side Rendering` which improves `Search Engine Optimization` as well as include some cool utilities to your current JavaScript framework to improve Developer Experience.
 
 Vue.js' Meta-Framework is called <button class="embed" data-src="https://youtube.com/embed/dCxSsr5xuL8">Nuxt</button><br /><br />
 
@@ -210,12 +211,12 @@ Vue.js' Meta-Framework is called <button class="embed" data-src="https://youtube
 
 ### 13. <button class="embed" data-src="https://youtube.com/embed/u6QfIXgjwGQ">Testing</button>
 
-<button class="embed" data-src="https://youtube.com/embed/u6QfIXgjwGQ">Testing</button> is another thing that you should get into eventually.
+<button class="embed" data-src="https://youtube.com/embed/u6QfIXgjwGQ">Testing</button> is another thing that you'll eventually get into.
 
 It's not as widely practiced in Frontend development as in Backend development but it's still a very important skill to get.<br />
-There are multiple testing patterns and you should understand what they are and when to use which. Once that's done you can get into it by starting with `Jest` (the more popular unit testing tool for JavaScript) or <button class="embed" data-src="https://youtube.com/embed/7f-71kYhK00">Vitest</button> (a newcomer made by the same team as Vite and Vue.js that hasn't reached it's version 1 yet but it's expected to eventually take over Jest). Both are very similar so I would personnaly go with <button class="embed" data-src="https://youtube.com/embed/7f-71kYhK00">Vitest</button> and you'll be able to use Jest if you need to later.
+There are multiple testing patterns and you should understand what they are and when to use which. Once that's done you can start writting your first tests with `Jest` (the more popular unit testing tool for JavaScript) or <button class="embed" data-src="https://youtube.com/embed/7f-71kYhK00">Vitest</button> (a newcomer made by the same team as Vite and Vue.js that hasn't reached it's version 1 yet but is expected to take over Jest in the future). Both are very similar so I would personnaly go with <button class="embed" data-src="https://youtube.com/embed/7f-71kYhK00">Vitest</button> and you'll still be able to use Jest if you need to later.
 
-Once you've tried unit testing, you can also get into End to End testing, e2e for short.
+Once you've wrote some unit and integrations tests, you can also get into End to End testing, e2e for short.
 There are two candidates here, <button class="embed" data-src="https://youtube.com/embed/BQqzfHQkREo">Cypress</button> and <button class="embed" data-src="https://youtube.com/embed/SW3TqvhrzU4">Playwright</button>.<br /><br />
 
 <a href="https://www.youtube.com/watch?v=Jv2uxzhPFl4" target="_blank">
@@ -232,9 +233,10 @@ There's more you can do at this point of course but once you've reached this lev
 One last thing :<br />
 If you wanted you could now get into another JS framework completely ! You know enough to get a job already so you could get into any other framework if you're interested like Qwik, Solid or Svelte. Anything goes and learning a new framework will teach you more about your current one too.
 
-You could also try a new language completely. Learning new languages teaches you more about programming as a whole and in my opinion the more you do the better you get even if it's not the exact same thing you'll be using. Concepts stay more or less the same.<br />
+You could also try a new language completely. Learning new languages teaches you more about programming as a whole and in my opinion the more you do the better you get even if it's not the exact same thing you'll be using. Concepts stay more or less the same.
+
 You could also go in the opposite direction and learn more about web designs, UI, UX etc.<br />
 Being proficient with Figma if you aren't already for example.
 
-The point is at this points there isn't any tool that you could add to your stack so you could stop there or you could just keep learning new stuffs. From now on it's open bar.<br />
+The point is that at this points there isn't any tool that you could add to your stack so you could stop there if you wanted but you could also keep learning new stuff. From now on it's open bar.<br />
 Be curious !
