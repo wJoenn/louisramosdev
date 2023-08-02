@@ -121,6 +121,25 @@
         font: inherit;
         font-weight: 400;
       }
+
+      .play {
+        display: block;
+        margin: 20px 0;
+        position: relative;
+
+        &::before {
+          background-image: url("/images/play.png");
+          background-position: center;
+          background-size: cover;
+          content: "";
+          height: 100px;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          translate: -50% -50%;
+          width: 100px;
+        }
+      }
     }
   }
 </style>

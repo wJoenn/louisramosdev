@@ -1,11 +1,11 @@
 ---
   title: Frontend WebDev, from beginner to developer
   description: A detailed roadmap on every steps required to become a ready for production Frontend Developer
-  cover_url: /images/frontend_roadmap.png
+  cover_url: /images/blogs/frontend_roadmap.png
   date: 1690038165
 ---
 
-<img src="/images/frontend_roadmap.png" alt="Frontend Development banner" width="800">
+<img src="/images/blogs/frontend_roadmap.png" alt="Frontend Development banner" width="800">
 
 # Frontend WebDev, from beginner to developer
 
@@ -32,18 +32,17 @@ These are the first things to learn.
 
 <button class="embed" data-src="https://youtube.com/embed/OEV8gMkCHXQ">CSS</button>, for "Cascading Style Sheet", on the other hand would be the skin and make up of this body. It allows us to apply nearly any style to our websites. Later on I'll mention a couple libraries that allow you to apply CSS to your applications in a different way but you have to understand that the better your understanding of Vanilla CSS is, the more efficient you will be with any of those tools so make sure to learn as much as you can, especially `flex` and `grid` display propreties.
 
-You can click on the following picture to access <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9ivBf_eKCPIAYXWzLlPAm6G" target="_blank">TheNetNinja's HTML & CSS Crash Course</a>.
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9ivBf_eKCPIAYXWzLlPAm6G" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9ivBf_eKCPIAYXWzLlPAm6G" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/hu-q2zYwEYs/maxresdefault.jpg" srcset="https://img.youtube.com/vi/hu-q2zYwEYs/mqdefault.jpg 560w, https://img.youtube.com/vi/hu-q2zYwEYs/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Modern JavaScript Tutorial youtube serie from TheNetNinja">
-</a><br /><br /><br />
+</a><br /><br />
 
 ### 2. JavaScript
 
 <button class="embed" data-src="https://youtube.com/embed/DHjqpvDnNGE">JavaScript</button> is the muscle of your web application. This is the programming language that will handle everything for you to build dynamic and interactive applications so a good understanding of it is mandatory.
 
-Beyond stuffs like `DOM manipulation` and `event handling`, you should also know about `ES6` syntax, like arrow functions, and delve into `asynchronousity` (this is a term that means doing stuff outside of the normal flow of the code), especially using `async` and `await`. Finally JavaScript can also be used as a `OOP` language so you should learn about Classes.<br /><br />
+Beyond stuffs like `DOM manipulation` and `event handling`, you should also know about `ES6` syntax, like arrow functions, and delve into `asynchronousity` (this is a term that means doing stuff outside of the normal flow of the code), especially using `async` and `await`. Finally JavaScript can also be used as a `OOP` language so you should learn about Classes.
 
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haFPT7J25Q9GRB_ZkFrQAc" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haFPT7J25Q9GRB_ZkFrQAc" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/iWOYAxlnaww/maxresdefault.jpg" srcset="https://img.youtube.com/vi/iWOYAxlnaww/mqdefault.jpg 560w, https://img.youtube.com/vi/iWOYAxlnaww/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Modern JavaScript Tutorial youtube serie from TheNetNinja">
 </a>
 
@@ -75,15 +74,15 @@ Learn what <button class="embed" data-src="https://youtube.com/embed/WhCXiEwdU1A
 
 After you learn about PostCSS, it's time to get into <button class="embed" data-src="https://youtube.com/embed/akDIJa0AP5c">Sass</button> and to learn about the most widely used CSS library :
 
-<button class="embed" data-src="https://youtube.com/embed/mr15Xzb1Ook">TailwindCSS</button>, it is a tool you have to master when working as a frontend dev. It's basically like Bootstrap because it uses classes in your HTML but it's a lot more modular. It's easy to pick up once you know CSS and it has a great documentation where you can just type what you're looking for and it'll give you the classes you need to use.<br /><br />
+<button class="embed" data-src="https://youtube.com/embed/mr15Xzb1Ook">TailwindCSS</button>, it is a tool you have to master when working as a frontend dev. It's basically like Bootstrap because it uses classes in your HTML but it's a lot more modular. It's easy to pick up once you know CSS and it has a great documentation where you can just type what you're looking for and it'll give you the classes you need to use.
 
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jxJX7vojNVK-o8ubDZEcNb" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jxJX7vojNVK-o8ubDZEcNb" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/_kqN4hl9bGc/maxresdefault.jpg" srcset="https://img.youtube.com/vi/_kqN4hl9bGc/mqdefault.jpg 560w, https://img.youtube.com/vi/_kqN4hl9bGc/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Sass Tutorial youtube serie from TheNetNinja">
-</a><br /><br />
+</a>
 
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/bxmDnn7lrnk/maxresdefault.jpg" srcset="https://img.youtube.com/vi/bxmDnn7lrnk/mqdefault.jpg 560w, https://img.youtube.com/vi/bxmDnn7lrnk/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="TailwindCSS Tutorial youtube serie from TheNetNinja">
-</a><br /><br /><br />
+</a><br /><br />
 
 ### 6. Rendering Patterns
 
@@ -120,9 +119,9 @@ If you decide to watch the following tutorial there are two things to keep in mi
 
 The first one is that the tutorial is going to use the Vue-CLI to create and bundle its projects. The Vue-CLI is now deprecated and the new creation tools are <a href="https://www.npmjs.com/package/create-vue" target="_blank">create-vue</a> or <a href="https://www.npmjs.com/package/create-vite" target="_blank">create-vite</a>.
 
-The second one is that Vue has a new convention called `script setup` that did not exist back when the tutorial was made. Make sure to catch up to this once you've finished learning the basics because it's how every Vue applications are made now.<br /><br />
+The second one is that Vue has a new convention called `script setup` that did not exist back when the tutorial was made. Make sure to catch up to this once you've finished learning the basics because it's how every Vue applications are made now.
 
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/YrxBCBibVo0/maxresdefault.jpg" srcset="https://img.youtube.com/vi/YrxBCBibVo0/mqdefault.jpg 560w, https://img.youtube.com/vi/YrxBCBibVo0/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Vue 3 for beginners youtube serie from TheNetNinja">
 </a>
 
@@ -138,11 +137,11 @@ The routing library for Vue is called <a href="https://router.vuejs.org/" target
 I won't go into too much details as to what state management is because it wouldn't make much sense at this point but once you reach this step you'll probably understand what it is and you might have delved into it a bit a already. In just a few words though, State Management means preserving data across multiple pages in your application.
 
 
-The most known library for state management in Vue.js is called <a href="https://vuex.vuejs.org/" target="_blank">VueX</a> but it's not commonly used anymore. Nowadays the best solution for a state management library for Vue is <a href="https://pinia.vuejs.org/" target="_blank">Pinia</a>. It's easier to use and has become the officially supported state management library for Vue so you should definitely go with this one.<br /><br />
+The most known library for state management in Vue.js is called <a href="https://vuex.vuejs.org/" target="_blank">VueX</a> but it's not commonly used anymore. Nowadays the best solution for a state management library for Vue is <a href="https://pinia.vuejs.org/" target="_blank">Pinia</a>. It's easier to use and has become the officially supported state management library for Vue so you should definitely go with this one.
 
-<a href="https://www.youtube.com/watch?v=u0B9dysw29A&list=PL4cUxeGkcC9hp28dYyYBy3xoOdoeNw-hD" target="_blank">
+<a href="https://www.youtube.com/watch?v=u0B9dysw29A&list=PL4cUxeGkcC9hp28dYyYBy3xoOdoeNw-hD" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/u0B9dysw29A/maxresdefault.jpg" srcset="https://img.youtube.com/vi/u0B9dysw29A/mqdefault.jpg 560w, https://img.youtube.com/vi/u0B9dysw29A/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Pinia Crash Course youtube serie from TheNetNinja">
-</a><br /><br /><br />
+</a><br /><br />
 
 ### OPTIONNAL : Backend as a Service
 
@@ -155,15 +154,15 @@ If you bought TheNetNinja's <a href="https://netninja.dev/p/modern-javascript-fr
 
 <button class="embed" data-src="https://youtube.com/embed/zBZgdTb-dns">Supabase</button> is a very popular alternative to Firebase and I would personally reccommend going with that one instead but that's because I want to avoid using big companies', like Google or Facebook, techs to avoid encouraging monopoles so make that choice your own. Supabase also is Open Source which is nice.
 
-Being able to use one of those will not really help you in a real company because they generally have fully built Backend solutions but, as I said, they provide you with a great way to work on personnal projects as a Frontend only developer, and in reality they can scale up pretty far so they should be all you need on a personnal level for a long time.<br /><br />
+Being able to use one of those will not really help you in a real company because they generally have fully built Backend solutions but, as I said, they provide you with a great way to work on personnal projects as a Frontend only developer, and in reality they can scale up pretty far so they should be all you need on a personnal level for a long time.
 
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/9zdvmgGsww0/maxresdefault.jpg" srcset="https://img.youtube.com/vi/9zdvmgGsww0/mqdefault.jpg 560w, https://img.youtube.com/vi/9zdvmgGsww0/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Getting Started with Firebase 9 youtube serie from TheNetNinja">
-</a><br /><br />
-
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO" target="_blank">
-  <img src="https://img.youtube.com/vi/ydz7Dj5QHKY/maxresdefault.jpg" srcset="https://img.youtube.com/vi/ydz7Dj5QHKY/mqdefault.jpg 560w, https://img.youtube.com/vi/ydz7Dj5QHKY/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Supabase Tutorial youtube serie from TheNetNinja">
 </a>
+
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO" target="_blank" class="play">
+  <img src="https://img.youtube.com/vi/ydz7Dj5QHKY/maxresdefault.jpg" srcset="https://img.youtube.com/vi/ydz7Dj5QHKY/mqdefault.jpg 560w, https://img.youtube.com/vi/ydz7Dj5QHKY/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Supabase Tutorial youtube serie from TheNetNinja">
+</a><br />
 
 ## Advanced Roadmap
 
@@ -192,21 +191,21 @@ let variable: number = 1
 variable = "1" // Type 'string' is not assignable to type 'number'.ts(2322)
 ```
 
-TypeScript is becoming very widely used in Frontend Development so you will have to become familiar with it and now is a very good time for that.<br /><br />
+TypeScript is becoming very widely used in Frontend Development so you will have to become familiar with it and now is a very good time for that.
 
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/2pZmKW9-I_k/maxresdefault.jpg" srcset="https://img.youtube.com/vi/2pZmKW9-I_k/mqdefault.jpg 560w, https://img.youtube.com/vi/2pZmKW9-I_k/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="TypeScript Tutorial youtube serie from TheNetNinja">
-</a><br /><br /><br />
+</a><br /><br />
 
 ### 12. Meta-Framework
 
 You'll understand what they are along your learnings but in just a few words; they enable `Server Side Rendering` which improves `Search Engine Optimization` as well as include some cool utilities to your current JavaScript framework to improve Developer Experience.
 
-Vue.js' Meta-Framework is called <button class="embed" data-src="https://youtube.com/embed/dCxSsr5xuL8">Nuxt</button><br /><br />
+Vue.js' Meta-Framework is called <button class="embed" data-src="https://youtube.com/embed/dCxSsr5xuL8">Nuxt</button>
 
-<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haQlqdCQyYmL_27TesCGPC" target="_blank">
+<a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haQlqdCQyYmL_27TesCGPC" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/GBdO5myZNsQ/maxresdefault.jpg" srcset="https://img.youtube.com/vi/GBdO5myZNsQ/mqdefault.jpg 560w, https://img.youtube.com/vi/GBdO5myZNsQ/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Nuxt 3 Crash Course youtube serie from TheNetNinja">
-</a><br /><br /><br />
+</a><br /><br />
 
 ### 13. Testing
 
@@ -216,11 +215,11 @@ It's not as widely practiced in Frontend development as in Backend development b
 There are multiple testing patterns and you should understand what they are and when to use which. Once that's done you can start writing your first tests with <a href="https://jestjs.io/" target="_blank">Jest</a> (the more popular unit testing tool for JavaScript) or <a href="https://vitest.dev/" target="_blank">Vitest</a> (a newcomer made by the same team as Vite and Vue.js that hasn't reached it's version 1 yet but is expected to take over Jest in the future). Both are very similar so I would personnaly go with Vitest and you'll still be able to use Jest if you need to later.
 
 Once you've wrote some unit and integrations tests, you can also get into End to End testing, e2e for short.
-There are two candidates here, <button class="embed" data-src="https://youtube.com/embed/BQqzfHQkREo">Cypress</button> and <button class="embed" data-src="https://youtube.com/embed/SW3TqvhrzU4">Playwright</button>.<br /><br />
+There are two candidates here, <button class="embed" data-src="https://youtube.com/embed/BQqzfHQkREo">Cypress</button> and <button class="embed" data-src="https://youtube.com/embed/SW3TqvhrzU4">Playwright</button>.
 
-<a href="https://www.youtube.com/watch?v=Jv2uxzhPFl4" target="_blank">
+<a href="https://www.youtube.com/watch?v=Jv2uxzhPFl4" target="_blank" class="play">
   <img src="https://img.youtube.com/vi/Jv2uxzhPFl4/maxresdefault.jpg" srcset="https://img.youtube.com/vi/Jv2uxzhPFl4/mqdefault.jpg 560w, https://img.youtube.com/vi/Jv2uxzhPFl4/maxresdefault.jpg 800w" sizes="(max-width: 560px) 560px, 800px" alt="Start testing with JavaScript youtube video from Fireship">
-</a><br /><br /><br />
+</a><br /><br />
 
 And that's it for this Roadmap. What a ride, huh ?!
 

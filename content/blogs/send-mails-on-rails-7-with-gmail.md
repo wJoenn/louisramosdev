@@ -1,11 +1,11 @@
 ---
   title: Send mail on Rails 7 with Gmail
   description: Step by step instructions on how to send mail with your gmail address from your Ruby on Rails application using ActiveMailer.
-  cover_url: /images/rails_mailer.png
+  cover_url: /images/blogs/rails_mailer.png
   date: 1689591384
 ---
 
-<img src="/images/rails_mailer.png" alt="RoR + Gmail banner" width="800">
+<img src="/images/blogs/rails_mailer.png" alt="RoR + Gmail banner" width="800">
 
 # Send mail on Rails 7 with Gmail
 
