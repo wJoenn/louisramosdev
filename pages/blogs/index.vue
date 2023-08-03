@@ -26,12 +26,10 @@
     title: "Louis Ramos | RoR Fullstack Developer"
   })
 
-  const { data: blogs } = await useAsyncData("blogs", () => (
-    queryContent("/blogs")
-      .sort({ date: -1 })
-      .only(["title", "description", "cover_url", "_path", "_id"])
-      .find() as Promise<Blog[]>
-  ))
+  const blogs = await queryContent("/blogs")
+    .sort({ date: -1 })
+    .only(["title", "description", "cover_url", "_path", "_id"])
+    .find() as Blog[]
 </script>
 
 <style scoped lang="scss">
