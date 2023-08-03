@@ -1,11 +1,11 @@
 ---
   title: Create a Rails 7 REST Api
   description: First step out of three in creating a Vue on Rails application with authentification.
-  cover_url: /images/blogs/rails-api.jpg
+  cover_url: /images/blogs/rails_api.jpg
   date: 1690978803
 ---
 
-<img src="/images/blogs/rails-api.jpg" alt="Frontend Development banner" width="800">
+<img src="/images/blogs/rails_api.jpg" alt="Frontend Development banner" width="800">
 
 # Create a Rails 7 REST Api
 
