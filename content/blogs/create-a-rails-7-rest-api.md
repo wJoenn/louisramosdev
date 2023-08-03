@@ -1,15 +1,15 @@
 ---
-  title: Create a Rails 7 REST Api
-  description: First step out of three in creating a Vue on Rails application with authentification.
+  title: Create a Rails 7 REST API
+  description: First step out of three in creating a Vue on Rails application with authentication.
   cover_url: /images/blogs/rails_api.jpg
   date: 1690978803
 ---
 
 <img src="/images/blogs/rails_api.jpg" alt="Frontend Development banner" width="800">
 
-# Create a Rails 7 REST Api
+# Create a Rails 7 REST API
 
-### First step out of three in creating a Vue on Rails application with authentification.
+### First step out of three in creating a Vue on Rails application with authentication.
 
 Rails is known for being a powerful full stack framework to build applications with and its frontend developer experience and performance has increased a lot with the help of Hotwire and new bundling solutions such as importmap, jsbundling or <a href="/blogs/ruby-on-rails-7-and-vite" target="_blank">vite_rails</a>.
 
@@ -17,16 +17,16 @@ Rails is known for being a powerful full stack framework to build applications w
 But sometimes using just Rails might not be the best solution for you.<br />
 Maybe a Multi Page Application is not reactive enough for your purpose, you'd like to leverage a different rendering pattern for your frontend application, whether that would be SPA, SSR or something else.<br />
 Maybe you are in a team with developers of different skillsets and you'd like to separate the frontend and the backend of your application so that everyone can focus on what they do best with the tool they're proficient with the most ?<br />
-Both of these cases are realisable by using Rails as an API only instead of a full stack aplication.
+Both of these cases are realisable by using Rails as an API only instead of a full stack application.
 
-This article is the first out of a serie of 3 in which I'll accompany you in the creation of a simple multi-page SPA client backed with a Rails REST API with Devise authentification in the form of a simple TO-DO list. This first step will consist in creating this Rails API and test its endpoints with Postman. It doesn't matter what solution you choose for your frontend at the moment, we'll only be using Ruby for now.
+This article is the first out of a serie of 3 in which I'll accompany you in the creation of a simple SPA client backed by a Rails REST API with Devise authentication in the form of a TO-DO list app. This first step will consist in creating this Rails API and test its endpoints with Postman. It doesn't matter what solution you choose for your frontend at the moment, we'll only be using Ruby for now.
 
 ## Creating the project
 
 Rails has a very convenient flag to use during the project creation, being `--api`.<br />
 Because we are not using Rails for any frontend that means there is a lot of features that we don't need anymore. Assets handling, JavaScript, views, all of this will be handled by our JavaScript framework in the next article, so using this `--api` flag will remove a lot of useless boilerplate as well as give us a more lightweight application.
 
-There are a lot of ways to manage a fullstack project but for simplicity's sake I will create a monorepo with a client directory for my frontend, an api directory for my backend and a bin directory for any executable script I might need.
+There are a lot of ways to manage a fullstack project but for simplicity's sake I will create a monorepo with a client directory for my frontend, an `api` directory for my backend and a bin directory for any executable script I might need.
 
 ```bash
 mkdir to-do-list
@@ -34,7 +34,7 @@ cd to-do-list
 rails new --api -d postgresql api
 ```
 
-That'll create my monorepo `to-do-list` and the Rails api inside a directory called `api`.
+That'll create my monorepo `to-do-list` and the Rails API inside a directory called `api`.
 
 The thing is, I don't want to have to cd into my `api` directory everytime I want to run a `rails` command, later on I'll also want to run both my frontend server and backend server and if I could do that from the root directory it'd provide a better developer experience.<br />
 That's why I like to create a few simple executable scripts.
@@ -72,7 +72,7 @@ chmod +x bin/rails
 chmod +x bin/bundle
 ```
 
-Just before we install our gems let's just go inside out Gemfile and uncomment <a href="https://github.com/cyu/rack-cors" target="_blank">rack_cors</a> which will provide support for Cross-Origin Resource Sharing which enables cross domain AJAX request calls to our Rails api.
+Just before we install our gems let's just go inside out Gemfile and uncomment <a href="https://github.com/cyu/rack-cors" target="_blank">rack_cors</a> which will provide support for Cross-Origin Resource Sharing which enables cross domain AJAX request calls to our Rails API.
 ```ruby [Gemfile]
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
@@ -91,7 +91,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 end
 ```
 
-We can now finish the creation of our Rails api by installing installing our gems and creating our database.
+We can now finish the creation of our Rails API by installing installing our gems and creating our database.
 ```bash
 bin/bundle install
 bin/rails db:create
@@ -110,8 +110,8 @@ rails generate model Task title completed:boolean
 class CreateTasks < ActiveRecord::Migration[7.0]
   def change
     create_table :tasks do |t|
-      t.string :title
-      t.boolean :completed, default: false
+      t.string :title, null: false
+      t.boolean :completed, default: false, null: false
 
       t.timestamps
     end
@@ -183,7 +183,7 @@ Before we go on with creating the logic for each routes, have a look at the `app
 
 Let's begin with the `create` action as we'll need to have some tasks before being able to test the rest.
 
-The initial logic is the same as a fullstack Rails application. We get the params, create a new Task, if it's saved sucessfully we do something, other we do something else.
+The initial logic is the same as a fullstack Rails application. We get the params, create a new Task, if it's saved successfully we do something, otherwise we do something else.
 
 These "something" usually mean redirecting to another page or rendering a erb template but in our case what we want to do is render a json object that our frontend will receive.
 
@@ -223,24 +223,19 @@ The reason my success message is an array is because the `task.errors.full_messa
 
 Now if we try to make a POST request to our `/tasks` endpoint we should receive a json object with a success message and the task itself.
 
-In order to try this we will use a tool called <a href="https://www.postman.com/" target="_blank">Postman</a>. You can either use the web version or the application but before we can do anything we need a way to use our localhost publically.<br />
+In order to try this we will use a tool called <a href="https://www.postman.com/" target="_blank">Postman</a>. You can either use the web version or the application but before we can do anything we need a way to use our localhost publicly.<br />
 We'll use <a href="https://ngrok.com/download" target="_blank">Ngrok</a> for that.
 
-Once you've downloaded Ngrok and you've added your authkey to your system's configuration (follow Ngrok's instructions for that), you'll need to authorize Ngrok to access your Rails application by adding the domain Ngrok gives you to your `config/environments/develompent.rb` file
+Once you've downloaded Ngrok and you've added your authkey to your system's configuration (follow Ngrok's instructions for that), you'll need to authorize Ngrok to access your Rails application by adding the domain Ngrok gives you to your `config/environments/develompent.rb` file.<br />
+The problem with this method is that everytime you open a new Ngrok server you have to change the domain name manualy.
+
+What I like to do instead is add a regex expression that'll match any ngrok domain
 ```ruby [api/config/environments/development.rb]
 Rails.application.configure do
   ...
 
-  config.hosts << NGROK_URL
-end
-```
-
-The problem with this method is that everytime you open a new Ngrok server you have to change the domain name manualy so what I like to do instead is clear the hosts.
-```ruby [api/config/environments/development.rb]
-Rails.application.configure do
-  ...
-
-  config.hosts.clear
+  config.hosts << /.*\.ngrok\.io/
+  config.hosts << /.*\.ngrok-free\.app/
 end
 ```
 
@@ -347,7 +342,7 @@ end
 ```
 
 And we're done.<br />
-Again you can try to make requests to your api with Postman and you should get those responses.
+Again you can try to make requests to your API with Postman and you should get those responses.
 ```json
 // GET /tasks
 {
@@ -386,8 +381,8 @@ Again you can try to make requests to your api with Postman and you should get t
 }
 ```
 
-Congratulation, your Rails api is now ready to use.
+Congratulation, your Rails API is now ready to use.
 
-In the next article we will create a basic frontend client to use this API from and after this one we'll go over how to handle authentification with Devise and JSON web tokens.<br /> Until then feel free to experiment with your newly acquired skill of course !
+In the next article we will create a basic frontend client to use this API from and after this one we'll go over how to handle authentication with Devise and JSON web tokens.<br /> Until then feel free to experiment with your newly acquired skill of course !
 
 Cheers !
