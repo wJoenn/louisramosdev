@@ -11,7 +11,7 @@
 
 ### First step out of three in creating a Vue on Rails application with authentification.
 
-Rails is known for being a powerful full stack framework to build applications with and its frontend developer experience and performance has increased a lot with the help of Hotwire and new bundling solutions such as importmap, jsbundling or <a href="/ruby-on-rails-7-&-vite" target="_blank">vite_rails</a>.
+Rails is known for being a powerful full stack framework to build applications with and its frontend developer experience and performance has increased a lot with the help of Hotwire and new bundling solutions such as importmap, jsbundling or <a href="/blogs/ruby-on-rails-7-and-vite" target="_blank">vite_rails</a>.
 
 
 But sometimes using just Rails might not be the best solution for you.<br />
@@ -131,7 +131,7 @@ rails db:migrate
 
 You'll notice while navigating through our `api/app` directory that we indeed don't have an `/assets` or `/javascript` directory.
 
-The `/views` folder is still here but it's only being used for emails templates if you decide to use ActionMailer with this application. (Have a look <a href="/send-mail-on-rails-7-with-gmail" target="_blank">here</a> if you want to know how to use ActionMailer with your gmail address from your Rails application)
+The `/views` folder is still here but it's only being used for emails templates if you decide to use ActionMailer with this application. (Have a look <a href="/blogs/send-mail-on-rails-7-with-gmail" target="_blank">here</a> if you want to know how to use ActionMailer with your gmail address from your Rails application)
 
 Now that the `Task` model is ready we'll also create a `TasksController` with some actions : "index", "create", "destroy" and a custom one to handle completion; "complete"
 
