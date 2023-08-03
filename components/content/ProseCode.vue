@@ -1,6 +1,6 @@
 <template>
   <div :class="['code-block', { 'is-bash': language === 'bash' }]" @click="copyFromClick" @copy="copyFromSelection" @mouseleave="copied = false">
-    <span class="filename">{{ filename }}</span>
+    <span v-if="filename" class="filename">{{ filename }}</span>
 
     <slot />
 
@@ -48,7 +48,7 @@
   .code-block {
     position: relative;
 
-    &.is-bash .line::before {
+    &.is-bash:not(:has(.filename)) .line::before {
       content: "$ ";
       color: $light-nuxt-green;
     }
@@ -83,7 +83,7 @@
 
     .copy {
       bottom: 10px;
-      opacity: 0;
+      opacity: 0.1;
       position: absolute;
       right: 10px;
       width: 20px;
