@@ -17,9 +17,9 @@ Rails is known for being a powerful full stack framework to build applications w
 But sometimes using just Rails might not be the best solution for you.<br />
 Maybe a Multi Page Application is not reactive enough for your purpose, you'd like to leverage a different rendering pattern for your frontend application, whether that would be SPA, SSR or something else.<br />
 Maybe you are in a team with developers of different skillsets and you'd like to separate the frontend and the backend of your application so that everyone can focus on what they do best with the tool they're proficient with the most ?<br />
-Both of these cases are realisable by using Rails as an API only instead of a full stack application.
+Both of these cases are realisable by using Rails as an API only instead of a fullstack application.
 
-This article is the first out of a serie of 3 in which I'll accompany you in the creation of a simple SPA client backed by a Rails REST API with Devise authentication in the form of a TO-DO list app. This first step will consist in creating this Rails API and test its endpoints with Postman. It doesn't matter what solution you choose for your frontend at the moment, we'll only be using Ruby for now.
+This article is the first out of a series of 3 in which I'll accompany you in the creation of a simple SPA client backed by a Rails REST API with Devise authentication in the form of a TO-DO list app. This first step will consist in creating this Rails API and test its endpoints with Postman. It doesn't matter what solution you choose for your frontend at the moment as we'll only focus on the backend for now.
 
 ## Creating the project
 
@@ -40,36 +40,36 @@ The thing is, I don't want to have to cd into my `api` directory everytime I wan
 That's why I like to create a few simple executable scripts.
 
 Inside a `bin` directory let's create a couple files called `rails` and `bundle`, you don't need to provide an extension as these will be executable files.<br />
-Inside `bin/rails` you can add the following
-```bash [bin/rails]
-#!/bin/bash
-
-cd api && rails "$@"
-```
-
-The first line provide instructions to your operating system as to what language it needs to use to execute this code. If you're using an IDE like Visual Studio Code it will also provide color highlighting corresponding to the specified language.
-
-The second line is the actual script. This one means that when the script executes it will first cd into the `api` directory and once there run Rails' `rails` command.<br />
-`$@` corresponds to whatever arguments you wrote in your initial command.
-
-For example, when running
-```bash
-rails db:create
-```
-
-the `$@` would be `db:create`
-
-We can do another executable for bundle real quick by adding a `bin/bundle` file too
+Inside `bin/bundle` you can add the following
 ```bash [bin/bundle]
 #!/bin/bash
 
 cd api && bundle "$@"
 ```
 
+The first line is called a `shebang`, it provides instructions to your operating system as to what language it needs to use to execute this code. If you're using an IDE like Visual Studio Code it will also provide color highlighting corresponding to the specified language.
+
+The second line is the actual script. This one means that when the script executes it will first cd into the `api` directory and once there run Rails' `bundle` command.<br />
+`$@` corresponds to whatever arguments you wrote in your initial command.
+
+For example, when running
+```bash
+bundle install
+```
+
+the `$@` would be `install`
+
+We can do another executable for rails real quick by adding a `bin/rails` file too
+```bash [bin/rails]
+#!/bin/bash
+
+bundle exec rails "$@"
+```
+
 The last step to make these scripts usable is to edit their executable rights. To do so run these couple commands
 ```bash
-chmod +x bin/rails
 chmod +x bin/bundle
+chmod +x bin/rails
 ```
 
 Just before we install our gems let's just go inside out Gemfile and uncomment <a href="https://github.com/cyu/rack-cors" target="_blank">rack_cors</a> which will provide support for Cross-Origin Resource Sharing which enables cross domain AJAX request calls to our Rails API.
@@ -197,7 +197,6 @@ class TasksController < ApplicationController
 
     if task.save
       render json: {
-        messages: ["Task created successfully."],
         task: task
       }, status: :ok
     else
@@ -219,14 +218,12 @@ class TasksController < ApplicationController
 end
 ```
 
-The reason my success message is an array is because the `task.errors.full_messages` is an array of strings and I want to keep the typing of my response objects consistent.
+Now if we try to make a POST request to our `/tasks` endpoint we should receive a json object with the created task.
 
-Now if we try to make a POST request to our `/tasks` endpoint we should receive a json object with a success message and the task itself.
-
-In order to try this we will use a tool called <a href="https://www.postman.com/" target="_blank">Postman</a>. You can either use the web version or the application but before we can do anything we need a way to use our localhost publicly.<br />
+In order to try this we will use a tool called <a href="https://www.postman.com/" target="_blank">Postman</a>. You can either use the web version or the application. If you decide to use the web version you'll need a way to use your localhost publicly first though so I'll quickly go over that.<br />
 We'll use <a href="https://ngrok.com/download" target="_blank">Ngrok</a> for that.
 
-Once you've downloaded Ngrok and you've added your authkey to your system's configuration (follow Ngrok's instructions for that), you'll need to authorize Ngrok to access your Rails application by adding the domain Ngrok gives you to your `config/environments/develompent.rb` file.<br />
+Once you've downloaded Ngrok and you've added your authkey to your system's configuration (follow Ngrok's instructions for that), you'll need to authorize Ngrok to access your Rails application by adding the domain Ngrok gives you to your `config/environments/development.rb` file.<br />
 The problem with this method is that everytime you open a new Ngrok server you have to change the domain name manualy.
 
 What I like to do instead is add a regex expression that'll match any ngrok domain
@@ -252,9 +249,6 @@ Press `Send` and you should receive a json response at the bottom of your screen
 ```json
 // POST /tasks { headers: { "Content-Type": "application/json" }, body: { "title": "Finish this article" } }
 {
-  "message": [
-    "Task created successfully."
-  ],
   "task": {
     "id": 1,
     "title": "Finish the article",
@@ -286,7 +280,7 @@ class TasksController < ApplicationController
 end
 ```
 
-The `destroy` which returns a confirmation message
+The `destroy` which returns a confirmation message.
 ```ruby [api/app/controllers/tasks_controller.rb]
 class TasksController < ApplicationController
   before_action :set_task, only: %i[destroy complete]
@@ -312,6 +306,8 @@ class TasksController < ApplicationController
 end
 ```
 
+In this case the message serves as a visual feedback for our testing in Postman but as the status is already `ok` it would make sense to just render the status with `render status: :ok`.
+
 And finally the `complete` action which updates the task's completion
 ```ruby [api/app/controllers/tasks_controller.rb]
 class TasksController < ApplicationController
@@ -321,7 +317,6 @@ class TasksController < ApplicationController
   def complete
     if @task.update(completed: true)
       render json: {
-        messages: ["Task completed successfully"],
         task: @task
       }, status: :ok
     else
@@ -360,9 +355,6 @@ Again you can try to make requests to your API with Postman and you should get t
 ```json
 // PATCH /tasks/1/complete
 {
-  "messages": [
-    "Task completed successfully"
-  ],
   "task": {
     "completed": true,
     "id": 1,
