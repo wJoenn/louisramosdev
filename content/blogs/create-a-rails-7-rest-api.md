@@ -198,7 +198,7 @@ class TasksController < ApplicationController
     if task.save
       render json: {
         task: task
-      }, status: :ok
+      }, status: :created
     else
       render json: {
         messages: task.errors.full_messages
@@ -375,6 +375,6 @@ Again you can try to make requests to your API with Postman and you should get t
 
 Congratulation, your Rails API is now ready to use.
 
-In the next article we will create a basic frontend client to use this API from and after this one we'll go over how to handle authentication with Devise and JSON web tokens.<br /> Until then feel free to experiment with your newly acquired skill of course !
+In the next article we will go over how to handle authentication with Devise and JSON web tokens and after this one we'll create a basic frontend client to use this API from.<br /> Until then feel free to experiment with your newly acquired skill of course !
 
 Cheers !
