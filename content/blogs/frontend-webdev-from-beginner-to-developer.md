@@ -6,6 +6,7 @@
 ---
 
 <img src="/images/blogs/frontend_roadmap.png" alt="Frontend Development banner" width="800">
+<em class="date">July 22nd 2023</em>
 
 # Frontend WebDev, from beginner to developer
 

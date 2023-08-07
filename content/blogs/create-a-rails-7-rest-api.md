@@ -10,6 +10,7 @@
 ---
 
 <img src="/images/blogs/rails_api.jpg" alt="Frontend Development banner" width="800">
+<em class="date">August 2nd 2023</em>
 
 # Create a Rails 7 REST API
 

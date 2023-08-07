@@ -10,6 +10,7 @@
 ---
 
 <img src="/images/blogs/rails_mailer.png" alt="RoR + Gmail banner" width="800">
+<em class="date">July 17th 2023</em>
 
 # Send mail on Rails 7 with Gmail
 

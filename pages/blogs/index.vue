@@ -28,7 +28,7 @@
 
   const blogs = await queryContent("/blogs")
     .sort({ date: -1 })
-    .only(["title", "description", "cover_url", "_path", "_id"])
+    .only(["title", "description", "cover_url", "date", "_path", "_id"])
     .find() as Blog[]
 </script>
 

@@ -3,6 +3,7 @@
     <NuxtImg :src="blog.cover_url" :alt="`${blog.title} cover image`" height="200" width="400" />
 
     <div class="details">
+      <em class="date">{{ date }}</em>
       <h3>{{ blog.title }}</h3>
       <p>{{ blog.description }}</p>
 
@@ -15,7 +16,21 @@
   import type Blog from "@/types/Blog"
 
   const props = defineProps<{ blog: Blog }>()
+
   const { blog } = toRefs(props)
+  const date = computed(() => {
+    const rawDate = new Date(blog.value.date * 1000)
+    const day = rawDate.getDate()
+    const month = rawDate.toLocaleDateString("en-UK", { month: "long" })
+    const year = rawDate.getFullYear()
+
+    let daySuffix = "th"
+    if (day === 1 || day === 21 || day === 31) { daySuffix = "st" }
+    if (day === 2 || day === 22) { daySuffix = "nd" }
+    if (day === 3 || day === 23) { daySuffix = "rd" }
+
+    return `${month} ${day}${daySuffix} ${year}`
+  })
 </script>
 
 <style scoped lang="scss">
@@ -51,6 +66,12 @@
         color: $secondary-color;
         flex-grow: 1;
         line-height: 20px;
+      }
+
+      .date {
+        color: $secondary-color;
+        font-size: 0.8rem;
+        margin: -5px 0;
       }
     }
   }

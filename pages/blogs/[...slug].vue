@@ -90,7 +90,7 @@
 
       h1 {
         font-size: 40px;
-        margin-top: 50px;
+        margin-top: 35px;
       }
 
       h2 {
@@ -117,6 +117,11 @@
         a {
           color: $light-nuxt-green;
         }
+      }
+
+      .date {
+        color: $secondary-color;
+        font-size: 0.8rem;
       }
 
       .embed {
