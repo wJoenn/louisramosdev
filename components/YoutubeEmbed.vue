@@ -1,5 +1,5 @@
 <template>
-  <div id="modal" @click.self="emit('close')">
+  <div class="youtube-embed" @click.self="emit('close')">
     <button @click="emit('close')">
       <fai icon="fa-solid fa-xmark" />
     </button>
@@ -34,7 +34,7 @@
 </script>
 
 <style scoped lang="scss">
-  #modal {
+  .youtube-embed {
     align-items: center;
     background-color: rgba(24, 24, 24, 0.9);
     display: flex;

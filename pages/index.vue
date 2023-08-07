@@ -21,7 +21,7 @@
 
       <ul class="blog-list">
         <li v-for="blog in blogs" :key="blog._id">
-          <Blog :blog="blog" />
+          <BlogCard :blog="blog" />
         </li>
       </ul>
     </section>
