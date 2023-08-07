@@ -3,6 +3,11 @@
   description: A guide on how to setup a Rails application with Sass, Stimulus and Vite.
   cover_url: /images/blogs/vite_rails.png
   date: 1689285600
+  resources:
+    - [ "Vite in 100 seconds", "https://www.youtube.com/watch?v=KCrXgy8qtjM"]
+    - ["Vite's documentation", "https://vitejs.dev/"]
+    - ["Vite-Rails' documentation", "https://vite-ruby.netlify.app/guide/rails.html"]
+    - ["Rails' Asset Pipeline", "https://guides.rubyonrails.org/asset_pipeline.html"]
 ---
 
 <img src="/images/blogs/vite_rails.png" alt="Vite_rails banner" width="800">
