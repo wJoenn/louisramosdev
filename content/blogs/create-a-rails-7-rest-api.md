@@ -3,6 +3,10 @@
   description: First step out of three in creating a Vue on Rails application with authentication.
   cover_url: /images/blogs/rails_api.jpg
   date: 1690978803
+  resources:
+    - ["Rails API documentation", "https://api.rubyonrails.org/"]
+    - ["Ngrok installation guide", "https://ngrok.com/docs/getting-started/"]
+    - ["Send your first API request with Postman", "https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/"]
 ---
 
 <img src="/images/blogs/rails_api.jpg" alt="Frontend Development banner" width="800">
