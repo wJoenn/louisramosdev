@@ -3,6 +3,10 @@
   description: Step by step instructions on how to send mail with your gmail address from your Ruby on Rails application using ActiveMailer.
   cover_url: /images/blogs/rails_mailer.png
   date: 1689591384
+  resources:
+    - ["Action Mailer Basics", "https://guides.rubyonrails.org/action_mailer_basics.html"]
+    - ["Active Job Basics", "https://guides.rubyonrails.org/active_job_basics.html"]
+    - ["Securing Rails Applications - Environmental Security", "https://edgeguides.rubyonrails.org/security.html#environmental-security"]
 ---
 
 <img src="/images/blogs/rails_mailer.png" alt="RoR + Gmail banner" width="800">
