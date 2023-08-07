@@ -18,8 +18,7 @@
     url: string
   }
 
-  const props = defineProps<{ tool: Tool }>()
-  const { tool } = toRefs(props)
+  defineProps<{ tool: Tool }>()
 </script>
 
 <style scoped lang="scss">
