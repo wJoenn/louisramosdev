@@ -8,7 +8,9 @@
       </template>
     </ContentDoc>
 
-    <NuxtLink v-if="blog" to="/blogs" class="back"><fai icon="fa-solid fa-rotate-left" /> Back</NuxtLink>
+    <ResourcePanel v-if="blog?.resources" :resources="blog.resources" />
+
+    <NuxtLink v-if="blog" to="/blogs" class="more"><fai icon="fa-solid fa-chevron-down" /> More blogs</NuxtLink>
   </div>
 </template>
 
@@ -20,7 +22,7 @@
   const route = useRoute()
   const { data: blog } = await useAsyncData("blog", () => (
     queryContent(route.path)
-      .only(["title", "description", "cover_url", "_path", "_id"])
+      .only(["title", "description", "cover_url", "resources", "_path", "_id"])
       .findOne() as Promise<Blog>
   ))
 
@@ -61,12 +63,16 @@
     margin: 0 auto;
     width: Min(800px, 100%);
 
-    .back {
+    .more {
       @include btn;
 
       background-color: $light-nuxt-green;
       color: $main-background;
       margin-top: 50px;
+
+      svg {
+        transform: rotate(90deg);
+      }
     }
 
     .content {
