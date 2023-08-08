@@ -7,6 +7,7 @@
     - ["Rails API documentation", "https://api.rubyonrails.org/"]
     - ["Ngrok installation guide", "https://ngrok.com/docs/getting-started/"]
     - ["Send your first API request with Postman", "https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/"]
+    - ["Rails 7 API auth with Devise and JSON Web Tokens", "/blogs/rails-api-authentication-with-devise-and-json-web-tokens"]
 ---
 
 <img src="/images/blogs/rails_api.jpg" alt="Frontend Development banner" width="800">
@@ -91,7 +92,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
     resource "*",
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      methods: %i[get post put patch delete options head]
   end
 end
 ```
@@ -380,6 +381,6 @@ Again you can try to make requests to your API with Postman and you should get t
 
 Congratulation, your Rails API is now ready to use.
 
-In the next article we will go over how to handle authentication with Devise and JSON web tokens and after this one we'll create a basic frontend client to use this API from.<br /> Until then feel free to experiment with your newly acquired skill of course !
+In the next article, <a href="/blogs/rails-api-authentication-with-devise-and-json-web-tokens" target="_blank">Rails 7 API auth with Devise and JSON Web Tokens</a>, I over how to handle authentication with our API and after this one we'll create a basic frontend client to use this API from.<br /> Until then feel free to experiment with your newly acquired skill of course !
 
 Cheers !
