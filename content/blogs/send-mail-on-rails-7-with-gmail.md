@@ -14,7 +14,7 @@
 
 # Send mail on Rails 7 with Gmail
 
-### How to send mail with your gmail address from your Ruby on Rails application using ActiveMailer.
+<h3>How to send mail with your gmail address from your Ruby on Rails application using ActiveMailer.</h3>
 
 I was trying to implement Rails' ActiveMailer to send mail from a project of mine with my gmail address and I was surprised how what should have been a simple task ended up being a pain in the ass just because I couldn't find a recent and detailed enough guide on how to enable SMTP mailing with Rails.
 

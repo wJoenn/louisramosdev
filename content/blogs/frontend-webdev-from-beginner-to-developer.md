@@ -10,7 +10,7 @@
 
 # Frontend WebDev, from beginner to developer
 
-### A detailed roadmap on every steps required to become a ready for production Frontend Developer.
+<h3>A detailed roadmap on every steps required to become a ready for production Frontend Developer.</h3>
 
 Over the past few months I've met a lot of people that wanted to either learn Frontend development from scratch, or switch over from Backend, but wasn't sure where to start and what they should expect to learn along the way.<br />
 I talked to some of those about it and ended up building a roadmap that would go over this topic through my discussions with them and I'd like to share it to a broader audience now.

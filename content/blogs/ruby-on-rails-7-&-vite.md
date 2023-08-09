@@ -15,7 +15,7 @@
 
 # Ruby on Rails 7 & Vite
 
-### How to setup a Rails application with Sass, Stimulus and Vite.
+<h3>How to setup a Rails application with Sass, Stimulus and Vite.</h3>
 
 During my bootcamp at LeWagon we were introduced to a Rails workflow using Sprockets and Webpack (jsbundling-rails).<br />
 

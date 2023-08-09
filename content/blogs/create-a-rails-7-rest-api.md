@@ -15,7 +15,7 @@
 
 # Create a Rails 7 REST API
 
-### First step out of three in creating a Vue on Rails application with authentication.
+<h3>First step out of three in creating a Vue on Rails application with authentication.</h3>
 
 Rails is known for being a powerful full stack framework to build applications with and its frontend developer experience and performance has increased a lot with the help of Hotwire and new bundling solutions such as importmap, jsbundling or <a href="/blogs/ruby-on-rails-7-and-vite" target="_blank">vite_rails</a>.
 

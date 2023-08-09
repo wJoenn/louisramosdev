@@ -1,6 +1,6 @@
 ---
   title: Rails 7 API auth with Devise and JSON Web Tokens
-  description: Adding secured authentication to our Rails api with the devise and devise_jwt gems.
+  description: Adding secured authentication to our Rails API with the devise and devise_jwt gems.
   cover_url: /images/blogs/devise_jwt.png
   date: 1691445600
   resources:
@@ -15,7 +15,7 @@
 
 # Rails 7 API auth with Devise and JSON Web Tokens
 
-### Adding secured authentication to our Rails api with the devise and devise_jwt gems.
+<h3>Adding secured authentication to our Rails API with the devise and devise_jwt gems.</h3>
 
 In the previous article of this serie, <a href="/blogs/create-a-rails-7-rest-api" target="_blank">Create a Rails 7 REST API</a>, we made an API that can create, destroy and complete a given task as well as return a list of all of our tasks. The application is basic but the concepts applied can be reproduced for most of the logic you'd need from your API.
 
@@ -42,9 +42,9 @@ bin/rails generate devise:install
 ```
 
 We'll get a few instructions in our terminal after running the latter command but the only one we need to pay attention to is the first one.<br />
-Devise can use ActionMailer to send confirmation mail and such so in case you want to use that we need to make sure that the default url for ActionMailer is configured properly.
+Devise can use ActionMailer to send confirmation mail and such so in case you want to use that we need to make sure that the default URL for ActionMailer is configured properly.
 
-Let's go to our `config/environments/development.rb`, there you should find some existing configurations for ActionMailer, let's add this new one in there.
+Let's go to our `api/config/environments/development.rb`, there you should find some existing configurations for ActionMailer, let's add this new one in there.
 ```ruby [api/config/environment/development.rb]
 Rails.application.configure do
   ...
@@ -185,7 +185,7 @@ Processing by Devise::SessionsController#new as */*
 Completed 200 OK in 47ms (Views: 0.1ms | ActiveRecord: 8.2ms | Allocations: 8947)
 ```
 
-That's good. This means the `before_authenticate!` is working.<br />
+That's good. This means the `#authenticate_user!` is working.<br />
 Time to handle the authentication itself now !
 
 ## Configuring Devise's controllers
@@ -210,7 +210,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     elsif request.method == "POST" && resource.persisted?
       # current_user is created successfully
       render json: {
-        user: current_user
+        user: resource
       }, status: :ok
     else
       # current_user is not created successfully
@@ -248,11 +248,11 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
-  def respond_with(_resource, _opts = {})
-    if current_user
+  def respond_with(resource, _opts = {})
+    if resource
       # current_user is logged in successfully
       render json: {
-        user: current_user
+        user: resource
       }, status: :ok
     else
       # current_user is not logged in successfully
@@ -277,7 +277,7 @@ end
 
 Because of the way Devise handles <a href="https://github.com/heartcombo/devise/blob/main/app/controllers/devise/sessions_controller.rb" target="_blank">failed login</a> attemps we also need to overwrite its <a href="https://github.com/heartcombo/devise/blob/main/lib/devise/failure_app.rb" target="_blank">FailureApp</a> and we'll make it use our `Users:SessionsController#respond_with` `else` statement instead.
 
-Create a `api/app/lib/users/failure_app.rb` file then add the following code.
+Create a `app/lib/users/failure_app.rb` file then add the following code.
 ```ruby [api/app/lib/users/failure_app.rb]
 class Users::FailureApp < Devise::FailureApp
   def http_auth
@@ -327,13 +327,13 @@ Now if we go to <a href="https://www.postman.com/" target="_blank">Postman</a> a
 }
 ```
 
-For the rest we'll need to enable JSON Web Tokens so let's move on to our final step
+For the rest we'll need to enable JSON Web Tokens so let's move on to our final step.
 
 ## Adding JWT protocol to Devise
 
 Devise_jwt offers multiple <a href="https://github.com/waiting-for-dev/devise-jwt#revocation-strategies" target="_blank">JWT revocation strategies</a>. I've used the Denylist and the JTIMatcher in the past and I'm found of the latter so that's the one I'm gonna go with in this example but feel free to check out the others later and choose what fits your needs best of course.
 
-Let's add a new column to our `users` table called `jti` and enable the strategy in our `User` model
+Let's add a new column to our `users` table called `jti` and enable the strategy in our `User` model.
 ```bash
 bin/rails generate migration AddJtiToUsers
 ```
@@ -533,7 +533,7 @@ After signing out if we try to use the same Bearer Token again to create a new T
 
 If all of these Postman requests acted as expected then it means that everything is set up properly. Your Rails REST API now enabled secure authentication with Devise and JWT.
 
-The next step will be to finally use this API in our frontend application but that'll be in a new article, this one already's long enough and to be perfectly honest with you it's 2am at the time I'm finishing those lines and I still need to check for typos. Oops
+The next step will be to finally use this API in our frontend application but that'll be in a new article, this one's already long enough and to be perfectly honest with you it's 2am at the time I'm finishing those lines and I still need to check for typos. Oops
 
 Anyway, good job on following along this guide. Next and final step of our ToDo list application soon.
 
