@@ -17,14 +17,14 @@
 
 ### Adding secured authentication to our Rails api with the devise and devise_jwt gems.
 
-In the previous article of this serie, <a href="/blogs/create-a-rails-7-rest-api" target="_blank">Create a Rails 7 REST API</a>, we created an API that can create, destroy and complete a given task as well as return a list of all of our tasks. The application is basic but the concepts applied can basically be reproduced for most of the logic you'd need from your API.
+In the previous article of this serie, <a href="/blogs/create-a-rails-7-rest-api" target="_blank">Create a Rails 7 REST API</a>, we made an API that can create, destroy and complete a given task as well as return a list of all of our tasks. The application is basic but the concepts applied can be reproduced for most of the logic you'd need from your API.
 
 An exception to this is going to be authentication.<br />
 Authentication is a complex topic that requires thorough security measures to ensure the users' personal data is safe. Most of the time this is something you'll want to use a dedicated tool for and in Rails application the most widely used auth tool is <a href="https://github.com/heartcombo/devise" target="_blank">Devise</a>.
 
-Devise works really well in a Fullstack Rails application but it wasn't made to work with an API. The problem is that when working with an API the user needs to pass down data from the Client to the API and we need to secure this data transfer too. There are a couple ways to do that but the one I'm gonna go with in this article is called JSON Web Tokens, or `JWT` for short, and we have a wonderful pair that to Devise with the help of <a href="https://github.com/waiting-for-dev/devise-jwt" target="_blank">devise_jwt</a>.
+Devise works really well in a Fullstack Rails application but it wasn't made to work with an API. The problem is that when working with an API the user needs to pass down data from the Client to the API and we need to secure this data transfer too. There are a couple ways to do this but the one I'm gonna go with in this article is called JSON Web Tokens, or `JWT` for short, and we have a wonderful way to pair that to Devise with the help of <a href="https://github.com/waiting-for-dev/devise-jwt" target="_blank">devise_jwt</a>.
 
-Alright let's begin by installing Devise to our existing API first and change a couple things in our `Task` model at the same time.
+Alright let's begin by installing Devise to our existing API and change a couple things in our `Task` model at the same time.
 
 ## Installing Devise
 
@@ -35,14 +35,14 @@ gem "devise"
 gem "devise-jwt"
 ```
 
-Can can then install Devise like so
+We can then install Devise like so
 ```bash
 bin/bundle install
 bin/rails generate devise:install
 ```
 
 We'll get a few instructions in our terminal after running the latter command but the only one we need to pay attention to is the first one.<br />
-Devise can use ActionMailer to send confirmation mail and such if you want to configure that so we need to make sure that the default url for ActionMailer is configured properly.
+Devise can use ActionMailer to send confirmation mail and such so in case you want to use that we need to make sure that the default url for ActionMailer is configured properly.
 
 Let's go to our `config/environments/development.rb`, there you should find some existing configurations for ActionMailer, let's add this new one in there.
 ```ruby [api/config/environment/development.rb]
@@ -70,11 +70,10 @@ Devise.setup do |config|
 end
 ```
 
-Now that Devise is installed we can generate a new `User` model and add a user to foreign key to our tasks table.
+Now that Devise is installed we can generate a new `User` model and add a user foreign key to our tasks table.
 ```bash
 bin/rails generate devise User
 bin/rails generate migration AddUserToTasks user:references
-bin/rails db:migrate
 ```
 
 ```ruby [api/db/migrate/..._devise_create_users.rb]
@@ -102,16 +101,6 @@ Rails.application.routes.draw do
 end
 ```
 
-```ruby [api/db/migrate/..._add_user_to_tasks.rb]
-class AddUserToTasks < ActiveRecord::Migration[7.0]
-  def change
-    Task.destroy_all
-
-    add_reference :tasks, :user, null: false, foreign_key: true
-  end
-end
-```
-
 ```ruby [api/app/model/user.rb]
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
@@ -122,15 +111,29 @@ class User < ApplicationRecord
 end
 ```
 
+```ruby [api/db/migrate/..._add_user_to_tasks.rb]
+class AddUserToTasks < ActiveRecord::Migration[7.0]
+  def change
+    Task.destroy_all
+
+    add_reference :tasks, :user, null: false, foreign_key: true
+  end
+end
+```
+
 ```ruby [api/app/model/task.rb]
 class Task < ApplicationRecord
   belongs_to :user
 end
 ```
 
-The reason I destroyed all the Task instances in the `AddUserToTasks` migration is because I then set the `user_id` column so that it cannot be null and I set the users' tasks to be destroyed if their user is destroyed. This means no task without a user can exist and at this point any Task we could have had wouldn't have a user_id.
+```bash
+bin/rails db:migrate
+```
 
-Now that the models are ready we'll also edit our controllers to require authetication and to only share the current logged in user's data.
+The reason I destroyed all the Task instances in the `AddUserToTasks` migration is because I then set the `user_id` column yo not be null and I set the users' tasks to be destroyed if their user is destroyed. This means no task without a user can exist and at this point any Task we could have had wouldn't have a user_id.
+
+Now that the models are ready we'll also edit our controllers to require authentication and to only share the current logged in user's data.
 
 ```ruby [api/app/controllers/application_controller.rb]
 class ApplicationController < ActionController::API
@@ -299,7 +302,7 @@ Devise.setup do |config|
 end
 ```
 
-Back to <a href="https://www.postman.com/" target="_blank">Postman</a> we can now sign up and sign in to our API.
+Now if we go to <a href="https://www.postman.com/" target="_blank">Postman</a> again, we can sign up and sign in to our API.
 ```json
 // POST /users { headers: { "Content-Type": "application/json" }, body: { "user": { "email": "user@example.com", "password": "password", "password_confirmation": "password" } } }
 {
@@ -367,7 +370,7 @@ class User < ApplicationRecord
 end
 ```
 
-We'll also need to add a new encryption key to our Rails credentials (more about Rails credentials <a href="/blogs/send-mail-on-rails-7-with-gmail#storing-our-google-credentials-safely" target="_blank">here</a> if you're unsure what they are) and configure JWT in Devise's initializer file.
+We'll also need to add a new secret key to our Rails credentials (more about Rails credentials <a href="/blogs/send-mail-on-rails-7-with-gmail#storing-our-google-credentials-safely" target="_blank">here</a> if you're unsure what they are) and configure JWT in Devise's initializer file.
 
 Firstly run this command to generate a new secret key and copy it.
 ```bash
@@ -417,7 +420,7 @@ end
 Rails.application.routes.draw do
   ...
 
-  get "current_user", to: "users/current_user#index"
+  get "users/current_user", to: "users/current_user#index"
 
   ...
 end
@@ -477,9 +480,9 @@ end
 ```
 
 
-And we are finally done !
+And we are done !
 
-Logging in with <a href="https://www.postman.com/" target="_blank">Postman</a> again will reveal a new `header` in the response's "Headers" tab.
+Signing in with <a href="https://www.postman.com/" target="_blank">Postman</a> again will reveal a new `header` in the response's "Headers" tab.
 ```json
 // POST /users/sign_in { headers: { "Content-Type": "application/json" }, body: { "user": { "email": "user@example.com", "password": "password" } } }
 "Authorization": "Bearer ..."
