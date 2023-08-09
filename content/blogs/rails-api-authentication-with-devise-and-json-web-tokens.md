@@ -2,7 +2,7 @@
   title: Rails 7 API auth with Devise and JSON Web Tokens
   description: Adding secured authentication to our Rails api with the devise and devise_jwt gems.
   cover_url: /images/blogs/devise_jwt.png
-  date: 1691440996
+  date: 1691445600
   resources:
     - ["Devise documentation", "https://github.com/heartcombo/devise/wiki"]
     - ["JWT revocation strategies", "https://waiting-for-dev.github.io/blog/2017/01/24/jwt_revocation_strategies"]
@@ -11,7 +11,7 @@
 ---
 
 <img src="/images/blogs/devise_jwt.png" alt="Frontend Development banner" width="800">
-<em class="date">August 7th 2023</em>
+<em class="date">August 8th 2023</em>
 
 # Rails 7 API auth with Devise and JSON Web Tokens
 
