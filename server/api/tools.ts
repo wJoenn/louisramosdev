@@ -1,120 +1,210 @@
 export default defineEventHandler(() => {
   const frontendTools = [
-    { name: "Sass",
+    {
+      name: "Sass",
       description: "A CSS preprocessor with features like variables, nesting, mixins, and more",
-      image_url: "/images/logos/sass.png",
+      image_url: "sass.png",
       url: "https://sass-lang.com/"
     },
-    { name: "TailwindCSS",
+    {
+      name: "TailwindCSS",
       description: "A highly customizable, utility-first CSS framework that provides a set of pre-built CSS classes.",
-      image_url: "/images/logos/tailwindcss.png",
+      image_url: "tailwindcss.png",
       url: "https://tailwindcss.com/"
     },
-    { name: "PostCSS",
+    {
+      name: "PostCSS",
       description: "A tool for transforming CSS with JavaScript",
-      image_url: "/images/logos/postcss.png",
+      image_url: "postcss.png",
       url: "https://postcss.org/"
     },
-    { name: "TypeScript",
+    {
+      name: "TypeScript",
       description: "A superset of JavaScript that adds static type checking",
-      image_url: "/images/logos/typescript.png",
+      image_url: "typescript.png",
       url: "https://www.typescriptlang.org/"
     },
-    { name: "Vue.js",
+    {
+      name: "Vue.js",
       description: "A progressive JavaScript framework for building user interfaces",
-      image_url: "/images/logos/vue.png",
+      image_url: "vue.png",
       url: "https://vuejs.org/"
     },
-    { name: "Nuxt",
+    {
+      name: "Nuxt",
       description: "A meta-framework for Vue.js that provides SSR, routing, and other powerful features",
-      image_url: "/images/logos/nuxt.png",
+      image_url: "nuxt.png",
       url: "https://nuxt.com/"
     },
-    { name: "Pinia",
+    {
+      name: "Pinia",
       description: "A state management solution for Vue.js applications",
-      image_url: "/images/logos/pinia.png",
+      image_url: "pinia.png",
       url: "https://pinia.vuejs.org/"
     },
-    { name: "Vite",
+    // {
+    //   name: "Vue Query",
+    //   description: "A data-fetching and state management library for Vue.js applications",
+    //   image_url: "vue_query.png",
+    //   url: "https://vue-query.vercel.app/#/"
+    // },
+    {
+      name: "Vite",
       description: "A lightning-fast JavaScript bundler and development server",
-      image_url: "/images/logos/vite.png",
+      image_url: "vite.png",
       url: "https://vitejs.dev/"
     },
-    { name: "Yarn",
-      description: "A fast and reliable package manager for JavaScript projects",
-      image_url: "/images/logos/yarn.png",
-      url: "https://classic.yarnpkg.com/en/"
-    },
-    { name: "esLint",
+    // {
+    //   name: "Vitest",
+    //   description: "A lightweight and intuitive testing library build on Vite",
+    //   image_url: "vitest.png",
+    //   url: "https://vitest.dev/"
+    // },
+    // {
+    //   name: "Cypress",
+    //   description: "An end-to-end testing framework for web applications",
+    //   image_url: "cypress.png",
+    //   url: "https://www.cypress.io/"
+    // },
+    {
+      name: "esLint",
       description: "A configurable JavaScript linter to enforce code quality and best practices",
-      image_url: "/images/logos/eslint.png",
+      image_url: "eslint.png",
       url: "https://eslint.org/"
     },
-    { name: "Netlify",
+    // {
+    //   name: "PNPM",
+    //   description: "A package manager for JavaScript projects that emphasizes speed and disk space efficiency",
+    //   image_url: "pnpm.png",
+    //   url: "https://pnpm.io/"
+    // },
+    {
+      name: "Yarn",
+      description: "A fast and reliable package manager for JavaScript projects",
+      image_url: "yarn.png",
+      url: "https://classic.yarnpkg.com/en/"
+    },
+    {
+      name: "Netlify",
       description: "A powerful hosting platform and continuous deployment solution for web applications",
-      image_url: "/images/logos/netlify.png",
+      image_url: "netlify.png",
       url: "https://www.netlify.com/"
     }
   ]
 
   const backendTools = [
-    { name: "Ruby",
+    {
+      name: "Ruby",
       description: "An object-oriented language known for its simplicity and readability",
-      image_url: "/images/logos/ruby.png",
+      image_url: "ruby.png",
       url: "https://www.ruby-lang.org/en/"
     },
-    { name: "Sinatra",
+    {
+      name: "Sinatra",
       description: "A lightweight web application framework for Ruby",
-      image_url: "/images/logos/sinatra.png",
+      image_url: "sinatra.png",
       url: "https://sinatrarb.com/"
     },
-    { name: "Ruby on Rails",
+    {
+      name: "Ruby on Rails",
       description: "A batteries included full-stack web framework built on Ruby",
-      image_url: "/images/logos/rails.png",
+      image_url: "rails.png",
       url: "https://rubyonrails.org/"
     },
-    { name: "RSpec",
+    {
+      name: "RSpec",
       description: "A behavior-driven development framework for writing expressive and readable tests",
-      image_url: "/images/logos/rspec.png",
+      image_url: "rspec.png",
       url: "https://rspec.info/"
     },
-    { name: "Rubocop",
+    {
+      name: "Rubocop",
       description: "A code analyzer for Ruby that enforces consistent coding styles and best practices",
-      image_url: "/images/logos/rubocop.png",
+      image_url: "rubocop.png",
       url: "https://rubocop.org/"
     },
-    { name: "PostgreSQL",
+    // {
+    //   name: "Node.js",
+    //   description: "A runtime environment that allows executing JavaScript code on the server side",
+    //   image_url: "node.png",
+    //   url: "https://nodejs.org/fr/about"
+    // },
+    // {
+    //   name: "Express.js",
+    //   description: "A minimal and flexible web application framework for Node.js",
+    //   image_url: "express.png",
+    //   url: "https://expressjs.com/"
+    // },
+    // {
+    //   name: "AdonisJS",
+    // eslint-disable-next-line max-len, vue/max-len
+    //   description: "A full-featured web application framework for Node.js that follows conventions for building applications",
+    //   image_url: "adonis.png",
+    //   url: "https://adonisjs.com/"
+    // },
+    // {
+    //   name: "Golang",
+    // eslint-disable-next-line max-len, vue/max-len
+    //   description: "A statically typed programming language known for its efficiency, simplicity, and strong performance characteristics",
+    //   image_url: "golang.png",
+    //   url: "https://go.dev/"
+    // },
+    // {
+    //   name: "MongoDB",
+    //   description: "A popular NoSQL database system that stores data in a flexible, document-oriented format",
+    //   image_url: "mongodb.png",
+    //   url: "https://www.mongodb.com/"
+    // },
+    {
+      name: "PostgreSQL",
       description: " An open-source relational database management system",
-      image_url: "/images/logos/postgresql.png",
+      image_url: "postgresql.png",
       url: "https://www.postgresql.org/"
     },
-    { name: "Fly.io",
+    // {
+    //   name: "Prisma",
+    //   description: "An open-source database toolkit that simplifies database access and management",
+    //   image_url: "prisma.png",
+    //   url: "https://www.prisma.io/"
+    // },
+    {
+      name: "Fly.io",
       description: "A platform for deploying and scaling applications globally",
-      image_url: "/images/logos/flyio.png",
+      image_url: "flyio.png",
       url: "https://fly.io/"
     }
   ]
 
   const otherTools = [
-    { name: "Git",
+    {
+      name: "Git",
       // eslint-disable-next-line max-len, vue/max-len
       description: "A distributed version control system designed to track changes in source code during software development",
-      image_url: "/images/logos/git.png",
+      image_url: "git.png",
       url: "https://git-scm.com/"
     },
-    { name: "Github",
+    {
+      name: "Github",
       description: "A web-based hosting service for Git repositories",
-      image_url: "/images/logos/github.png",
+      image_url: "github.png",
       url: "https://github.com/"
     },
-    { name: "VSCode",
+    // {
+    //   name: "Docker",
+    //   description: "A platform for developing, shipping, and running applications in containers",
+    //   image_url: "docker.png",
+    //   url: "https://www.docker.com/"
+    // },
+    {
+      name: "VSCode",
       description: "A lightweight yet powerful source code editor developed by Microsoft",
-      image_url: "/images/logos/vscode.png",
+      image_url: "vscode.png",
       url: "https://code.visualstudio.com/"
     },
-    { name: "WSL2",
+    {
+      name: "WSL2",
       description: "A compatibility layer that enables running a Linux kernel and user space on Windows",
-      image_url: "/images/logos/linux.png",
+      image_url: "linux.png",
       url: "https://learn.microsoft.com/en-us/windows/wsl/"
     }
   ]
