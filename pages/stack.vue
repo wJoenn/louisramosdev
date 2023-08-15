@@ -22,7 +22,7 @@
       </Transition>
 
       <Transition appear @before-enter="beforeEnter" @enter="enter">
-        <section v-if="backendTools" id="backend" :data-delay="frontendTools?.length">
+        <section v-if="backendTools" id="backend" :data-delay="calculateDelay(frontendTools)">
           <h2>Backend</h2>
 
           <TransitionGroup appear tag="ul" @before-enter="beforeEnter" @enter="enter">
@@ -34,8 +34,9 @@
       </Transition>
 
       <Transition appear @before-enter="beforeEnter" @enter="enter">
-        <section v-if="otherTools" id="other" :data-delay="(frontendTools?.length || 0) + (backendTools?.length || 0)">
+        <section v-if="otherTools" id="other" :data-delay="calculateDelay(frontendTools, backendTools)">
           <h2>Other Tools</h2>
+
           <TransitionGroup appear tag="ul" @before-enter="beforeEnter" @enter="enter">
             <li v-for="(tool, index) in otherTools" :key="tool.name" :data-delay="index + (frontendTools?.length || 0) + (backendTools?.length || 0)">
               <ToolCard :tool="tool" />
@@ -44,14 +45,18 @@
         </section>
       </Transition>
 
-      <Transition appear name="foot" @before-enter="beforeEnter" @enter="enter">
-        <p v-if="data" :data-delay="(frontendTools?.length || 0) + (backendTools?.length || 0) + (otherTools?.length || 0)">There are more tools that I'd like to get into in the near future like <a href="https://vitest.dev/" target="_blank">Vitest</a>, <a href="https://nodejs.org/en" target="_blank">Node.js</a>, <a href="https://www.docker.com/" target="_blank">Docker</a> and <a href="https://go.dev/" target="_blank">Golang</a> but that's it for now.</p>
+      <Transition appear @before-enter="beforeEnter" @enter="enter">
+        <p v-if="data" :data-delay="calculateDelay(frontendTools, backendTools, otherTools)">
+          There are more tools that I'd like to get into in the near future like <a href="https://vitest.dev/" target="_blank">Vitest</a>, <a href="https://nodejs.org/en" target="_blank">Node.js</a>, <a href="https://www.docker.com/" target="_blank">Docker</a> and <a href="https://go.dev/" target="_blank">Golang</a> but that's it for now.
+        </p>
       </Transition>
     </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
+  import Tool from "../types/Tool.ts"
+
   useHead({
     meta: [{
       name: "description",
@@ -79,6 +84,10 @@
       htmlElement.classList.remove("before-enter")
     }, 500)
   }
+
+  const calculateDelay = (feTools: Tool[] = [], beTools: Tool[] = [], otTools: Tool[] = []): number => (
+    feTools.length + beTools.length + otTools.length
+  )
 </script>
 
 <style scoped lang="scss">

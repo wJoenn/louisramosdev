@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
   const emit = defineEmits(["close"])
+
   defineProps<{
     src: string
   }>()
@@ -18,7 +19,7 @@
     if (event.key === "Escape") { emit("close") }
   }
 
-  onMounted(() => {
+  onBeforeMount(() => {
     const app = document.querySelector("#app") as HTMLDivElement
     app.style.overflowY = "hidden"
 

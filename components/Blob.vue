@@ -7,18 +7,20 @@
   const isSafari = ref(false)
 
   const moveBlob = (x: number, y: number) => {
-    if (isSafari.value && blob.value) {
-      blob.value.style.left = `${x}px`
-      blob.value.style.top = `${y}px`
-    } else {
-      blob.value?.animate({
-        left: `${x}px`,
-        top: `${y}px`
-      }, { duration: 3000, fill: "forwards" })
+    if (blob.value) {
+      if (isSafari.value) {
+        blob.value.style.left = `${x}px`
+        blob.value.style.top = `${y}px`
+      } else {
+        blob.value.animate({
+          left: `${x}px`,
+          top: `${y}px`
+        }, { duration: 3000, fill: "forwards" })
+      }
     }
   }
 
-  onMounted(() => {
+  onBeforeMount(() => {
     isSafari.value = !navigator.userAgent.includes("Chrome") && navigator.userAgent.includes("Safari")
 
     window.addEventListener("pointermove", event => {

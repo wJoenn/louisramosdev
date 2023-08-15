@@ -7,9 +7,9 @@
       </div>
 
       <nav>
-        <NuxtLink to="/" :class="{ current: route.name === 'index' }">Home</NuxtLink>
-        <NuxtLink to="/blogs" :class="{ current: (route.name as string).includes('blogs') }">Blogs</NuxtLink>
-        <NuxtLink to="/stack" :class="{ current: route.name === 'stack' }">Stack</NuxtLink>
+        <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/blogs" :class="{ current: isBlog }">Blogs</NuxtLink>
+        <NuxtLink to="/stack">Stack</NuxtLink>
       </nav>
     </div>
   </header>
@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
   const route = useRoute()
+  const isBlog = computed(() => (route.name as string).includes("blogs"))
 </script>
 
 <style scoped lang="scss">
@@ -56,7 +57,7 @@
           color: $secondary-color;
           transition: color 0.3s ease;
 
-          &.current {
+          &.current, &.router-link-active {
             color: $light-nuxt-green;
 
             &:hover {

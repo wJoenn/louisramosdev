@@ -11,12 +11,7 @@
 </template>
 
 <script setup lang="ts">
-  interface Tool {
-    name: string
-    description: string
-    image_url: string
-    url: string
-  }
+  import Tool from "../types/Tool.ts"
 
   defineProps<{ tool: Tool }>()
 </script>

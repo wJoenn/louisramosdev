@@ -3,16 +3,15 @@
     <span><fai icon="fa-solid fa-book-open" /> More resources</span>
     <h3>Want to read more ?</h3>
 
-    <nav :class="{ visible: show }">
+    <nav :class="{ visible: showPanel }">
       <a v-for="[title, url] in resources" :key="title" :href="url" target="_blank">
-        {{ title }}
-        <fai icon="fa-solid fa-up-right-from-square" />
+        {{ title }} <fai icon="fa-solid fa-up-right-from-square" />
       </a>
     </nav>
 
-    <button @click="show = !show">
-      <fai icon="fa-solid fa-chevron-down" :class="{ inverted: show }" />
-      {{ show ? "Hide" : "Show" }} resources
+    <button @click="showPanel = !showPanel">
+      <fai icon="fa-solid fa-chevron-down" :class="{ inverted: showPanel }" />
+      {{ showPanel ? "Hide" : "Show" }} resources
     </button>
   </div>
 </template>
@@ -22,8 +21,8 @@
 
   const { resources } = toRefs(props)
 
-  const show = ref(false)
-  const maxHeight = computed(() => `${resources.value.length * 35}px`)
+  const showPanel = ref(false)
+  const navMaxHeight = computed(() => `${resources.value.length * 35}px`)
 </script>
 
 <style scoped lang="scss">
@@ -83,7 +82,7 @@
 
       &.visible {
         margin: 10px 0;
-        max-height: v-bind(maxHeight);
+        max-height: v-bind(navMaxHeight);
         opacity: 1;
       }
 

@@ -46,14 +46,17 @@
     .limit(3)
     .find() as Blog[]
 
+  let repeat: NodeJS.Timer
+  const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const title = ref<HTMLSpanElement | null>(null)
   const subtitle = ref<HTMLHeadingElement | null>(null)
 
-  const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const shuffleText = (...elements: HTMLElement[]) => {
     elements.forEach(element => {
       const initialText = element.dataset.text as string
-      const intervalRepeat = 1 / (4 + ((Math.round(initialText.length - 10) / 10) * -2))
+
+      // This interval progress ensure that all elements begin and end their animation at the same time.
+      const intervalProgress = 1 / (4 + (initialText.length - 10) / 10 * -2)
 
       let i = 0
       const interval = setInterval(() => {
@@ -65,12 +68,11 @@
 
         if (i >= initialText.length) { clearInterval(interval) }
 
-        i += intervalRepeat
+        i += intervalProgress
       }, 30)
     })
   }
 
-  let repeat: NodeJS.Timer
   onMounted(() => {
     shuffleText(title.value!, subtitle.value!)
 
