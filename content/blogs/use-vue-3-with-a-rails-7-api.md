@@ -20,13 +20,13 @@ In my past two articles, I <a href="/blogs/create-a-rails-7-rest-api" target="_b
 
 It's finally time to get this to good use and build our frontend application.
 
-I am a <a href="https://vuejs.org/" target="_blank">Vue</a> dev so that's what I'm gonna go with in this article but I'll try to make it relevant for other frameworks too by talking about the concepts involved in using an api in our client app. I'll also use <a href="https://pinia.vuejs.org/" target="_blank">Pinia</a> to handle Client Side State Management which will help enable our user's state to persist through pages.
+I am a <a href="https://vuejs.org/" target="_blank">Vue</a> dev so that's what I'm gonna go with in this article but I'll try to make it relevant for other frameworks too by talking about the concepts involved in using an API in our client app. I'll also use <a href="https://pinia.vuejs.org/" target="_blank">Pinia</a> to handle Client Side State Management which will help enable our user's state to persist through pages.
 
 Now that the introduction is done, let's get building.
 
 ## Creating a Vue app
 
-The simplest way to create a Vue app nowadays, and the simplest way to create an app with any other SPA Framework really, is to use <a href="https://www.npmjs.com/package/create-vite" target="_blank">create-vite</a>. This time though, because I know I'll be using some Vue specific packages, Vue Router and Pinia, I'll use <a href="https://www.npmjs.com/package/create-vue" target="_blank">create-vue</a> instead which can install those for us automatically.
+The simplest way to create a Vue app nowadays, and the simplest way to create an app with any other SPA framework really, is to use <a href="https://www.npmjs.com/package/create-vite" target="_blank">create-vite</a>. This time though, because I know I'll be using some Vue specific packages, Vue Router and Pinia, I'll use <a href="https://www.npmjs.com/package/create-vue" target="_blank">create-vue</a> instead which can install those for us automatically.
 
 Let's get back inside the `to-do-list` repository which already contains our Rails API and a couple executable `bin` files and create a new `client` directory for our Vue client.
 ```bash
@@ -164,23 +164,7 @@ Any change you want to apply to the state of a Store is best done through an act
 const useUserStore = defineStore("UserStore", () => {
   ...
 
-  // actions
-    const loginWithToken = async (token) => {
-    try {
-      const response = await fetch(`${API_URL}/current_user`, { headers: { Authorization: token } })
-
-      if (!response.ok) {
-        throw new Error("Invalid Bearer Token")
-      }
-
-      const data = await response.json()
-      user.value = data.user
-      bearerToken.value = token
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  // action
   const login = params => postRequest("/users/sign_in", params)
 
   const signup = params => postRequest("/users", params)
@@ -206,6 +190,29 @@ const useUserStore = defineStore("UserStore", () => {
       localStorage.bearerToken = bearerToken.value
     } catch (error) {
       return { error }
+    }
+  }
+
+  const loginWithToken = async () => {
+    const token = localStorage.bearerToken
+    const tokenExists = token !== undefined && token !== null
+
+    if (tokenExists) {
+      try {
+        const response = await fetch(`${API_URL}/current_user`, {
+          headers: { Authorization: token }
+        })
+
+        if (!response.ok) {
+          throw new Error("Invalid Bearer Token")
+        }
+
+        const data = await response.json()
+        user.value = data.user
+        bearerToken.value = token
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 
@@ -249,20 +256,12 @@ import App from "./App.vue"
 import router from "./router"
 import useUserStore from "./stores/UserStore.js"
 
-const authenticateUser = async () => {
-  const bearerToken = localStorage.bearerToken
-  const bearerTokenExists = bearerToken !== undefined && bearerToken !== null
-
-  if (bearerTokenExists) {
-    await useUserStore().loginWithToken(bearerToken)
-  }
-}
-
 const app = createApp(App)
 
 app.use(createPinia())
 
-authenticateUser()
+useUserStore()
+  .loginWithToken()
   .then(() => {
     app
       .use(router)
@@ -533,7 +532,10 @@ We've already tested all the endpoints of our API on Postman when we created the
   }
 
   onBeforeMount(async () => {
-    const response = await fetch(`${API_URL}/tasks`, { headers: { Authorization: bearerToken.value } })
+    const response = await fetch(`${API_URL}/tasks`, {
+      headers: { Authorization: bearerToken.value }
+    })
+
     const data = await response.json()
     tasks.value = data.tasks
   })
@@ -541,7 +543,7 @@ We've already tested all the endpoints of our API on Postman when we created the
 ```
 <p class="sidenote mt-20">
   For non Vue users : `ref` is a way to define a reactive variable. This means that if its value is updated it will also update the DOM. `toRefs` is a way to deconstruct a reactive Object into `ref` variables which makes it easier to use. Without `toRefs` we'd need to do `useUserStore().bearerToken` everytime we want to access it. And `computed` is a readonly reactive variable.<br />
-  If interested, you can read more about Vue's <a href="https://vuejs.org/api/reactivity-core.html#ref" target="_blank">Reactivity API</a>.
+  If interested you can read more about Vue's <a href="https://vuejs.org/api/reactivity-core.html#ref" target="_blank">Reactivity API</a>.
 </p>
 
 And at long last, here we are with our working Vue on Rails To do list application !
