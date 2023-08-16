@@ -20,16 +20,14 @@
   definePageMeta({ middleware: ["router"] })
 
   const route = useRoute()
-  const { data: blog } = await useAsyncData("blog", () => (
-    queryContent(route.path)
-      .only(["title", "description", "cover_url", "resources", "_path", "_id"])
-      .findOne() as Promise<Blog>
-  ))
+  const blog = await queryContent(route.path)
+    .only(["title", "description", "cover_url", "resources", "_path", "_id"])
+    .findOne() as Blog
 
   useServerSeoMeta({
-    ogDescription: blog.value?.description,
-    ogImage: `https://louisramos.dev${blog.value?.cover_url}`,
-    ogTitle: blog.value?.title,
+    ogDescription: blog.description,
+    ogImage: `https://louisramos.dev${blog.cover_url}`,
+    ogTitle: blog.title,
     ogType: "article",
     ogUrl: `https://louisramos.dev${route.path}`
   })
