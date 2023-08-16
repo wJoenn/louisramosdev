@@ -16,7 +16,7 @@
 
 <h3>How to set up a Vue client with client side state management for our Rails API and authentication.</h3>
 
-In my past two articles, I <a href="/blogs/create-a-rails-7-rest-api" target="_blank">created a Rails 7 REST API</a> that has `Task` model and a couple CRUD actions to create, destroy and complete a given task or to get a list of all existing tasks, and I <a href="/blogs/rails-api-authentication-with-devise-andèjson-web-tokens" target="_blank">added authentication with Devise and JWT</a> to this Rails API.
+In my past two articles, I <a href="/blogs/create-a-rails-7-rest-api" target="_blank">created a Rails 7 REST API</a> that has `Task` model and a couple CRUD actions to create, destroy and complete a given task or to get a list of all existing tasks, and I <a href="/blogs/rails-api-authentication-with-devise-and-json-web-tokens" target="_blank">added authentication with Devise and JWT</a> to this Rails API.
 
 It's finally time to get this to good use and build our frontend application.
 
