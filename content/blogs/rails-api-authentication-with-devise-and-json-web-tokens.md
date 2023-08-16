@@ -10,8 +10,8 @@
     - ["Create a Rails 7 REST API", "/blogs/create-a-rails-7-rest-api"]
 ---
 
-<img src="/images/blogs/devise_jwt.png" alt="Frontend Development banner" width="800">
-<em class="date">August 8th 2023</em>
+<img src="/images/blogs/devise_jwt.png" alt="JSON Web Token banner" width="800">
+<p class="sidenote">August 8th 2023</p>
 
 # Rails 7 API auth with Devise and JSON Web Tokens
 

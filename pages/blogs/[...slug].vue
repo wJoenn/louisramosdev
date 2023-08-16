@@ -114,14 +114,21 @@
         line-height: 35px;
         margin: 30px 0 0;
 
+        &.sidenote {
+          color: $secondary-color;
+          font-size: 0.8rem;
+          font-style: italic;
+          line-height: 16px;
+          margin: 0;
+
+          &.mt-20 {
+            margin-top: -20px;
+          }
+        }
+
         a {
           color: $light-nuxt-green;
         }
-      }
-
-      .date {
-        color: $secondary-color;
-        font-size: 0.8rem;
       }
 
       .embed {
