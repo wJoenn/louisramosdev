@@ -11,7 +11,7 @@
 ---
 
 <img src="/images/blogs/vite_rails.png" alt="Vite_rails banner" width="800">
-<em class="date">July 13th 2023</em>
+<p class="sidenote">July 13th 2023</p>
 
 # Ruby on Rails 7 & Vite
 
