@@ -12,7 +12,7 @@
     "upint": "yarn upgrade-interactive --latest"
   },
   "devDependencies": {
-    "@nuxt/content": "^2.7.2",
+    "@nuxt/content": "^2.8.2",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@types/node": "18.17.1",
