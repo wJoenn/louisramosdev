@@ -79,10 +79,10 @@ export default defineEventHandler(() => {
     //   url: "https://pnpm.io/"
     // },
     {
-      name: "Yarn",
-      description: "A fast and reliable package manager for JavaScript projects",
-      image_url: "yarn.png",
-      url: "https://classic.yarnpkg.com/en/"
+      name: "Bun",
+      description: "A fast JavaScript runtime, package manager, bundler and test runner",
+      image_url: "bun.png",
+      url: "https://bun.sh/"
     },
     {
       name: "Netlify",
