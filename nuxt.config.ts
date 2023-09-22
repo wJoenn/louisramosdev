@@ -19,8 +19,7 @@ export default defineNuxtConfig({
     quality: 80
   },
   modules: [
-    "@nuxt/content",
-    "@nuxt/image"
+    "@nuxt/content"
   ],
   typescript: {
     shim: false,
