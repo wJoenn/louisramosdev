@@ -8,12 +8,10 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint . --ext .vue,.js,.cjs,.mjs,.ts,.cts,.mts --max-warnings=0",
-    "tsc": "vue-tsc",
-    "upint": "yarn upgrade-interactive --latest"
+    "tsc": "vue-tsc"
   },
   "devDependencies": {
     "@nuxt/content": "^2.8.2",
-    "@nuxt/image": "1.0.0-rc.2",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@types/node": "18.17.1",
     "eslint": "^8.49.0",
@@ -28,5 +26,6 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3"
-  }
+  },
+  "trustedDependencies": ["sharp"]
 }
