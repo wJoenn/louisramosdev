@@ -85,10 +85,10 @@ export default defineEventHandler(() => {
       url: "https://bun.sh/"
     },
     {
-      name: "Netlify",
-      description: "A powerful hosting platform and continuous deployment solution for web applications",
-      image_url: "netlify.png",
-      url: "https://www.netlify.com/"
+      name: "Vercel",
+      description: "A platform that provides the tools, workflows, and infrastructure to build and deploy web apps",
+      image_url: "vercel.png",
+      url: "https://vercel.com/"
     }
   ]
 

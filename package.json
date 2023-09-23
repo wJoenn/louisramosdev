@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -12,6 +13,7 @@
   },
   "devDependencies": {
     "@nuxt/content": "^2.8.2",
+    "@nuxt/image": "rc",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@types/node": "18.17.1",
     "eslint": "^8.49.0",
@@ -25,7 +27,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/vue-fontawesome": "^3.0.3"
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@vercel/analytics": "^1.0.2"
   },
   "trustedDependencies": ["sharp"]
 }
