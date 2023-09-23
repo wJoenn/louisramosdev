@@ -13,7 +13,7 @@
         <p>When I'm not coding, I enjoy playing video games, reading mangas, and pursuing other geeky interests.</p>
       </div>
 
-      <img src="/images/pp.jpeg" alt="me" height="400" width="300">
+      <NuxtImg src="/images/pp.jpeg" alt="me" height="400" width="300" />
     </section>
 
     <section id="blogs">
