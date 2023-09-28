@@ -36,6 +36,7 @@
     "prefer-destructuring": "off",
     "object-curly-newline": "off",
     "quotes": ["error", "double"],
+    "quote-props": ["error", "consistent-as-needed"],
     "semi": ["error", "never"],
 
     "import/extensions": "off",

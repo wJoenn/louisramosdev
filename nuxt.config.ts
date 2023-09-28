@@ -8,6 +8,12 @@ export default defineNuxtConfig({
       "@fortawesome/free-solid-svg-icons"
     ]
   },
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false
+    }
+  ],
   content: {
     highlight: {
       theme: "dark-plus",
@@ -22,6 +28,11 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxt/image"
   ],
+  runtimeConfig: {
+    public: {
+      apiUrl: "https://the-hub.fly.dev"
+    }
+  },
   typescript: {
     shim: false,
     strict: true

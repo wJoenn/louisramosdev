@@ -6,9 +6,11 @@ import {
   faCheckDouble,
   faChevronDown,
   faCopy,
+  faTag,
   faUpRightFromSquare,
   faXmark
 } from "@fortawesome/free-solid-svg-icons"
+import { faFaceSmile } from "@fortawesome/free-regular-svg-icons"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 
 config.autoAddCss = false
@@ -19,8 +21,10 @@ library.add(
   faCheckDouble,
   faChevronDown,
   faCopy,
+  faTag,
   faUpRightFromSquare,
   faXmark,
+  faFaceSmile,
   faGithub,
   faLinkedin
 )
