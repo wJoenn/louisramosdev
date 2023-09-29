@@ -23,6 +23,9 @@
   provide("isBlog", isBlog)
   provide("isFeed", isFeed)
 
+  const mouseCoords = ref<[number, number]>([0, 0])
+  provide("mouseCoords", mouseCoords)
+
   const app = ref<HTMLDivElement>()
   const transitionName = ref("page")
 
@@ -39,6 +42,12 @@
     )
 
     if (isMobile) { transitionName.value = "" }
+
+    window.addEventListener("pointermove", event => {
+      if (event.pointerType !== "touch") {
+        mouseCoords.value = [event.clientX, event.clientY]
+      }
+    })
   })
 </script>
 

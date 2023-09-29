@@ -6,6 +6,8 @@
   const blob = ref<HTMLDivElement| null>(null)
   const isSafari = ref(false)
 
+  const mouseCoords = inject<Ref<[number, number]>>("mouseCoords")!
+
   const moveBlob = (x: number, y: number) => {
     if (blob.value) {
       if (isSafari.value) {
@@ -22,14 +24,9 @@
 
   onBeforeMount(() => {
     isSafari.value = !navigator.userAgent.includes("Chrome") && navigator.userAgent.includes("Safari")
-
-    window.addEventListener("pointermove", event => {
-      if (event.pointerType !== "touch") {
-        const { clientX, clientY } = event
-        moveBlob(clientX, clientY)
-      }
-    })
   })
+
+  watch(mouseCoords, () => { moveBlob(...mouseCoords.value) }, { immediate: true })
 </script>
 
 <style scoped lang="scss">
