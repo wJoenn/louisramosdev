@@ -33,5 +33,8 @@ export type GhUser = {
   login: string,
   type: "User" | "Organization",
   avatar_url: string,
-  html_url: string
+  html_url: string,
+  name: string,
+  bio: string,
+  location: string
 }

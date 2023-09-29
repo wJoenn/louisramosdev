@@ -6,6 +6,7 @@ import {
   faCheckDouble,
   faChevronDown,
   faCopy,
+  faLocationDot,
   faTag,
   faUpRightFromSquare,
   faXmark
@@ -21,6 +22,7 @@ library.add(
   faCheckDouble,
   faChevronDown,
   faCopy,
+  faLocationDot,
   faTag,
   faUpRightFromSquare,
   faXmark,
