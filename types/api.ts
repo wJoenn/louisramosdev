@@ -1,5 +1,3 @@
-export type GhLanguage = "Ruby" | "JavaScript" | "TypeScript" | "Zig"
-
 export type GhReaction = {
   id: number
   user_id: number
@@ -11,6 +9,7 @@ export type GhRelease = {
   name: string,
   tag_name: string,
   body: string,
+  html_url: string,
   read: boolean,
   created_at: string | Date
   reactions: GhReaction[],
@@ -23,7 +22,7 @@ export type GhRepository = {
   full_name: string,
   name: string,
   description: string,
-  language: GhLanguage,
+  language: string,
   starred: boolean,
   stargazers_count: number,
   forks_count: number,
