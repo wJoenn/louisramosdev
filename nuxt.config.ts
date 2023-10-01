@@ -30,7 +30,8 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      apiUrl: "https://the-hub.fly.dev"
+      apiUrl: "https://the-hub.fly.dev",
+      password: process.env.NUXT_PASSWORD
     }
   },
   typescript: {

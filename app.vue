@@ -79,6 +79,7 @@
       overflow-y: scroll;
 
       main {
+        display: flex;
         flex-grow: 1;
         margin: 50px auto;
       }
