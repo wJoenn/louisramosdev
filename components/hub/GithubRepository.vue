@@ -33,45 +33,24 @@
 
 <style scoped lang="scss">
   .github-repository {
-    background-color: $secondary-background;
-    border: 1px solid $ternary-background;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    width: 300px;
-
-    &__description {
-      font-size: 0.9rem;
+    .github-repository__description {
+      font-size: $size-md;
     }
 
-    &__details > div {
-      align-items: center;
-      display: flex;
-      gap: 20px;
-      margin-left: 20px;
+    .github-repository__details {
+      > div {
+        @include flex-centered(20);
+
+        margin: 0 0 5px 20px;
+      }
 
       span {
-        align-items: center;
-        display: flex;
-        gap: 5px;
+        @include flex-icon-small;
       }
     }
 
-    &__title {
-      align-items: center;
-      display: flex;
-      gap: 10px;
-    }
-
-    * {
-      text-align: left;
-    }
-
-    svg {
-      height: 15px;
+    .github-repository__title {
+      @include flex-icon;
     }
   }
 </style>

@@ -59,26 +59,7 @@
     }
 
     pre {
-      background-color: #101010;
-      border: 1px solid $secondary-color;
-      border-radius: 10px;
-      cursor: pointer;
-      padding: 25px 20px 20px;
-      margin: 10px 0 30px;
-
-      code {
-        border: none !important;
-        padding: 0 !important;
-
-        .line {
-          display: flex;
-          flex-wrap: wrap;
-          min-height: 1rem;
-          span {
-            white-space: break-spaces;
-          }
-        }
-      }
+      @include code-block
     }
 
     .copy {
@@ -91,7 +72,7 @@
 
     .filename {
       color: $secondary-color;
-      font-size: 0.8rem;
+      font-size: $size-sm;
       position: absolute;
       right: 10px;
       top: 10px;

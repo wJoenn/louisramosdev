@@ -1,11 +1,68 @@
+@use "variables" as *;
+
 @mixin btn {
-  align-items: center;
+  @include flex-icon;
+
   border-radius: 5px;
-  display: flex;
   font-weight: 500;
-  gap: 10px;
-  padding: 0.5rem 1rem;
+  padding: $padding-sm;
   width: max-content;
+}
+
+@mixin code-block {
+  background-color: #101010;
+  border: $border;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 25px 20px 20px;
+  margin: 10px 0 30px;
+
+  code {
+    border: none !important;
+    padding: 0 !important;
+
+    .line {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 1rem;
+    }
+  }
+
+  span {
+    color: $main-color;
+    font-size: $size;
+    white-space: break-spaces;
+  }
+}
+
+@mixin code-highlight {
+  background-color: black;
+  border: $border;
+  border-radius: 5px;
+  color: $orange-code;
+  font-size: $size-md;
+  padding: $padding-sm;
+  word-break: break-word;
+}
+
+@mixin flex-centered($gap) {
+  align-items: center;
+  display: flex;
+  gap: calc($gap * 1px);
+}
+
+@mixin flex-icon {
+  @include flex-centered(10);
+
+  svg {
+    height: 15px;
+  }
+}
+
+@mixin flex-icon-small {
+  @include flex-centered(5);
+
+  font-size: $size-sm;
 
   svg {
     height: 15px;

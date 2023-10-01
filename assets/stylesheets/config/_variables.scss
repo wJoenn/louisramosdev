@@ -6,9 +6,24 @@ $main-color: #e3e3e3;
 $secondary-color: #e3e3e380;
 $dark-nuxt-green: #00dc82;
 $light-nuxt-green: #80eec0;
+$orange-code: #e99d11;
 
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Poppins:wght@100;400;500&family=Roboto:wght@100;400;500&display=swap');
 
 $main-font: 'Roboto', sans-serif;
 $header-font: 'Poppins', sans-serif;
+
+// Sizes
+$size-lg: 1.2rem;
+$size: 1rem;
+$size-md: 0.9rem;
+$size-sm: 0.8rem;
+$size-xs: 0.5rem;
+
+// Paddings
+$padding: $size-xs $size;
+$padding-sm: calc($size-xs / 2) calc($size / 2);
+
+$border: 1px solid $secondary-color;
+$border-dark: 1px solid $ternary-background;

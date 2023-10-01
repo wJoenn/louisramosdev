@@ -47,13 +47,13 @@
 
       input {
         background-color: $secondary-background;
-        border: 1px solid $ternary-background;
+        border: $border-dark;
         border-radius: 5px;
         box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.5);
         color: inherit;
         font: inherit;
-        font-size: 1.2rem;
-        padding: 0.5rem 1rem;
+        font-size: $size-lg;
+        padding: $padding;
         width: 500px;
         transition: box-shadow 0.3s ease;
 

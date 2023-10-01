@@ -28,9 +28,8 @@
     padding: 20px 0;
 
     nav {
-      align-items: center;
-      display: flex;
-      gap: 20px;
+      @include flex-centered(20);
+
       justify-content: flex-end;
 
       a {
@@ -38,7 +37,6 @@
 
         &:hover {
           color: $main-color;
-          transition: color 0.3s ease;
         }
       }
     }

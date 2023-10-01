@@ -26,7 +26,6 @@
     gap: 20px;
     height: 100%;
     padding: 20px;
-    text-shadow: none;
     transition: scale 0.3s ease;
 
     &:hover {
@@ -38,9 +37,8 @@
     }
 
     .title {
-      align-items: center;
-      display: flex;
-      gap: 10px;
+      @include flex-centered(0);
+
       justify-content: space-between;
 
       h3 {

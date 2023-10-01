@@ -10,9 +10,10 @@
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: inherit;
+    color: $light-nuxt-green;
   }
 }
 
@@ -43,6 +44,11 @@ img {
 
 nav, ul {
   list-style: none;
+}
+
+span {
+  color: $secondary-color;
+  font-size: $size-sm;
 }
 
 svg {

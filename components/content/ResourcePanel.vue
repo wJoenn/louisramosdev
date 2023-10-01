@@ -26,19 +26,9 @@
 </script>
 
 <style scoped lang="scss">
-  @mixin flex-icon {
-    align-items: center;
-    display: flex;
-    gap: 10px;
-
-    svg {
-      height: 15px;
-    }
-  }
-
   .resource-panel {
     background-color: $secondary-background;
-    border: 1px solid $secondary-color;
+    border: $border;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -49,8 +39,6 @@
     > span {
       @include flex-icon;
 
-      color: $secondary-color;
-      font-size: 0.8rem;
       margin-bottom: 10px
     }
 
@@ -91,11 +79,6 @@
 
         font-size: 20px;
         line-height: 35px;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: $light-nuxt-green;
-        }
       }
     }
   }

@@ -29,12 +29,6 @@
 </script>
 
 <style scoped lang="scss">
-  @mixin flex-20 {
-    align-items: center;
-    display: flex;
-    gap: 20px;
-  }
-
   @keyframes rotate {
     0% {
       rotate: 0deg;
@@ -54,16 +48,15 @@
     padding: 20px 0;
 
     > div {
-      @include flex-20;
+      @include flex-centered(20);
 
       justify-content: space-between;
 
       nav {
-        @include flex-20;
+        @include flex-centered(20);
 
         a {
           color: $secondary-color;
-          transition: color 0.3s ease;
 
           &.current, &.router-link-active {
             color: $light-nuxt-green;

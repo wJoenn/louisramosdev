@@ -1,7 +1,8 @@
+@import "avatar";
 @import "blog_list";
 @import "button";
 @import "language";
-@import "transition";
+@import "vue_transition";
 
 .container {
   margin: 0 auto;
@@ -17,8 +18,4 @@
     background-color: $secondary-color;
     border-radius: 10px;
   }
-}
-
-.t-shadow {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }

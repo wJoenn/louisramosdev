@@ -42,7 +42,6 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    text-shadow: none;
 
     h3 {
       font-size: 25px;
@@ -70,7 +69,7 @@
 
       .date {
         color: $secondary-color;
-        font-size: 0.8rem;
+        font-size: $size-sm;
         margin: -5px 0;
       }
     }

@@ -2,7 +2,7 @@
   <GithubTooltip :show="showUser">
     <div class="github-user">
       <div>
-        <img :src="user.avatar_url" :alt="`${user.login} avatar`" :class="{ round: isUser }">
+        <img class="avatar" :class="{ 'avatar-rounded': isUser }" :src="user.avatar_url" :alt="`${user.login} avatar`">
 
         <div>
           <p>
@@ -33,20 +33,6 @@
 
 <style scoped lang="scss">
   .github-user {
-    background-color: $secondary-background;
-    border: 1px solid $ternary-background;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    width: 300px;
-
-    * {
-      text-align: left;
-    }
-
     > div {
       display: flex;
       gap: 10px;
@@ -58,25 +44,7 @@
         margin-top: 5px;
 
         > span {
-          font-size: 0.9rem;
-        }
-
-        a {
-          margin: 0;
-
-          &:hover {
-            color: $light-nuxt-green;
-          }
-        }
-      }
-
-      img {
-        border-radius: 5px;
-        height: 50px;
-        width: 50px;
-
-        &.round {
-          border-radius: 50%;
+          font-size: $size-md;
         }
       }
     }
@@ -84,13 +52,11 @@
     p {
       color: $main-color;
       display: block;
-      font-size: 16px;
+      font-size: $size;
 
       &.location {
-        align-items: center;
-        display: flex;
-        font-size: 0.8rem;
-        gap: 5px;
+        @include flex-icon-small;
+
         margin-left: 5px;
 
         svg {
@@ -100,13 +66,7 @@
     }
 
     span {
-      color: $secondary-color;
       display: block;
-      font-size: 0.8rem;
-    }
-
-    svg {
-      height: 10px;
     }
   }
 </style>

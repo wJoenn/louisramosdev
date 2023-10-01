@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class="t-shadow">
+  <div id="home">
     <section id="header">
       <h1>Hello, I'm <span ref="title" data-text="Louis Ramos">Louis Ramos</span></h1>
       <p ref="subtitle" data-text="RoR Fullstack Developer">RoR Fullstack Developer</p>
@@ -94,11 +94,10 @@
     height: 100%;
 
     #about {
-      align-items: center;
-      display: flex;
+      @include flex-centered(50);
+
       flex-direction: column;
       flex-grow: 1;
-      gap: 50px;
 
       p {
         line-height: 25px;
@@ -125,6 +124,8 @@
         font-family: 'Azeret Mono', monospace;
 
         span {
+          color: inherit;
+          font-size: inherit;
           max-width: 60%;
           word-break: break-word;
         }

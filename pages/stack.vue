@@ -1,5 +1,5 @@
 <template>
-  <div id="stack" class="t-shadow">
+  <div id="stack">
     <h1>Stack</h1>
 
     <p>I like to talk about my tech stack. I'm a bit of a collector, the kind of guys that aims to get every single achievements in a video game before considering it done, so naturally I became very interested in what are the tools that exist in Web Development and which ones I can "collect" to grow my Stack with as many little icons as I can.</p>
@@ -97,6 +97,10 @@
 
       a {
         color: $light-nuxt-green;
+
+        &:hover {
+          color: $dark-nuxt-green;
+        }
       }
     }
 
@@ -110,7 +114,7 @@
         gap: 20px;
 
         span {
-          color: $secondary-color;
+          font-size: $size;
         }
 
         @media screen and (min-width: 570px) {

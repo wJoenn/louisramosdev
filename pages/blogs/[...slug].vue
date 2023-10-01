@@ -74,16 +74,10 @@
     }
 
     .content {
-      font-size: 1.2rem;
+      font-size: $size-lg;
 
       code {
-        background-color: black;
-        border: 1px solid $secondary-color;
-        border-radius: 5px;
-        color: rgb(233, 157, 17);
-        font-size: 1rem;
-        padding: 0.25rem 0.5rem;
-        word-break: break-word;
+        @include code-highlight
       }
 
       h1 {
@@ -96,6 +90,10 @@
 
         a {
           color: $light-nuxt-green;
+
+          &:hover {
+            color: $dark-nuxt-green;
+          }
         }
       }
 
@@ -114,9 +112,9 @@
 
         &.sidenote {
           color: $secondary-color;
-          font-size: 0.8rem;
+          font-size: $size-sm;
           font-style: italic;
-          line-height: 16px;
+          line-height: $size;
           margin: 0;
 
           &.mt-20 {
@@ -126,6 +124,10 @@
 
         a {
           color: $light-nuxt-green;
+
+          &:hover {
+            color: $dark-nuxt-green;
+          }
         }
       }
 

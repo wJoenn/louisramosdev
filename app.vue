@@ -18,7 +18,7 @@
 
   // Route Store
   const route = useRoute()
-  const isBlog = computed(() => (route.name as string).includes("blogs"))
+  const isBlog = computed(() => (route.name as string).includes("blogs-slug"))
   const isHub = computed(() => (route.name as string).includes("hub"))
   const layout = computed<LayoutKey>(() => (isHub ? "hub" : "default"))
   provide("isBlog", isBlog)
@@ -64,21 +64,6 @@
 
 <style lang="scss">
   @import "./assets/stylesheets/application";
-
-  .page-enter-active,
-  .page-leave-active {
-    transition: all 0.3s ease;
-  }
-
-  .page-enter-from {
-    opacity: 0;
-    translate: 100px 0;
-  }
-
-  .page-leave-to {
-    opacity: 0;
-    translate: -100px 0;
-  }
 
   #__nuxt {
     height: 100%;

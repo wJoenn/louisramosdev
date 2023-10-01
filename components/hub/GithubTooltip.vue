@@ -28,9 +28,8 @@
   })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .github-tooltip {
-    align-items: flex-end;
     bottom: 100%;
     display: flex;
     flex-direction: column;
@@ -39,7 +38,23 @@
     right: -15px;
     transition: all 0.3s ease;
 
-    &__arrow {
+    > div:not(.github-tooltip__arrow) {
+      background-color: $secondary-background;
+      border: $border-dark;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      width: 300px;
+
+      * {
+        text-align: left;
+      }
+    }
+
+    .github-tooltip__arrow {
       border-left: 10px solid transparent;
       border-radius: 0 0 10px rgba(0, 0, 0, 0.5);
       border-right: 10px solid transparent;
