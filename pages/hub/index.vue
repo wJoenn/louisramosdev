@@ -22,20 +22,16 @@
   const { data } = await useFetch<{ releases: GhRelease[] }>(`${env.public.apiUrl}/github_releases`, { server: false })
 
   const password = ref("")
-  const isLoggedIn = ref(false)
+  const isLoggedIn = inject<Ref<boolean>>("isLoggedIn")
 
   const login = () => {
     if (password.value === env.public.password) {
       localStorage.isLoggedIn = "true"
-      isLoggedIn.value = true
+      if (isLoggedIn) { isLoggedIn.value = true }
     } else {
       password.value = ""
     }
   }
-
-  onBeforeMount(() => {
-    isLoggedIn.value = localStorage.isLoggedIn === "true"
-  })
 </script>
 
 <style scoped lang="scss">

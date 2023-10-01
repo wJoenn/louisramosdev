@@ -10,15 +10,22 @@
         <NuxtLink to="/">Home</NuxtLink>
         <NuxtLink to="/blogs" :class="{ current: isBlog }">Blogs</NuxtLink>
         <NuxtLink to="/stack">Stack</NuxtLink>
-        <NuxtLink v-if="isHub" to="/hub" :class="{ current: isHub }">Hub</NuxtLink>
+
+        <ClientOnly>
+          <nav v-if="isLoggedIn">
+            <NuxtLink to="/hub" :class="{ current: isHub }">Hub</NuxtLink>
+            <a href="https://the-hub.fly.dev/good_job/jobs" target="_blank">GoodJobs</a>
+          </nav>
+        </ClientOnly>
       </nav>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-  const isBlog = inject("isBlog")
-  const isHub = inject("isHub")
+  const isBlog = inject<Ref<boolean>>("isBlog")
+  const isHub = inject<Ref<boolean>>("isHub")
+  const isLoggedIn = inject<Ref<boolean>>("isLoggedIn")
 </script>
 
 <style scoped lang="scss">

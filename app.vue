@@ -16,6 +16,7 @@
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
   })
 
+  // Route Store
   const route = useRoute()
   const isBlog = computed(() => (route.name as string).includes("blogs"))
   const isHub = computed(() => (route.name as string).includes("hub"))
@@ -23,8 +24,13 @@
   provide("isBlog", isBlog)
   provide("isHub", isHub)
 
+  // Mouse Store
   const mouseCoords = ref<[number, number]>([0, 0])
   provide("mouseCoords", mouseCoords)
+
+  // User Store
+  const isLoggedIn = ref(false)
+  provide("isLoggedIn", isLoggedIn)
 
   const app = ref<HTMLDivElement>()
   const transitionName = ref("page")
@@ -33,7 +39,7 @@
     app.value?.scrollTo(0, 0)
   }
 
-  onMounted(() => {
+  const verifyMobileMedia = () => {
     const isMobile = (
       "ontouchstart" in window &&
       window.matchMedia("(pointer: coarse)").matches &&
@@ -42,6 +48,11 @@
     )
 
     if (isMobile) { transitionName.value = "" }
+  }
+
+  onBeforeMount(() => {
+    verifyMobileMedia()
+    isLoggedIn.value = localStorage.isLoggedIn === "true"
 
     window.addEventListener("pointermove", event => {
       if (event.pointerType !== "touch") {
