@@ -1,0 +1,23 @@
+$languages: (
+  "Ruby": #701516,
+  "JavaScript": #f1e05a,
+  "TypeScript": #3178c6,
+  "Zig": #ec915c,
+);
+
+@each $language, $colour in $languages {
+  .language-#{$language} {
+    position: relative;
+
+    &::before {
+      background-color: $colour;
+      border-radius: 50%;
+      content: "";
+      display: inline-block;
+      height: 10px;
+      left: -20px;
+      position: absolute;
+      width: 10px;
+    }
+  }
+}

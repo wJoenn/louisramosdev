@@ -32,7 +32,7 @@
     gap: 10px;
 
     svg {
-      width: 15px;
+      height: 15px;
     }
   }
 

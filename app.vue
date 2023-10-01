@@ -2,24 +2,29 @@
   <Blob v-if="!isBlog" />
 
   <div id="app" ref="app" class="scroll" :class="{ isBlog: isBlog }">
-    <NuxtHeader />
-
-    <main class="container">
+    <NuxtLayout :name="layout">
       <NuxtPage :transition="{ name: transitionName, mode: 'out-in', onEnter: enter }" />
-    </main>
-
-    <NuxtFooter />
+    </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type { LayoutKey } from "./.nuxt/types/layouts.d.ts"
+
   useHead({
     htmlAttrs: { lang: "en" },
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
   })
 
   const route = useRoute()
-  const isBlog = computed(() => /\/blogs\/.+/.test(route.path))
+  const isBlog = computed(() => (route.name as string).includes("blogs"))
+  const isHub = computed(() => (route.name as string).includes("hub"))
+  const layout = computed<LayoutKey>(() => (isHub ? "hub" : "default"))
+  provide("isBlog", isBlog)
+  provide("isHub", isHub)
+
+  const mouseCoords = ref<[number, number]>([0, 0])
+  provide("mouseCoords", mouseCoords)
 
   const app = ref<HTMLDivElement>()
   const transitionName = ref("page")
@@ -37,6 +42,12 @@
     )
 
     if (isMobile) { transitionName.value = "" }
+
+    window.addEventListener("pointermove", event => {
+      if (event.pointerType !== "touch") {
+        mouseCoords.value = [event.clientX, event.clientY]
+      }
+    })
   })
 </script>
 
@@ -68,6 +79,7 @@
       overflow-y: scroll;
 
       main {
+        display: flex;
         flex-grow: 1;
         margin: 50px auto;
       }

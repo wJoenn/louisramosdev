@@ -41,10 +41,6 @@
           transition: color 0.3s ease;
         }
       }
-
-      svg {
-        width: 20px;
-      }
     }
   }
 </style>

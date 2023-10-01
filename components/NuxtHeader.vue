@@ -10,14 +10,15 @@
         <NuxtLink to="/">Home</NuxtLink>
         <NuxtLink to="/blogs" :class="{ current: isBlog }">Blogs</NuxtLink>
         <NuxtLink to="/stack">Stack</NuxtLink>
+        <NuxtLink v-if="isHub" to="/hub" :class="{ current: isHub }">Hub</NuxtLink>
       </nav>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-  const route = useRoute()
-  const isBlog = computed(() => (route.name as string).includes("blogs"))
+  const isBlog = inject("isBlog")
+  const isHub = inject("isHub")
 </script>
 
 <style scoped lang="scss">
