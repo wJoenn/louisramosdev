@@ -19,7 +19,7 @@
 
   const env = useRuntimeConfig()
 
-  const { data } = await useFetch<{ releases: GhRelease[] }>(`${env.public.apiUrl}/github_releases`)
+  const { data } = await useFetch<{ releases: GhRelease[] }>(`${env.public.apiUrl}/github_releases`, { server: false })
 
   const password = ref("")
   const isLoggedIn = ref(false)
