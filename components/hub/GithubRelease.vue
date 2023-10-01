@@ -29,7 +29,7 @@
     </div>
 
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div ref="content" class="github-release__content" v-html="parsedBody" />
+    <div ref="content" class="github-content" v-html="parsedBody" />
 
     <a
       v-if="numbered(maxHeight) >= 350"
@@ -105,7 +105,7 @@
   })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .github-release {
     background-color: $main-background;
     border: $border-dark;
@@ -118,67 +118,6 @@
     max-width: 100%;
     padding: 20px;
     width: 900px;
-
-    .github-release__content {
-      display: -webkit-box;
-      -webkit-line-clamp: 10;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-
-      a {
-        color: $light-nuxt-green;
-
-        &:hover {
-          color: $dark-nuxt-green;
-        }
-
-        code {
-          background-color: $secondary-background;
-          border: none;
-          color: inherit;
-          padding: $padding-sm;
-        }
-      }
-
-      code {
-        @include code-highlight
-      }
-
-      h2 {
-        border-bottom: $border;
-        font-size: 25px;
-        margin: 10px 0 20px;
-        padding-bottom: 5px;
-      }
-
-      h3 {
-        margin-top: 20px;
-      }
-
-      h2, h3 {
-        a {
-          color: $main-color;
-        }
-      }
-
-      img {
-        max-height: 20px;
-        max-width: 20px;
-      }
-
-      li, p {
-        line-height: 30px;
-      }
-
-      pre {
-        @include code-block;
-      }
-
-      ul {
-        list-style: disc;
-        margin: 10px 20px;
-      }
-    }
 
     .github-release__footer {
       @include flex-centered(50);

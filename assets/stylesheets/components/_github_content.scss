@@ -1,0 +1,77 @@
+$pretty-highlights: (
+  "pl-c": #8b949e,
+  "pl-c1": #79c0ff,
+  "pl-en": #d2a8ff,
+  "pl-ent": #7ee787,
+  "pl-k": #ff7b72,
+  "pl-pds": #a5d6ff,
+  "pl-s": #a5d6ff,
+  "pl-v": #ffa657
+);
+
+.github-content {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+
+  a {
+    color: $light-nuxt-green;
+
+    &:hover {
+      color: $dark-nuxt-green;
+    }
+
+    code {
+      background-color: $secondary-background;
+      border: none;
+      color: inherit;
+      padding: $padding-sm;
+    }
+  }
+
+  code {
+    @include code-highlight
+  }
+
+  h2 {
+    border-bottom: $border;
+    font-size: 25px;
+    margin: 10px 0 20px;
+    padding-bottom: 5px;
+  }
+
+  h3 {
+    margin-top: 20px;
+  }
+
+  h2, h3 {
+    a {
+      color: $main-color;
+    }
+  }
+
+  img {
+    max-height: 20px;
+    max-width: 20px;
+  }
+
+  li, p {
+    line-height: 30px;
+  }
+
+  pre {
+    @include code-block;
+
+    @each $class, $colour in $pretty-highlights {
+      .#{$class} {
+        color: $colour !important;
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+    margin: 10px 20px;
+  }
+}

@@ -2,7 +2,7 @@ $languages: (
   "Ruby": #701516,
   "JavaScript": #f1e05a,
   "TypeScript": #3178c6,
-  "Zig": #ec915c,
+  "Zig": #ec915c
 );
 
 @each $language, $colour in $languages {
