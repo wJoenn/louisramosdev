@@ -18,10 +18,10 @@
 
   const route = useRoute()
   const isBlog = computed(() => (route.name as string).includes("blogs"))
-  const isFeed = computed(() => (route.name as string).includes("feeds"))
-  const layout = computed<LayoutKey>(() => (isFeed ? "feeds" : "default"))
+  const isHub = computed(() => (route.name as string).includes("hub"))
+  const layout = computed<LayoutKey>(() => (isHub ? "hub" : "default"))
   provide("isBlog", isBlog)
-  provide("isFeed", isFeed)
+  provide("isHub", isHub)
 
   const mouseCoords = ref<[number, number]>([0, 0])
   provide("mouseCoords", mouseCoords)

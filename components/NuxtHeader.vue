@@ -10,7 +10,7 @@
         <NuxtLink to="/">Home</NuxtLink>
         <NuxtLink to="/blogs" :class="{ current: isBlog }">Blogs</NuxtLink>
         <NuxtLink to="/stack">Stack</NuxtLink>
-        <NuxtLink v-if="isFeed" to="/feeds" :class="{ current: isFeed }">Feeds</NuxtLink>
+        <NuxtLink v-if="isHub" to="/hub" :class="{ current: isHub }">Hub</NuxtLink>
       </nav>
     </div>
   </header>
@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
   const isBlog = inject("isBlog")
-  const isFeed = inject("isFeed")
+  const isHub = inject("isHub")
 </script>
 
 <style scoped lang="scss">
