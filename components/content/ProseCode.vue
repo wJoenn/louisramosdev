@@ -11,12 +11,15 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps({
-    code: { type: String, default: "" },
-    language: { type: String, default: null },
-    filename: { type: String, default: null },
-    highlights: { type: Array as () => number[], default: () => [] },
-    meta: { type: String, default: null }
+  const props = withDefaults(defineProps<{
+    code: string,
+    language: string,
+    filename: string,
+    highlights: number[],
+    meta: string
+  }>(), {
+    code: "",
+    highlights: () => []
   })
 
   const { code, filename, language } = toRefs(props)

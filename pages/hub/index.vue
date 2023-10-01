@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-  import { GhRelease } from "../../types/api.ts"
+  import { GhRelease } from "../../types/api/Github.ts"
 
   const env = useRuntimeConfig()
 

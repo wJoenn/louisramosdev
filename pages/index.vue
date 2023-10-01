@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-  import type Blog from "@/types/Blog"
+  import type Blog from "../types/Blog.ts"
 
   useHead({
     meta: [{
@@ -48,6 +48,7 @@
 
   let repeat: NodeJS.Timer
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
   const title = ref<HTMLSpanElement | null>(null)
   const subtitle = ref<HTMLHeadingElement | null>(null)
 

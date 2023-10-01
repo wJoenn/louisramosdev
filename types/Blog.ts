@@ -1,4 +1,4 @@
-interface Blog {
+type Blog = {
   cover_url: string
   description: string
   title: string

@@ -72,7 +72,7 @@
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
 
-  import type { GhRelease } from "../../types/api.ts"
+  import type { GhRelease } from "../../types/api/Github.ts"
 
   dayjs.extend(relativeTime)
 
@@ -84,19 +84,18 @@
   const repository = computed(() => release.value.repository)
   const owner = computed(() => repository.value.owner)
 
-  const showAuthor = ref(false)
-  const showOwner = ref(false)
-  const showRepository = ref(false)
-
-  const content = ref<HTMLDivElement>()
-
-  const maxHeight = ref("0px")
-
   const parsedBody = release
     .value
     .body
     .replaceAll(/(?<!")https:\/\/github.com(?:\/[^/]+){3}\/(\d+)(?<!")/g, "#$1")
     .replaceAll("<a ", "<a target='_blank' ")
+
+  const content = ref<HTMLDivElement>()
+  const showAuthor = ref(false)
+  const showOwner = ref(false)
+  const showRepository = ref(false)
+
+  const maxHeight = ref("0px")
 
   const numbered = (size: string) => +size.replace("px", "")
 

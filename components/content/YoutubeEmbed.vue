@@ -11,9 +11,9 @@
 <script setup lang="ts">
   const emit = defineEmits(["close"])
 
-  defineProps<{
-    src: string
-  }>()
+  defineProps({
+    src: { type: String, required: true }
+  })
 
   const closeEmbed = (event: KeyboardEvent) => {
     if (event.key === "Escape") { emit("close") }

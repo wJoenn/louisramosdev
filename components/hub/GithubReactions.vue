@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { GhReaction, GhRelease } from "../../types/api.ts"
+  import type { GhReaction, GhRelease } from "../../types/api/Github.ts"
 
   type GhReactionObject = {
     [key in GhReaction["content"]]?: {
@@ -62,6 +62,9 @@
   const config = useRuntimeConfig()
   const API_URL = `${config.public.apiUrl}/github_repositories/${repository.id}/github_releases/${release.value.id}`
 
+  const popUp = ref<HTMLLIElement>()
+  const showPopUp = ref(false)
+
   const sanitizedReactions = computed<GhReactionObject>(() => {
     const reactionObject: GhReactionObject = {
       "+1": { amount: 0, reacted: false },
@@ -84,15 +87,13 @@
 
   const filteredReactions = computed(() => {
     const reactionsObject: GhReactionObject = {}
+
     Object.entries(sanitizedReactions.value).forEach(([name, reaction]) => {
       if (reaction.amount > 0) { reactionsObject[name as keyof GhReactionObject] = reaction }
     })
 
     return reactionsObject
   })
-
-  const popUp = ref<HTMLLIElement>()
-  const showPopUp = ref(false)
 
   const createReaction = async (name: keyof GhReactionObject) => {
     try {

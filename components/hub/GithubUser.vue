@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { GhUser } from "../../types/api.ts"
+  import type { GhUser } from "../../types/api/Github.ts"
 
   const props = defineProps<{
     user: GhUser

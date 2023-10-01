@@ -1,4 +1,4 @@
-interface Tool {
+type Tool = {
   name: string
   description: string
   image_url: string

@@ -17,7 +17,9 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps<{ resources: string[][] }>()
+  const props = defineProps<{
+    resources: string[][]
+  }>()
 
   const { resources } = toRefs(props)
 

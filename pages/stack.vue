@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-  import Tool from "../types/Tool.ts"
+  import type Tool from "../types/Tool.ts"
 
   useHead({
     meta: [{

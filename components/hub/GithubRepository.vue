@@ -23,7 +23,11 @@
 
 <script setup lang="ts">
   import dayjs from "dayjs"
-  import type { GhRepository } from "../../types/api.ts"
+  import relativeTime from "dayjs/plugin/relativeTime"
+
+  import type { GhRepository } from "../../types/api/Github.ts"
+
+  dayjs.extend(relativeTime)
 
   defineProps<{
     repository: GhRepository

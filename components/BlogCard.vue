@@ -3,7 +3,7 @@
     <NuxtImg :src="blog.cover_url" :alt="`${blog.title} cover image`" height="200" width="400" />
 
     <div class="details">
-      <em class="date">{{ date }}</em>
+      <em class="date">{{ dayjs(blog.date * 1000).format("MMMM Do YYYY") }}</em>
       <h3>{{ blog.title }}</h3>
       <p>{{ blog.description }}</p>
 
@@ -13,24 +13,14 @@
 </template>
 
 <script setup lang="ts">
-  import Blog from "../types/Blog.ts"
+  import dayjs from "dayjs"
+  import advancedFormat from "dayjs/plugin/advancedFormat"
 
-  const props = defineProps<{ blog: Blog }>()
+  import type Blog from "../types/Blog.ts"
 
-  const { blog } = toRefs(props)
-  const date = computed(() => {
-    const rawDate = new Date(blog.value.date * 1000)
-    const day = rawDate.getDate()
-    const month = rawDate.toLocaleDateString("en-UK", { month: "long" })
-    const year = rawDate.getFullYear()
+  dayjs.extend(advancedFormat)
 
-    let daySuffix = "th"
-    if (day === 1 || day === 21 || day === 31) { daySuffix = "st" }
-    if (day === 2 || day === 22) { daySuffix = "nd" }
-    if (day === 3 || day === 23) { daySuffix = "rd" }
-
-    return `${month} ${day}${daySuffix} ${year}`
-  })
+  defineProps<{ blog: Blog }>()
 </script>
 
 <style scoped lang="scss">
