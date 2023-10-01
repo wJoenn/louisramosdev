@@ -25,6 +25,10 @@ export type GhRepository = {
   description: string,
   language: GhLanguage,
   starred: boolean,
+  stargazers_count: number,
+  forks_count: number,
+  html_url: string,
+  pushed_at: string | Date,
   owner: GhUser
 }
 

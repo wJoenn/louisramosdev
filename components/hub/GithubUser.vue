@@ -57,6 +57,10 @@
         gap: 5px;
         margin-top: 5px;
 
+        > span {
+          font-size: 0.9rem;
+        }
+
         a {
           margin: 0;
 
