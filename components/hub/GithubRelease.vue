@@ -1,7 +1,7 @@
 <template>
   <div class="github-release">
     <div class="github-release__header">
-      <h2>{{ release.name }}</h2>
+      <a :href="release.html_url" target="_blank"><h2>{{ release.name }}</h2></a>
 
       <div class="github-release__header__context">
         <div class="github-release__header__repository">
@@ -151,6 +151,11 @@
         a {
           color: $main-color;
         }
+      }
+
+      img {
+        max-height: 20px !important;
+        max-width: 20px !important;
       }
 
       li, p {
