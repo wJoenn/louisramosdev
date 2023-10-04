@@ -60,7 +60,7 @@
   const reactions = computed(() => release.value.reactions)
 
   const config = useRuntimeConfig()
-  const API_URL = `${config.public.apiUrl}/github_repositories/${repository.id}/github_releases/${release.value.id}`
+  const API_URL = `${config.public.apiUrl}/github/repositories/${repository.id}/releases/${release.value.id}`
 
   const popUp = ref<HTMLLIElement>()
   const showPopUp = ref(false)
@@ -97,7 +97,7 @@
 
   const createReaction = async (name: keyof GhReactionObject) => {
     try {
-      const { data } = await useFetch<GhReaction>(`${API_URL}/github_reactions`, {
+      const { data } = await useFetch<GhReaction>(`${API_URL}/reactions`, {
         method: "POST",
         body: { content: name },
       })
@@ -112,7 +112,7 @@
 
   const destroyReaction = async (reactionIndex: number) => {
     try {
-      await useFetch(`${API_URL}/github_reactions/${reactions.value[reactionIndex].id}`, {
+      await useFetch(`${API_URL}/reactions/${reactions.value[reactionIndex].id}`, {
         method: "DELETE"
       })
 
