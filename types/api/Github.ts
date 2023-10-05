@@ -11,7 +11,7 @@ export type GhRelease = {
   body: string
   html_url: string
   read: boolean
-  created_at: string | Date
+  released_at: string | Date
   reactions: GhReaction[]
   repository: GhRepository
   author: GhUser

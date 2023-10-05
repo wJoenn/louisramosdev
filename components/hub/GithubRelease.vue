@@ -10,7 +10,7 @@
             <GithubRepository :repository="repository" :show-repository="showRepository" />
           </div>
 
-          <span>{{ dayjs(release.created_at).fromNow() }}</span>
+          <span>{{ dayjs(release.released_at).fromNow() }}</span>
         </div>
 
         <div class="header__user" @mouseenter="showOwner = true" @mouseleave="showOwner = false">
