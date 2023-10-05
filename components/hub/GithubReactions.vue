@@ -10,8 +10,7 @@
               v-for="(reaction, name) in sanitizedReactions"
               :key="name"
               :class="{ reacted: reaction!.reacted }"
-              @click.stop="toggleReaction(name)"
-            >
+              @click.stop="toggleReaction(name)">
               {{ reactionIcons[name] }}
             </li>
           </ul>
@@ -22,8 +21,7 @@
         v-for="(reaction, name) in filteredReactions"
         :key="name"
         :class="{ reacted: reaction!.reacted }"
-        @click.stop="toggleReaction(name)"
-      >
+        @click.stop="toggleReaction(name)">
         {{ reactionIcons[name] }} {{ reaction!.amount }}
       </li>
     </ul>
@@ -56,7 +54,7 @@
   }>()
 
   const { release } = toRefs(props)
-  const repository = release.value.repository
+  const { repository } = release.value
   const reactions = computed(() => release.value.reactions)
 
   const config = useRuntimeConfig()

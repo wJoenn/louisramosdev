@@ -19,8 +19,7 @@
               class="avatar"
               :class="{ 'avatar-rounded': owner.type === 'User' }"
               :src="owner.avatar_url"
-              :alt="`${owner.login} avatar`"
-            >
+              :alt="`${owner.login} avatar`">
           </a>
 
           <GithubUser :user="repository.owner" :show-user="showOwner" />
@@ -34,8 +33,7 @@
     <a
       v-if="numbered(maxHeight) >= 350"
       :href="release.html_url" target="_blank"
-      class="github-release__read-more"
-    >
+      class="github-release__read-more">
       Read more
     </a>
 
@@ -48,8 +46,7 @@
             <img
               class="avatar avatar-rounded avatar-small"
               :src="release.author.avatar_url"
-              :alt="`${release.author.login} avatar`"
-            >
+              :alt="`${release.author.login} avatar`">
           </a>
 
           <GithubUser :user="release.author" :show-user="showAuthor" />

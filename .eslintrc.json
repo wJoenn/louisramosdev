@@ -33,21 +33,20 @@
     "no-param-reassign": "off",
     "no-plusplus": "off",
     "no-use-before-define": "off",
-    "prefer-destructuring": "off",
     "object-curly-newline": "off",
     "quotes": ["error", "double"],
     "quote-props": ["error", "consistent-as-needed"],
     "semi": ["error", "never"],
 
-    "import/extensions": "off",
+    "import/extensions": ["error", "ignorePackages"],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
 
     "vue/script-indent": ["error", 2, { "baseIndent": 1 }],
     "vue/max-attributes-per-line": "off",
     "vue/max-len": ["error", { "code": 120, "template": 1000 }],
+    "vue/html-closing-bracket-newline": ["error", { "multiline": "never" }],
     "vue/multi-word-component-names": "off",
     "vue/no-multiple-template-root": "off",
-    "vue/require-default-prop": "off",
     "vue/singleline-html-element-content-newline": "off"
   }
 }

@@ -11,16 +11,13 @@
 </template>
 
 <script setup lang="ts">
-  const props = withDefaults(defineProps<{
+  const props = defineProps<{
     code: string,
     language: string,
     filename: string,
     highlights: number[],
     meta: string
-  }>(), {
-    code: "",
-    highlights: () => []
-  })
+  }>()
 
   const { code, filename, language } = toRefs(props)
   const copied = ref(false)
