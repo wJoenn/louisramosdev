@@ -2,6 +2,7 @@ export type GhReaction = {
   id: number
   user_id: number
   content: "+1" | "-1" | "confused" | "eyes" | "heart" | "hooray" | "laugh" | "rocket"
+  reactable_type: "Github::Release"
 }
 
 export type GhRelease = {
