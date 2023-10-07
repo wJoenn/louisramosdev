@@ -1,45 +1,78 @@
-export type GhReaction = {
+export type GhComment = {
   id: number
-  user_id: number
-  content: "+1" | "-1" | "confused" | "eyes" | "heart" | "hooray" | "laugh" | "rocket"
-  reactable_type: "Github::Release"
-}
-
-export type GhRelease = {
-  id: number
-  name: string
-  tag_name: string
+  feed_type: "GithubComment"
   body: string
   html_url: string
   read: boolean
   released_at: string | Date
-  reactions: GhReaction[]
-  repository: GhRepository
+
   author: GhUser
+  issue: GhIssue
+  reactions: GhReaction[]
+}
+
+export type GhFeedItem = GhComment | GhRelease
+
+export type GhIssue = {
+  id: number
+  feed_type: "GithubIssue"
+  body: string
+  html_url: string
+  issue_type: "Issue" | "PullRequest"
+  state: "closed" | "open"
+  title: string
+  number: number
+  released_at: string | Date
+
+  author: GhUser
+  repository: GhRepository
+  reactions: GhReaction[]
+}
+
+export type GhReaction = {
+  id: number
+  user_id: number
+  content: "+1" | "-1" | "confused" | "eyes" | "heart" | "hooray" | "laugh" | "rocket"
+  reactable_type: "Github::Comment" | "Github::Issue" | "Github::Release"
+}
+
+export type GhRelease = {
+  id: number
   feed_type: "GithubRelease"
+  body: string
+  html_url: string
+  name: string
+  tag_name: string
+  read: boolean
+  released_at: string | Date
+
+  author: GhUser
+  repository: GhRepository
+  reactions: GhReaction[]
 }
 
 export type GhRepository = {
   id: number
-  full_name: string
-  name: string
   description: string
-  language: string
-  starred: boolean
-  stargazers_count: number
-  forks_count: number
+  full_name: string
   html_url: string
+  language: string
+  name: string
+  forks_count: number
+  stargazers_count: number
+  starred: boolean
   pushed_at: string | Date
+
   owner: GhUser
 }
 
 export type GhUser = {
   id: number
-  login: string
-  type: "User" | "Organization"
   avatar_url: string
-  html_url: string
-  name: string
   bio: string
+  html_url: string
   location: string
+  login: string
+  name: string
+  type: "User" | "Organization"
 }
