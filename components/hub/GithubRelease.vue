@@ -74,10 +74,10 @@
   dayjs.extend(relativeTime)
 
   const props = defineProps<{
-    release: GhRelease
+    item: GhRelease
   }>()
 
-  const { release } = toRefs(props)
+  const { item: release } = toRefs(props)
   const repository = computed(() => release.value.repository)
   const owner = computed(() => repository.value.owner)
 

@@ -2,8 +2,8 @@
   <div id="hub">
     <ClientOnly>
       <ul v-if="isLoggedIn">
-        <li v-for="release in data?.releases" :key="release.id">
-          <GithubRelease :release="release" />
+        <li v-for="item in data?.releases" :key="item.id">
+          <component :is="feedComponent(item.feed_type)" :item="item" />
         </li>
       </ul>
 
@@ -23,6 +23,13 @@
 
   const password = ref("")
   const isLoggedIn = inject<Ref<boolean>>("isLoggedIn")
+
+  const feedComponent = (feedType: "GithubRelease") => {
+    switch (feedType) {
+    case "GithubRelease": return resolveComponent("GithubRelease")
+    default: return ""
+    }
+  }
 
   const login = () => {
     if (password.value === env.public.password) {

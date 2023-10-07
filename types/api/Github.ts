@@ -16,6 +16,7 @@ export type GhRelease = {
   reactions: GhReaction[]
   repository: GhRepository
   author: GhUser
+  feed_type: "GithubRelease"
 }
 
 export type GhRepository = {
