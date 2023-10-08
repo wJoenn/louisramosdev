@@ -45,7 +45,7 @@
       > div {
         @include flex-centered(20);
 
-        margin: 0 0 5px 20px;
+        margin-bottom: 5px;
       }
 
       span {

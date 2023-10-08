@@ -1,72 +1,90 @@
 <template>
-  <GithubTooltip :show="showUser">
-    <div class="github-user">
-      <div>
-        <img class="avatar" :class="{ 'avatar-rounded': isUser }" :src="user.avatar_url" :alt="`${user.login} avatar`">
+  <div class="github-user" @mouseenter="showUser = true" @mouseleave="showUser = false">
+    <a :href="user.html_url" target="_blank">
+      <img
+        class="avatar"
+        :class="{ 'avatar-rounded': isUser }"
+        :style="{ height: `${size}px`}"
+        :src="user.avatar_url"
+        :alt="`${user.login} avatar`">
+    </a>
 
+    <GithubTooltip :show="showUser">
+      <div class="tooltip">
         <div>
-          <p>
-            <a :href="user.html_url" target="_blank">{{ isUser ? user.login : user.name }}</a>
-            <span>{{ isUser ? user.name : user.login }}</span>
-          </p>
+          <img class="avatar" :class="{ 'avatar-rounded': isUser }" :src="user.avatar_url" :alt="`${user.login} avatar`">
 
-          <span>{{ user.bio }}</span>
+          <div>
+            <p>
+              <a :href="user.html_url" target="_blank">{{ isUser ? user.login : user.name }}</a>
+              <span>{{ isUser ? user.name : user.login }}</span>
+            </p>
+
+            <span>{{ user.bio }}</span>
+          </div>
         </div>
-      </div>
 
-      <p v-if="user.location" class="location"><fai icon="fa-solid fa-location-dot" />{{ user.location }}</p>
-    </div>
-  </GithubTooltip>
+        <p v-if="user.location" class="location"><fai icon="fa-solid fa-location-dot" />{{ user.location }}</p>
+      </div>
+    </GithubTooltip>
+  </div>
 </template>
 
 <script setup lang="ts">
   import type { GhUser } from "../../types/api/Github.ts"
 
-  const props = defineProps<{
+  const props = withDefaults(defineProps<{
+    size?: number
     user: GhUser
-    showUser: boolean
-  }>()
+  }>(), {
+    size: 50
+  })
 
-  const { user } = toRefs(props)
+  const { size, user } = toRefs(props)
   const isUser = computed(() => user.value.type === "User")
+  const showUser = ref(false)
 </script>
 
 <style scoped lang="scss">
   .github-user {
-    > div {
-      display: flex;
-      gap: 10px;
+    position: relative;
 
-      div {
+    .tooltip {
+      > div {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-top: 5px;
+        gap: 10px;
 
-        > span {
-          font-size: $size-md;
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          margin-top: 5px;
+
+          > span {
+            font-size: $size-md;
+          }
         }
       }
-    }
 
-    p {
-      color: $main-color;
-      display: block;
-      font-size: $size;
+      p {
+        color: $main-color;
+        display: block;
+        font-size: $size;
 
-      &.location {
-        @include flex-icon-small;
+        &.location {
+          @include flex-icon-small;
 
-        margin-left: 5px;
+          margin-left: 5px;
 
-        svg {
-          color: $secondary-color;
+          svg {
+            color: $secondary-color;
+          }
         }
       }
-    }
 
-    span {
-      display: block;
+      span {
+        display: block;
+      }
     }
   }
 </style>

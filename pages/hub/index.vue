@@ -2,7 +2,7 @@
   <div id="hub">
     <ClientOnly>
       <ul v-if="isLoggedIn">
-        <li v-for="item in data?.releases" :key="item.id">
+        <li v-for="item in data?.feed_items" :key="item.id">
           <component :is="feedComponent(item.feed_type)" :item="item" />
         </li>
       </ul>
@@ -15,17 +15,18 @@
 </template>
 
 <script setup lang="ts">
-  import { GhRelease } from "../../types/api/Github.ts"
+  import { GhFeedItem } from "../../types/api/Github.ts"
 
   const env = useRuntimeConfig()
 
-  const { data } = await useFetch<{ releases: GhRelease[] }>(`${env.public.apiUrl}/github/releases`, { server: false })
+  const { data } = await useFetch<{ feed_items: GhFeedItem[] }>(`${env.public.apiUrl}/feed_items`, { server: false })
 
   const password = ref("")
   const isLoggedIn = inject<Ref<boolean>>("isLoggedIn")
 
-  const feedComponent = (feedType: "GithubRelease") => {
+  const feedComponent = (feedType: GhFeedItem["feed_type"]) => {
     switch (feedType) {
+    case "GithubComment": return resolveComponent("GithubComment")
     case "GithubRelease": return resolveComponent("GithubRelease")
     default: return ""
     }

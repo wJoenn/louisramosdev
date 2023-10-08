@@ -30,8 +30,20 @@ $pretty-highlights: (
     }
   }
 
+  blockquote {
+    border-left: 3px solid $secondary-color;
+    padding-left: 10px;
+    color: $secondary-color;
+    margin-bottom: 5px;
+  }
+
   code {
     @include code-highlight
+  }
+
+  hr {
+    border-color: $secondary-background;
+    margin: 24px 0;
   }
 
   h2 {

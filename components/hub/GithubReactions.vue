@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { GhReaction, GhRelease } from "../../types/api/Github.ts"
+  import type { GhComment, GhIssue, GhReaction, GhRelease } from "../../types/api/Github.ts"
 
   type GhReactionObject = {
     [key in GhReaction["content"]]?: {
@@ -50,15 +50,15 @@
   }
 
   const props = defineProps<{
-    release: GhRelease
+    reactable: GhComment | GhIssue | GhRelease
   }>()
 
-  const { release } = toRefs(props)
-  const { repository } = release.value
-  const reactions = computed(() => release.value.reactions)
+  const { reactable } = toRefs(props)
+  const repository = "repository" in reactable.value ? reactable.value.repository : reactable.value.issue.repository
+  const reactions = computed(() => reactable.value.reactions)
 
   const config = useRuntimeConfig()
-  const API_URL = `${config.public.apiUrl}/github/repositories/${repository.id}/releases/${release.value.id}`
+  const API_URL = `${config.public.apiUrl}/github/repositories/${repository.id}/releases/${reactable.value.id}`
 
   const popUp = ref<HTMLLIElement>()
   const showPopUp = ref(false)
@@ -132,6 +132,9 @@
   .github-reactions {
     ul {
       @include flex-centered(20);
+
+      color: white;
+      font-size: $size;
 
       li {
         align-items: center;
