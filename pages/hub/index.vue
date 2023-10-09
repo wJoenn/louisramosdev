@@ -28,7 +28,7 @@
     switch (feedType) {
     case "GithubComment": return resolveComponent("GithubComment")
     case "GithubRelease": return resolveComponent("GithubRelease")
-    default: return ""
+    default: return feedType
     }
   }
 

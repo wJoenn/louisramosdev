@@ -53,12 +53,22 @@
     reactable: GhComment | GhIssue | GhRelease
   }>()
 
+  const config = useRuntimeConfig()
+
   const { reactable } = toRefs(props)
   const repository = "repository" in reactable.value ? reactable.value.repository : reactable.value.issue.repository
   const reactions = computed(() => reactable.value.reactions)
 
-  const config = useRuntimeConfig()
-  const API_URL = `${config.public.apiUrl}/github/repositories/${repository.id}/releases/${reactable.value.id}`
+  const reactablePath = () => {
+    switch (reactable.value.feed_type) {
+    case "GithubComment": return "comments"
+    case "GithubIssue": return "issues"
+    case "GithubRelease": return "releases"
+    default: return reactable.value
+    }
+  }
+
+  const apiUrl = `${config.public.apiUrl}/github/repositories/${repository.id}/${reactablePath()}/${reactable.value.id}`
 
   const popUp = ref<HTMLLIElement>()
   const showPopUp = ref(false)
@@ -95,7 +105,7 @@
 
   const createReaction = async (name: keyof GhReactionObject) => {
     try {
-      const { data } = await useFetch<GhReaction>(`${API_URL}/reactions`, {
+      const { data } = await useFetch<GhReaction>(`${apiUrl}/reactions`, {
         method: "POST",
         body: { content: name },
       })
@@ -110,7 +120,7 @@
 
   const destroyReaction = async (reactionIndex: number) => {
     try {
-      await useFetch(`${API_URL}/reactions/${reactions.value[reactionIndex].id}`, {
+      await useFetch(`${apiUrl}/reactions/${reactions.value[reactionIndex].id}`, {
         method: "DELETE"
       })
 
