@@ -2,7 +2,7 @@
   <div id="hub">
     <ClientOnly>
       <ul v-if="isLoggedIn">
-        <li v-for="item in data?.feed_items" :key="item.id">
+        <li v-for="item in feedItems" :key="item.id">
           <component :is="feedComponent(item.feed_type)" :item="item" />
         </li>
       </ul>
@@ -19,16 +19,41 @@
 
   const env = useRuntimeConfig()
 
-  const { data } = await useFetch<{ feed_items: GhFeedItem[] }>(`${env.public.apiUrl}/feed_items`, { server: false })
-
+  const isLoading = ref(false)
   const password = ref("")
   const isLoggedIn = inject<Ref<boolean>>("isLoggedIn")
+  const hasReachedLastPage = ref(false)
+  const feedItems = ref<GhFeedItem[]>([])
+  const fromDate = computed(() => feedItems.value.at(-1)?.released_at || new Date())
 
   const feedComponent = (feedType: GhFeedItem["feed_type"]) => {
     switch (feedType) {
     case "GithubComment": return resolveComponent("GithubComment")
     case "GithubRelease": return resolveComponent("GithubRelease")
     default: return feedType
+    }
+  }
+
+  const loadFeedItems = async () => {
+    isLoading.value = true
+
+    await nextTick()
+    const { data } = await useFetch<{ feed_items: GhFeedItem[] }>(
+      `${env.public.apiUrl}/feed_items?from_date=${fromDate.value}`,
+      { server: false }
+    )
+
+    if (data.value) {
+      if (data.value.feed_items.length < 10) { hasReachedLastPage.value = true }
+      feedItems.value = feedItems.value.concat(data.value.feed_items)
+    }
+    isLoading.value = false
+  }
+
+  const loadNewPage = async (event: Event) => {
+    const app = event.target as HTMLDivElement
+    if (app.scrollHeight - app.scrollTop < 2500 && !isLoading.value && !hasReachedLastPage.value) {
+      await loadFeedItems()
     }
   }
 
@@ -40,6 +65,13 @@
       password.value = ""
     }
   }
+
+  onMounted(async () => {
+    await loadFeedItems()
+
+    const app = document.querySelector("#app") as HTMLDivElement
+    app.addEventListener("scroll", loadNewPage)
+  })
 </script>
 
 <style scoped lang="scss">
