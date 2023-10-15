@@ -1,6 +1,6 @@
 <template>
   <Transition name="slide-up">
-    <div v-if="show" ref="githubTooltipComponent" class="github-tooltip">
+    <div v-if="show" ref="githubTooltipComponent" class="github-tooltip" :style="tooltipCssStyle">
       <slot />
       <div class="github-tooltip__arrow" :style="arrowCssStyle" />
     </div>
@@ -15,27 +15,35 @@
   const mouseCoords = inject<Ref<[number, number]>>("mouseCoords")!
   const githubTooltipComponent = ref<HTMLDivElement>()
   const arrowCssStyle = ref({})
+  const tooltipCssStyle = ref({})
 
   watch(githubTooltipComponent, () => {
     if (githubTooltipComponent.value) {
-      const componentRight = githubTooltipComponent.value.getBoundingClientRect().right
-      let right = componentRight - mouseCoords.value[0] - 10
-      if (right < 15) { right = 15 }
-      if (right > 45) { right = 45 }
+      const { bottom, left, right, top } = githubTooltipComponent.value.getBoundingClientRect()
+      const positionX = mouseCoords.value[0] <= 400 ? "left" : "right"
+      const positionY = mouseCoords.value[1] >= 350 ? "bottom" : "top"
+      const arrowPositionY = positionY === "bottom" ? "top" : "bottom"
 
-      arrowCssStyle.value = { right: `${right}px` }
+      let arroxXValue = (positionX === "right" ? right - mouseCoords.value[0] : mouseCoords.value[0] - left) - 10
+      if (arroxXValue < 15) { arroxXValue = 15 }
+      if (arroxXValue > 45) { arroxXValue = 45 }
+
+      tooltipCssStyle.value = { [positionX]: "-15px", [positionY]: "100%" }
+      arrowCssStyle.value = {
+        [positionX]: `${arroxXValue}px`,
+        [arrowPositionY]: `${bottom - top - 15}px`,
+        [`border-${arrowPositionY}`]: "10px solid #303030"
+      }
     }
   })
 </script>
 
 <style lang="scss">
   .github-tooltip {
-    bottom: 100%;
     display: flex;
     flex-direction: column;
-    padding-bottom: 15px;
+    padding: 15px 0;
     position: absolute;
-    right: -15px;
     transition: all 0.3s ease;
 
     > div:not(.github-tooltip__arrow) {
@@ -58,10 +66,8 @@
       border-left: 10px solid transparent;
       border-radius: 0 0 10px rgba(0, 0, 0, 0.5);
       border-right: 10px solid transparent;
-      border-top: 10px solid $ternary-background;
       height: 0;
       position: absolute;
-      top: calc(100% - 15px);
       width: 0;
     }
   }
