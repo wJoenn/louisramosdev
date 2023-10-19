@@ -32,7 +32,7 @@
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
 
-  import { GhIssue, GhRelease, GhUser } from "../../types/api/Github.ts"
+  import type { GhIssue, GhRelease, GhUser } from "../../types/api/Github.ts"
 
   dayjs.extend(relativeTime)
 

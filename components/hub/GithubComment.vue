@@ -49,7 +49,7 @@
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
 
-  import { GhComment } from "../../types/api/Github.ts"
+  import type { GhComment } from "../../types/api/Github.ts"
 
   dayjs.extend(relativeTime)
 
