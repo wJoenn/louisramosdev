@@ -38,10 +38,19 @@
     }
 
     img {
-      height: 200px;
       flex-shrink: 0;
+      height: calc(min(1200px, calc(100vw * 0.8)) / 2);
       object-fit: cover;
       object-position: center;
+      width: 100%;
+
+      @media screen and (min-width: 560px) {
+        height: calc((min(1200px, calc(100vw * 0.8)) - 20px) / 4);
+      }
+
+      @media screen and (min-width: 990px) {
+        height: calc((min(1200px, calc(100vw * 0.8)) - 40px) / 6);
+      }
     }
 
     .details {
