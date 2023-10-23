@@ -20,12 +20,19 @@ export default defineNuxtConfig({
       preload: ["erb", "ruby"]
     }
   },
+  devtools: {
+    enable: true,
+    vscode: {
+      reuseExistingServer: true
+    }
+  },
   image: {
     format: ["webp"],
     quality: 80
   },
   modules: [
     "@nuxt/content",
+    "@nuxt/devtools",
     "@nuxt/image"
   ],
   runtimeConfig: {
