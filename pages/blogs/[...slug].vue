@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-  import type Blog from "../../types/Blog.ts"
+  import type { Blog } from "~/types"
 
   definePageMeta({ middleware: ["router"] })
 

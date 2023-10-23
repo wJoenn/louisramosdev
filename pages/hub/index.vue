@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { GhFeedItem } from "../../types/api/Github.ts"
+  import type { GhFeedItem } from "~/types"
 
   const env = useRuntimeConfig()
 

@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { GhComment, GhIssue, GhReaction, GhRelease } from "../../types/api/Github.ts"
+  import type { GhComment, GhIssue, GhReaction, GhRelease } from "~/types"
 
   type GhReactionObject = {
     [key in GhReaction["content"]]?: {

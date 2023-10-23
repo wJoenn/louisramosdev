@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { GhUser } from "../../types/api/Github.ts"
+  import type { GhUser } from "~/types"
 
   const props = withDefaults(defineProps<{
     size?: number

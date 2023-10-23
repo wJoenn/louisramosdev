@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
+  import type { Blog } from "~/types"
+
   import dayjs from "dayjs"
   import advancedFormat from "dayjs/plugin/advancedFormat"
-
-  import type Blog from "../types/Blog.ts"
 
   dayjs.extend(advancedFormat)
 

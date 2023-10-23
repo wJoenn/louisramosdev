@@ -46,10 +46,10 @@
 </template>
 
 <script setup lang="ts">
+  import type { GhComment } from "~/types"
+
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
-
-  import type { GhComment } from "../../types/api/Github.ts"
 
   dayjs.extend(relativeTime)
 

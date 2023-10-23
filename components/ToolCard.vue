@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-  import type Tool from "../types/Tool.ts"
+  import type { Tool } from "~/types"
 
   defineProps<{ tool: Tool }>()
 </script>
