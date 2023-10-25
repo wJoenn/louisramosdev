@@ -46,7 +46,7 @@
     .limit(3)
     .find() as Blog[]
 
-  let repeat: NodeJS.Timer
+  let repeat: number
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
   const title = ref<HTMLSpanElement | null>(null)
@@ -77,7 +77,7 @@
   onMounted(() => {
     shuffleText(title.value!, subtitle.value!)
 
-    repeat = setInterval(() => {
+    repeat = window.setInterval(() => {
       shuffleText(title.value!, subtitle.value!)
     }, 10000)
   })
