@@ -10,21 +10,12 @@
     "plugin:vue/vue3-recommended",
     "@nuxtjs/eslint-config-typescript"
   ],
-  "overrides": [
-    {
-      "files": ["*.vue"],
-      "rules": {
-        "indent": "off",
-        "max-len": "off"
-      }
-    }
+  "ignorePatterns": [
+    "node_modules"
   ],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "ignorePatterns": [
-    "/node_modules"
-  ],
   "rules": {
     "arrow-parens": "off",
     "class-methods-use-this": "off",
@@ -48,5 +39,14 @@
     "vue/multi-word-component-names": "off",
     "vue/no-multiple-template-root": "off",
     "vue/singleline-html-element-content-newline": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "rules": {
+        "indent": "off",
+        "max-len": "off"
+      }
+    }
+  ]
 }
