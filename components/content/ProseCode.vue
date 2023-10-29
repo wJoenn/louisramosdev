@@ -12,11 +12,11 @@
 
 <script setup lang="ts">
   const props = defineProps<{
-    code: string,
-    language: string,
-    filename: string,
-    highlights: number[],
+    code: string
+    highlights: number[]
     meta: string
+    language?: string
+    filename?: string
   }>()
 
   const { code, filename, language } = toRefs(props)

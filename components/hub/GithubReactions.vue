@@ -107,7 +107,7 @@
     try {
       const { data } = await useFetch<GhReaction>(`${apiUrl}/reactions`, {
         method: "POST",
-        body: { content: name },
+        body: { content: name }
       })
 
       reactions.value.push(data.value!)
