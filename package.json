@@ -19,7 +19,7 @@
     "eslint": "^8.52.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "nuxt": "^3.8.0",
-    "sass": "^1.69.4",
+    "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "vue-tsc": "^1.8.22"
   },
