@@ -15,7 +15,6 @@
     "@nuxt/content": "^2.9.0",
     "@nuxt/image": "^1.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@types/node": "^18.18.7",
     "eslint": "^8.53.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "nuxt": "^3.8.1",
