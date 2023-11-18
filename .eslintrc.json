@@ -20,13 +20,11 @@
   "rules": {
     "arrow-parens": ["error", "as-needed"],
     "camelcase": "off",
-    "comma-dangle": ["error", "never"],
     "eqeqeq": ["error", "always", { "null": "never" }],
     "max-len": ["error", 120],
-    "object-curly-newline": "off",
+    "multiline-ternary": ["error", "never"],
     "quotes": ["error", "double"],
     "quote-props": ["error", "consistent-as-needed"],
-    "semi": ["error", "never"],
     "space-before-function-paren": ["error", {
       "anonymous": "never",
       "named": "never",
