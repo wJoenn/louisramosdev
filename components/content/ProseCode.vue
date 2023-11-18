@@ -1,5 +1,9 @@
 <template>
-  <div :class="['code-block', { 'is-bash': language === 'bash' }]" @click="copyFromClick" @copy="copyFromSelection" @mouseleave="copied = false">
+  <div
+    :class="['code-block', { 'is-bash': language === 'bash' }]"
+    @click="copyFromClick"
+    @copy="copyFromSelection"
+    @mouseleave="copied = false">
     <span v-if="filename" class="filename">{{ filename }}</span>
 
     <slot />

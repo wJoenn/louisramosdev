@@ -26,7 +26,10 @@
           <h2>Backend</h2>
 
           <TransitionGroup appear tag="ul" @before-enter="beforeEnter" @enter="enter">
-            <li v-for="(tool, index) in backendTools" :key="tool.name" :data-delay="index + (frontendTools?.length || 0)">
+            <li
+              v-for="(tool, index) in backendTools"
+              :key="tool.name"
+              :data-delay="index + (frontendTools?.length || 0)">
               <ToolCard :tool="tool" />
             </li>
           </TransitionGroup>
@@ -38,7 +41,10 @@
           <h2>Other Tools</h2>
 
           <TransitionGroup appear tag="ul" @before-enter="beforeEnter" @enter="enter">
-            <li v-for="(tool, index) in otherTools" :key="tool.name" :data-delay="index + (frontendTools?.length || 0) + (backendTools?.length || 0)">
+            <li
+              v-for="(tool, index) in otherTools"
+              :key="tool.name"
+              :data-delay="index + (frontendTools?.length || 0) + (backendTools?.length || 0)">
               <ToolCard :tool="tool" />
             </li>
           </TransitionGroup>
