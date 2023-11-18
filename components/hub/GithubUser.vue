@@ -12,7 +12,11 @@
     <GithubTooltip :show="showUser">
       <div class="tooltip">
         <div>
-          <img class="avatar" :class="{ 'avatar-rounded': isUser }" :src="user.avatar_url" :alt="`${user.login} avatar`">
+          <img
+            class="avatar"
+            :class="{ 'avatar-rounded': isUser }"
+            :src="user.avatar_url"
+            :alt="`${user.login} avatar`">
 
           <div>
             <p>

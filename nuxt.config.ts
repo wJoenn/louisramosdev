@@ -26,6 +26,9 @@ export default defineNuxtConfig({
       reuseExistingServer: true
     }
   },
+  experimental: {
+    typedPages: true
+  },
   image: {
     format: ["webp"],
     quality: 80

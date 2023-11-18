@@ -14,7 +14,8 @@
 
         <a
           v-if="numbered(maxHeight) >= 350"
-          :href="release.html_url" target="_blank"
+          :href="release.html_url"
+          target="_blank"
           class="read-more">
           Read more
         </a>

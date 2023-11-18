@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import { library, config } from "@fortawesome/fontawesome-svg-core"
 import {
@@ -36,6 +37,6 @@ library.add(
   faLinkedin
 )
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.vueApp.component("fai", FontAwesomeIcon)
 })

@@ -137,14 +137,14 @@ export default defineEventHandler(() => {
     // },
     // {
     //   name: "AdonisJS",
-    // eslint-disable-next-line max-len, vue/max-len
+    // eslint-disable-next-line max-len
     //   description: "A full-featured web application framework for Node.js that follows conventions for building applications",
     //   image_url: "adonis.png",
     //   url: "https://adonisjs.com/"
     // },
     // {
     //   name: "Golang",
-    // eslint-disable-next-line max-len, vue/max-len
+    // eslint-disable-next-line max-len
     //   description: "A statically typed programming language known for its efficiency, simplicity, and strong performance characteristics",
     //   image_url: "golang.png",
     //   url: "https://go.dev/"
