@@ -28,7 +28,9 @@
         </p>
 
         <p class="tag">
-          <fai icon="fa-solid fa-tag" />
+          <ClientOnly>
+            <fai icon="fa-solid fa-tag" />
+          </ClientOnly>
           <a :href="release.html_url" target="_blank">{{ release.tag_name }}</a>
         </p>
       </template>

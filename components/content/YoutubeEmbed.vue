@@ -1,7 +1,9 @@
 <template>
   <div class="youtube-embed" @click.self="emit('close')">
     <button @click="emit('close')">
-      <fai icon="fa-solid fa-xmark" />
+      <ClientOnly>
+        <fai icon="fa-solid fa-xmark" />
+      </ClientOnly>
     </button>
 
     <iframe :src="src" />

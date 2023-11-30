@@ -2,7 +2,10 @@
   <GithubTooltip :show="showRepository">
     <div class="github-repository">
       <p class="github-repository__title">
-        <fai icon="fa-solid fa-book" />
+        <ClientOnly>
+          <fai icon="fa-solid fa-book" />
+        </ClientOnly>
+
         <a :href="repository.html_url" target="_blank">{{ repository.full_name }}</a>
       </p>
 
@@ -11,8 +14,22 @@
       <div class="github-repository__details">
         <div>
           <span :class="`language-${repository.language}`">{{ repository.language }}</span>
-          <span><fai icon="fa-regular fa-star" />{{ repository.stargazers_count }}</span>
-          <span><fai icon="fa-solid fa-code-fork" />{{ repository.forks_count }}</span>
+
+          <span>
+            <ClientOnly>
+              <fai icon="fa-regular fa-star" />
+            </ClientOnly>
+
+            {{ repository.stargazers_count }}
+          </span>
+
+          <span>
+            <ClientOnly>
+              <fai icon="fa-solid fa-code-fork" />
+            </ClientOnly>
+
+            {{ repository.forks_count }}
+          </span>
         </div>
 
         <span>Updated {{ dayjs(repository.pushed_at).fromNow() }}</span>

@@ -2,7 +2,9 @@
   <footer>
     <nav class="container">
       <a v-for="link in links" :key="link.name" :href="link.href" :aria-label="link.label" target="_blank">
-        <fai :icon="link.icon" />
+        <ClientOnly>
+          <fai :icon="link.icon" />
+        </ClientOnly>
       </a>
     </nav>
   </footer>

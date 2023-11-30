@@ -9,7 +9,9 @@
     <slot />
 
     <span class="copy">
-      <fai ref="icon" :icon="['fa-solid', copied ? 'fa-check-double' : 'fa-copy']" />
+      <ClientOnly>
+        <fai ref="icon" :icon="['fa-solid', copied ? 'fa-check-double' : 'fa-copy']" />
+      </ClientOnly>
     </span>
   </div>
 </template>

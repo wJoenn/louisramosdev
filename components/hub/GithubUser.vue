@@ -28,7 +28,13 @@
           </div>
         </div>
 
-        <p v-if="user.location" class="location"><fai icon="fa-solid fa-location-dot" />{{ user.location }}</p>
+        <p v-if="user.location" class="location">
+          <ClientOnly>
+            <fai icon="fa-solid fa-location-dot" />
+          </ClientOnly>
+
+          {{ user.location }}
+        </p>
       </div>
     </GithubTooltip>
   </div>
