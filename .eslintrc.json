@@ -18,6 +18,7 @@
     "ecmaVersion": "latest"
   },
   "rules": {
+    "arrow-body-style": ["error", "as-needed"],
     "arrow-parens": ["error", "as-needed"],
     "camelcase": "off",
     "eqeqeq": ["error", "always", { "null": "never" }],
