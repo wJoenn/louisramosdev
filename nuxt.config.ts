@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: "dark-plus",
-      preload: ["erb", "ruby"]
+      preload: ["erb", "ruby", "scss"]
     }
   },
   devtools: {
