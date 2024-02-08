@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     }
   },
   devtools: {
-    enable: true,
+    enabled: true,
     vscode: {
       reuseExistingServer: true
     }
