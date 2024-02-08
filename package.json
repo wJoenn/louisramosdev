@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint . --ext .vue,.js,.cjs,.mjs,.ts,.cts,.mts --max-warnings=0",
-    "tsc": "vue-tsc --noEmit --composite false"
+    "tsc": "nuxt typecheck"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.0",
@@ -32,6 +32,6 @@
     "typescript": "<5.3.0",
     "vue": "^3.4.16",
     "vue-router": "^4.2.5",
-    "vue-tsc": "^1.8.24"
+    "vue-tsc": "^1.8.27"
   }
 }
