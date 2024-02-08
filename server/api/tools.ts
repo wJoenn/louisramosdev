@@ -54,12 +54,12 @@ export default defineEventHandler(() => {
       image_url: "vite.png",
       url: "https://vitejs.dev/"
     },
-    // {
-    //   name: "Vitest",
-    //   description: "A lightweight and intuitive testing library build on Vite",
-    //   image_url: "vitest.png",
-    //   url: "https://vitest.dev/"
-    // },
+    {
+      name: "Vitest",
+      description: "A lightweight and intuitive testing library build on Vite",
+      image_url: "vitest.png",
+      url: "https://vitest.dev/"
+    },
     // {
     //   name: "Cypress",
     //   description: "An end-to-end testing framework for web applications",
@@ -72,18 +72,18 @@ export default defineEventHandler(() => {
       image_url: "eslint.png",
       url: "https://eslint.org/"
     },
-    // {
-    //   name: "PNPM",
-    //   description: "A package manager for JavaScript projects that emphasizes speed and disk space efficiency",
-    //   image_url: "pnpm.png",
-    //   url: "https://pnpm.io/"
-    // },
     {
-      name: "Bun",
-      description: "A fast JavaScript runtime, package manager, bundler and test runner",
-      image_url: "bun.png",
-      url: "https://bun.sh/"
+      name: "PNPM",
+      description: "A package manager for JavaScript projects that emphasizes speed and disk space efficiency",
+      image_url: "pnpm.png",
+      url: "https://pnpm.io/"
     },
+    // {
+    //   name: "Bun",
+    //   description: "A fast JavaScript runtime, package manager, bundler and test runner",
+    //   image_url: "bun.png",
+    //   url: "https://bun.sh/"
+    // },
     {
       name: "Vercel",
       description: "A platform that provides the tools, workflows, and infrastructure to build and deploy web apps",

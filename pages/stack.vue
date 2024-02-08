@@ -53,7 +53,7 @@
 
       <Transition appear @before-enter="beforeEnter" @enter="enter">
         <p v-if="data" :data-delay="calculateDelay(frontendTools, backendTools, otherTools)">
-          There are more tools that I'd like to get into in the near future like <a href="https://vitest.dev/" target="_blank">Vitest</a>, <a href="https://nodejs.org/en" target="_blank">Node.js</a>, <a href="https://www.docker.com/" target="_blank">Docker</a> and <a href="https://go.dev/" target="_blank">Golang</a> but that's it for now.
+          There are more tools that I'd like to get into in the near future like <a href="https://nodejs.org/en" target="_blank">Node.js</a>, <a href="https://www.docker.com/" target="_blank">Docker</a> and <a href="https://go.dev/" target="_blank">Golang</a> but that's it for now.
         </p>
       </Transition>
     </ClientOnly>
