@@ -1,8 +1,8 @@
 <template>
   <div id="blog">
-    <YoutubeEmbed v-if="showYoutubeEmbed" :src="src" @close="showYoutubeEmbed = false" />
+    <YoutubeEmbed v-if="showYoutubeEmbed" :src @close="showYoutubeEmbed = false" />
 
-    <ContentDoc ref="content" tag="article" class="content">
+    <ContentDoc ref="content" class="content" tag="article">
       <template #not-found>
         <div ref="notFound" />
       </template>
@@ -10,7 +10,7 @@
 
     <ResourcePanel v-if="blog?.resources" :resources="blog.resources" />
 
-    <NuxtLink v-if="blog" to="/blogs" class="more"><fai icon="fa-solid fa-chevron-down" /> More blogs</NuxtLink>
+    <NuxtLink v-if="blog" class="more" to="/blogs"><Icon icon="fa-solid fa-chevron-down" /> More blogs</NuxtLink>
   </div>
 </template>
 
@@ -40,7 +40,7 @@
   const addEventToEmbeds = () => {
     if (!notFound.value) {
       setTimeout(() => {
-        const embedButtons = document.querySelectorAll(".embed") as NodeListOf<HTMLButtonElement>
+        const embedButtons = document.querySelectorAll<HTMLButtonElement>(".embed")
         embedButtons.forEach(button => {
           button.addEventListener("click", (event: MouseEvent) => {
             src.value = (event.currentTarget as HTMLButtonElement).dataset.src!

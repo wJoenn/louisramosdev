@@ -3,7 +3,7 @@
     <ClientOnly>
       <ul v-if="isLoggedIn">
         <li v-for="item in feedItems" :key="item.id">
-          <component :is="feedComponent(item.feed_type)" :item="item" />
+          <component :is="feedComponent(item.feed_type)" :item />
         </li>
       </ul>
 
@@ -24,7 +24,7 @@
   const isLoggedIn = inject<Ref<boolean>>("isLoggedIn")
   const hasReachedLastPage = ref(false)
   const feedItems = ref<GhFeedItem[]>([])
-  const fromDate = computed(() => feedItems.value.at(-1)?.released_at || new Date())
+  const fromDate = computed(() => feedItems.value.at(-1)?.released_at ?? new Date().toISOString())
 
   const feedComponent = (feedType: GhFeedItem["feed_type"]) => {
     switch (feedType) {
@@ -69,7 +69,7 @@
   onMounted(async () => {
     await loadFeedItems()
 
-    const app = document.querySelector("#app") as HTMLDivElement
+    const app = document.querySelector<HTMLDivElement>("#app")!
     app.addEventListener("scroll", loadNewPage)
   })
 </script>

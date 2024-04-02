@@ -2,21 +2,23 @@
   <div class="github-user" @mouseenter="showUser = true" @mouseleave="showUser = false">
     <a :href="user.html_url" target="_blank">
       <img
+        :alt="`${user.login} avatar`"
         class="avatar"
         :class="{ 'avatar-rounded': isUser }"
-        :style="{ height: `${size}px`}"
         :src="user.avatar_url"
-        :alt="`${user.login} avatar`">
+        :style="{ height: `${size}px` }"
+      >
     </a>
 
     <GithubTooltip :show="showUser">
       <div class="tooltip">
         <div>
           <img
+            :alt="`${user.login} avatar`"
             class="avatar"
             :class="{ 'avatar-rounded': isUser }"
             :src="user.avatar_url"
-            :alt="`${user.login} avatar`">
+          >
 
           <div>
             <p>
@@ -30,7 +32,7 @@
 
         <p v-if="user.location" class="location">
           <ClientOnly>
-            <fai icon="fa-solid fa-location-dot" />
+            <Icon icon="fa-solid fa-location-dot" />
           </ClientOnly>
 
           {{ user.location }}

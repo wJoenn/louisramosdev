@@ -8,12 +8,12 @@
 
       <nav>
         <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/blogs" :class="{ current: isBlog }">Blogs</NuxtLink>
+        <NuxtLink :class="{ current: isBlog }" to="/blogs">Blogs</NuxtLink>
         <NuxtLink to="/stack">Stack</NuxtLink>
 
         <ClientOnly>
           <nav v-if="isLoggedIn">
-            <NuxtLink to="/hub" :class="{ current: isHub }">Hub</NuxtLink>
+            <NuxtLink :class="{ current: isHub }" to="/hub">Hub</NuxtLink>
             <a href="https://the-hub.fly.dev/good_job/jobs" target="_blank">GoodJobs</a>
           </nav>
         </ClientOnly>

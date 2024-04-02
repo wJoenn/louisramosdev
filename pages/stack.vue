@@ -2,8 +2,17 @@
   <div id="stack">
     <h1>Stack</h1>
 
-    <p>I like to talk about my tech stack. I'm a bit of a collector, the kind of guys that aims to get every single achievements in a video game before considering it done, so naturally I became very interested in what are the tools that exist in Web Development and which ones I can "collect" to grow my Stack with as many little icons as I can.</p>
-    <p>I figured it might interest some people to learn about what I decided to use. There's nothing too extravagent yet, so far it's mostly just Vue and Ruby, but who knows what I might end up with later.</p>
+    <p>
+      I like to talk about my tech stack. I'm a bit of a collector, the kind of guys that aims to get every single
+      achievements in a video game before considering it done, so naturally I became very interested in what are the
+      tools that exist in Web Development and which ones I can "collect" to grow my Stack with as many little icons as
+      I can.
+    </p>
+
+    <p>
+      I figured it might interest some people to learn about what I decided to use. There's nothing too extravagent yet,
+      so far it's mostly just Vue and Ruby, but who knows what I might end up with later.
+    </p>
 
     <ClientOnly>
       <Transition appear @before-enter="beforeEnter" @enter="enter">
@@ -15,7 +24,7 @@
 
           <TransitionGroup appear tag="ul" @before-enter="beforeEnter" @enter="enter">
             <li v-for="(tool, index) in frontendTools" :key="tool.name" :data-delay="index">
-              <ToolCard :tool="tool" />
+              <ToolCard :tool />
             </li>
           </TransitionGroup>
         </section>
@@ -29,8 +38,9 @@
             <li
               v-for="(tool, index) in backendTools"
               :key="tool.name"
-              :data-delay="index + (frontendTools?.length || 0)">
-              <ToolCard :tool="tool" />
+              :data-delay="index + (frontendTools?.length || 0)"
+            >
+              <ToolCard :tool />
             </li>
           </TransitionGroup>
         </section>
@@ -44,8 +54,9 @@
             <li
               v-for="(tool, index) in otherTools"
               :key="tool.name"
-              :data-delay="index + (frontendTools?.length || 0) + (backendTools?.length || 0)">
-              <ToolCard :tool="tool" />
+              :data-delay="index + (frontendTools?.length || 0) + (backendTools?.length || 0)"
+            >
+              <ToolCard :tool />
             </li>
           </TransitionGroup>
         </section>
@@ -53,7 +64,10 @@
 
       <Transition appear @before-enter="beforeEnter" @enter="enter">
         <p v-if="data" :data-delay="calculateDelay(frontendTools, backendTools, otherTools)">
-          There are more tools that I'd like to get into in the near future like <a href="https://nodejs.org/en" target="_blank">Node.js</a>, <a href="https://www.docker.com/" target="_blank">Docker</a> and <a href="https://go.dev/" target="_blank">Golang</a> but that's it for now.
+          There are more tools that I'd like to get into in the near future like
+          <a href="https://nodejs.org/en" target="_blank">Node.js</a>,
+          <a href="https://www.docker.com/" target="_blank">Docker</a> and
+          <a href="https://go.dev/" target="_blank">Golang</a> but that's it for now.
         </p>
       </Transition>
     </ClientOnly>
@@ -65,9 +79,9 @@
 
   useHead({
     meta: [{
-      name: "description",
       // eslint-disable-next-line vue/max-len
-      content: "Passionate Belgium developer with a strong interest in computer technologies. Proficient in Vue.js, Ruby on Rails and Video Games. I've written a couple blogs, check them out"
+      content: "Passionate Belgium developer with a strong interest in computer technologies. Proficient in Vue.js, Ruby on Rails and Video Games. I've written a couple blogs, check them out",
+      name: "description"
     }],
     title: "Louis Ramos | RoR Fullstack Developer"
   })

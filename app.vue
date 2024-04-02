@@ -1,7 +1,7 @@
 <template>
   <Blob v-if="!isBlog" />
 
-  <div id="app" ref="app" class="scroll" :class="{ isBlog: isBlog }">
+  <div id="app" ref="app" class="scroll" :class="{ isBlog }">
     <NuxtLayout :name="layout">
       <NuxtPage :transition="{ name: transitionName, mode: 'out-in', onEnter: enter }" />
     </NuxtLayout>
@@ -13,14 +13,14 @@
 
   useHead({
     htmlAttrs: { lang: "en" },
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
+    link: [{ href: "/favicon.png", rel: "icon", type: "image/x-icon" }]
   })
 
   // Route Store
   const route = useRoute()
   const isBlog = computed(() => (route.name as string).includes("blogs-slug"))
   const isHub = computed(() => (route.name as string).includes("hub"))
-  const layout = computed<LayoutKey>(() => (isHub ? "hub" : "default"))
+  const layout = computed<LayoutKey>(() => isHub.value ? "hub" : "default")
   provide("isBlog", isBlog)
   provide("isHub", isHub)
 
@@ -41,10 +41,10 @@
 
   const verifyMobileMedia = () => {
     const isMobile = (
-      "ontouchstart" in window &&
-      window.matchMedia("(pointer: coarse)").matches &&
-      window.matchMedia("only screen and (max-width: 570px)").matches &&
-      /Android|BlackBerry|IEMobile|iPhone|iPod|Opera Mini|webOS|Windows Phone/i.test(navigator.userAgent)
+      "ontouchstart" in window
+      && window.matchMedia("(pointer: coarse)").matches
+      && window.matchMedia("only screen and (max-width: 570px)").matches
+      && /Android|BlackBerry|IEMobile|iPhone|iPod|Opera Mini|webOS|Windows Phone/i.test(navigator.userAgent)
     )
 
     if (isMobile) { transitionName.value = "" }

@@ -1,9 +1,9 @@
 <template>
   <div class="github-reactions">
     <ul>
-      <li ref="popUp" class="pop-up" @mouseover="showPopUp = true" @mouseleave="showPopUp = false">
+      <li ref="popUp" class="pop-up" @mouseleave="showPopUp = false" @mouseover="showPopUp = true">
         <ClientOnly>
-          <fai icon="fa-regular fa-face-smile" />
+          <Icon icon="fa-regular fa-face-smile" />
         </ClientOnly>
 
         <Transition name="slide-up">
@@ -12,7 +12,8 @@
               v-for="(reaction, name) in sanitizedReactions"
               :key="name"
               :class="{ reacted: reaction!.reacted }"
-              @click.stop="toggleReaction(name)">
+              @click.stop="toggleReaction(name)"
+            >
               {{ reactionIcons[name] }}
             </li>
           </ul>
@@ -23,7 +24,8 @@
         v-for="(reaction, name) in filteredReactions"
         :key="name"
         :class="{ reacted: reaction!.reacted }"
-        @click.stop="toggleReaction(name)">
+        @click.stop="toggleReaction(name)"
+      >
         {{ reactionIcons[name] }} {{ reaction!.amount }}
       </li>
     </ul>
@@ -40,6 +42,10 @@
     }
   }
 
+  const props = defineProps<{
+    reactable: GhComment | GhIssue | GhRelease
+  }>()
+
   const reactionIcons = {
     "+1": "👍",
     "-1": "👎",
@@ -51,26 +57,25 @@
     "rocket": "🚀"
   }
 
-  const props = defineProps<{
-    reactable: GhComment | GhIssue | GhRelease
-  }>()
-
   const config = useRuntimeConfig()
 
-  const { reactable } = toRefs(props)
-  const repository = "repository" in reactable.value ? reactable.value.repository : reactable.value.issue.repository
-  const reactions = computed(() => reactable.value.reactions)
+  const reactions = computed(() => props.reactable.reactions)
+  const repository = computed(() => (
+    "repository" in props.reactable ? props.reactable.repository : props.reactable.issue.repository
+  ))
 
-  const reactablePath = () => {
-    switch (reactable.value.feed_type) {
+  const reactablePath = computed(() => {
+    switch (props.reactable.feed_type) {
     case "GithubComment": return "comments"
     case "GithubIssue": return "issues"
     case "GithubRelease": return "releases"
-    default: return reactable.value
+    default: return props.reactable
     }
-  }
+  })
 
-  const apiUrl = `${config.public.apiUrl}/github/repositories/${repository.id}/${reactablePath()}/${reactable.value.id}`
+  const apiUrl = computed(() => (
+    `${config.public.apiUrl}/github/repositories/${repository.value.id}/${reactablePath.value}/${props.reactable.id}`
+  ))
 
   const popUp = ref<HTMLLIElement>()
   const showPopUp = ref(false)
@@ -107,9 +112,9 @@
 
   const createReaction = async (name: keyof GhReactionObject) => {
     try {
-      const { data } = await useFetch<GhReaction>(`${apiUrl}/reactions`, {
-        method: "POST",
-        body: { content: name }
+      const { data } = await useFetch<GhReaction>(`${apiUrl.value}/reactions`, {
+        body: { content: name },
+        method: "POST"
       })
 
       reactions.value.push(data.value!)
@@ -122,7 +127,7 @@
 
   const destroyReaction = async (reactionIndex: number) => {
     try {
-      await useFetch(`${apiUrl}/reactions/${reactions.value[reactionIndex].id}`, {
+      await useFetch(`${apiUrl.value}/reactions/${reactions.value[reactionIndex].id}`, {
         method: "DELETE"
       })
 
@@ -134,9 +139,9 @@
     }
   }
 
-  const toggleReaction = (name: keyof GhReactionObject) => {
+  const toggleReaction = async (name: keyof GhReactionObject) => {
     const reactionIndex = reactions.value.findIndex(r => r.content === name && r.user_id === 75_388_869)
-    reactionIndex > -1 ? destroyReaction(reactionIndex) : createReaction(name)
+    await (reactionIndex > -1 ? destroyReaction(reactionIndex) : createReaction(name))
   }
 </script>
 

@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
   const mouseCoords = inject<Ref<[number, number]>>("mouseCoords")!
-  const blob = ref<HTMLDivElement| null>(null)
+  const blob = ref<HTMLDivElement | null>(null)
   const isSafari = ref(false)
 
   const moveBlob = (x: number, y: number) => {

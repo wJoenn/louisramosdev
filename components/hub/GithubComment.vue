@@ -12,33 +12,33 @@
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="github-content issue" v-html="issue.body" />
 
-        <a :href="issue.html_url" target="_blank" class="read-more">Read more</a>
+        <a class="read-more" :href="issue.html_url" target="_blank">Read more</a>
 
         <div class="comment">
           <div class="item-infos">
-            <GithubUser :user="comment.author" :size="40" />
+            <GithubUser :size="40" :user="item.author" />
 
             <div class="description">
               <div>
-                <a :href="repository.html_url" target="_blank">{{ comment.author.login }}</a>
-                <span>{{ ` / ${comment.author.name}` }}</span>
+                <a :href="repository.html_url" target="_blank">{{ item.author.login }}</a>
+                <span>{{ ` / ${item.author.name}` }}</span>
               </div>
 
-              <span>{{ dayjs(comment.released_at).fromNow() }}</span>
+              <span>{{ dayjs(item.released_at).fromNow() }}</span>
             </div>
           </div>
 
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="github-content" v-html="comment.body" />
+          <div class="github-content" v-html="item.body" />
 
-          <GithubReactions :reactable="comment" />
+          <GithubReactions :reactable="issue" />
         </div>
       </template>
 
       <template #footer>
         <div class="repository">
           <a :href="repository.html_url" targe="_blank">{{ repository.full_name }}</a>
-          <GithubUser :user="repository.owner" :size="25" />
+          <GithubUser :size="25" :user="repository.owner" />
         </div>
       </template>
     </GithubFeedItem>
@@ -51,15 +51,14 @@
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
 
-  dayjs.extend(relativeTime)
-
   const props = defineProps<{
     item: GhComment
   }>()
 
-  const { item: comment } = toRefs(props)
-  const { issue } = comment.value
-  const { repository } = issue
+  dayjs.extend(relativeTime)
+
+  const issue = computed(() => props.item.issue)
+  const repository = computed(() => issue.value.repository)
 </script>
 
 <style scoped lang=scss>

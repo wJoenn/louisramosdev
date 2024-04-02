@@ -2,27 +2,29 @@
   <div class="youtube-embed" @click.self="emit('close')">
     <button @click="emit('close')">
       <ClientOnly>
-        <fai icon="fa-solid fa-xmark" />
+        <Icon icon="fa-solid fa-xmark" />
       </ClientOnly>
     </button>
 
-    <iframe :src="src" />
+    <iframe :src />
   </div>
 </template>
 
 <script setup lang="ts">
-  const emit = defineEmits(["close"])
+  const emit = defineEmits<{
+    (event: "close"): void
+  }>()
 
-  defineProps({
-    src: { type: String, required: true }
-  })
+  defineProps<{
+    src: string
+  }>()
 
   const closeEmbed = (event: KeyboardEvent) => {
     if (event.key === "Escape") { emit("close") }
   }
 
   onBeforeMount(() => {
-    const app = document.querySelector("#app") as HTMLDivElement
+    const app = document.querySelector<HTMLDivElement>("#app")!
     app.style.overflowY = "hidden"
 
     window.addEventListener("keyup", closeEmbed)
@@ -31,7 +33,7 @@
   onUnmounted(() => {
     window.removeEventListener("keyup", closeEmbed)
 
-    const app = document.querySelector("#app") as HTMLDivElement
+    const app = document.querySelector<HTMLDivElement>("#app")!
     app.style.overflowY = "scroll"
   })
 </script>

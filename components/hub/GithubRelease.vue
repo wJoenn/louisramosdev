@@ -1,10 +1,10 @@
 <template>
   <div class="github-release">
-    <GithubFeedItem :feed-item="release" :title="release.name" :user="repository.owner">
+    <GithubFeedItem :feed-item="item" :title="item.name" :user="repository.owner">
       <template #description>
         <div @mouseenter="showRepository = true" @mouseleave="showRepository = false">
           <a :href="repository.html_url" target="_blank">{{ repository.full_name }}</a>
-          <GithubRepository :repository="repository" :show-repository="showRepository" />
+          <GithubRepository :repository :show-repository />
         </div>
       </template>
 
@@ -14,24 +14,25 @@
 
         <a
           v-if="numbered(maxHeight) >= 350"
-          :href="release.html_url"
+          class="read-more"
+          :href="item.html_url"
           target="_blank"
-          class="read-more">
+        >
           Read more
         </a>
       </template>
 
       <template #footer>
         <p class="author">
-          released by <a :href="release.author.html_url" targe="_blank">{{ release.author.login }}</a>
-          <GithubUser :user="release.author" :size="25" />
+          released by <a :href="item.author.html_url" targe="_blank">{{ item.author.login }}</a>
+          <GithubUser :size="25" :user="item.author" />
         </p>
 
         <p class="tag">
           <ClientOnly>
-            <fai icon="fa-solid fa-tag" />
+            <Icon icon="fa-solid fa-tag" />
           </ClientOnly>
-          <a :href="release.html_url" target="_blank">{{ release.tag_name }}</a>
+          <a :href="item.html_url" target="_blank">{{ item.tag_name }}</a>
         </p>
       </template>
     </GithubFeedItem>
@@ -44,20 +45,19 @@
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
 
-  dayjs.extend(relativeTime)
-
   const props = defineProps<{
     item: GhRelease
   }>()
 
-  const { item: release } = toRefs(props)
-  const { repository } = release.value
+  dayjs.extend(relativeTime)
 
-  const parsedBody = release
-    .value
-    .body
-    .replaceAll(/(?<!")https:\/\/github.com(?:\/[^/]+){3}\/(\d+)(?<!")/g, "#$1")
-    .replaceAll("<a ", "<a target='_blank' ")
+  const parsedBody = computed(() => (
+    props.item.body
+      .replaceAll(/(?<!")https:\/\/github.com(?:\/[^/]+){3}\/(?<version>\d+)(?<!")/g, "#$<version>")
+      .replaceAll("<a ", "<a target='_blank' ")
+  ))
+
+  const repository = computed(() => props.item.repository)
 
   const content = ref<HTMLDivElement>()
   const showRepository = ref(false)

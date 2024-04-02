@@ -3,7 +3,7 @@
     <div class="github-repository">
       <p class="github-repository__title">
         <ClientOnly>
-          <fai icon="fa-solid fa-book" />
+          <Icon icon="fa-solid fa-book" />
         </ClientOnly>
 
         <a :href="repository.html_url" target="_blank">{{ repository.full_name }}</a>
@@ -17,7 +17,7 @@
 
           <span>
             <ClientOnly>
-              <fai icon="fa-regular fa-star" />
+              <Icon icon="fa-regular fa-star" />
             </ClientOnly>
 
             {{ repository.stargazers_count }}
@@ -25,7 +25,7 @@
 
           <span>
             <ClientOnly>
-              <fai icon="fa-solid fa-code-fork" />
+              <Icon icon="fa-solid fa-code-fork" />
             </ClientOnly>
 
             {{ repository.forks_count }}
@@ -44,12 +44,12 @@
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
 
-  dayjs.extend(relativeTime)
-
   defineProps<{
     repository: GhRepository
     showRepository: boolean
   }>()
+
+  dayjs.extend(relativeTime)
 </script>
 
 <style scoped lang="scss">

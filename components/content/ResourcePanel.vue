@@ -2,7 +2,7 @@
   <div class="resource-panel">
     <span>
       <ClientOnly>
-        <fai icon="fa-solid fa-book-open" />
+        <Icon icon="fa-solid fa-book-open" />
       </ClientOnly>
 
       More resources
@@ -14,14 +14,14 @@
         {{ title }}
 
         <ClientOnly>
-          <fai icon="fa-solid fa-up-right-from-square" />
+          <Icon icon="fa-solid fa-up-right-from-square" />
         </ClientOnly>
       </a>
     </nav>
 
     <button @click="showPanel = !showPanel">
       <ClientOnly>
-        <fai icon="fa-solid fa-chevron-down" :class="{ inverted: showPanel }" />
+        <Icon :class="{ inverted: showPanel }" icon="fa-solid fa-chevron-down" />
       </ClientOnly>
 
       {{ showPanel ? "Hide" : "Show" }} resources
@@ -34,10 +34,8 @@
     resources: string[][]
   }>()
 
-  const { resources } = toRefs(props)
-
   const showPanel = ref(false)
-  const navMaxHeight = computed(() => `${resources.value.length * 35}px`)
+  const navMaxHeight = computed(() => `${props.resources.length * 35}px`)
 </script>
 
 <style scoped lang="scss">

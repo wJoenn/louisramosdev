@@ -8,31 +8,35 @@
 </template>
 
 <script setup lang="ts">
-  defineProps({
-    show: { type: Boolean, default: false }
-  })
+  defineProps<{
+    show: boolean
+  }>()
+
+  defineSlots<{
+    default: unknown
+  }>()
 
   const mouseCoords = inject<Ref<[number, number]>>("mouseCoords")!
   const githubTooltipComponent = ref<HTMLDivElement>()
   const arrowCssStyle = ref({})
   const tooltipCssStyle = ref({})
 
+  const arrowPositionY = computed(() => positionY.value === "bottom" ? "top" : "bottom")
+  const positionX = computed(() => mouseCoords.value[0] <= 400 ? "left" : "right")
+  const positionY = computed(() => mouseCoords.value[1] >= 350 ? "bottom" : "top")
+
   watch(githubTooltipComponent, () => {
     if (githubTooltipComponent.value) {
       const { bottom, left, right, top } = githubTooltipComponent.value.getBoundingClientRect()
-      const positionX = mouseCoords.value[0] <= 400 ? "left" : "right"
-      const positionY = mouseCoords.value[1] >= 350 ? "bottom" : "top"
-      const arrowPositionY = positionY === "bottom" ? "top" : "bottom"
-
-      let arroxXValue = (positionX === "right" ? right - mouseCoords.value[0] : mouseCoords.value[0] - left) - 10
+      let arroxXValue = (positionX.value === "right" ? right - mouseCoords.value[0] : mouseCoords.value[0] - left) - 10
       if (arroxXValue < 15) { arroxXValue = 15 }
       if (arroxXValue > 45) { arroxXValue = 45 }
 
-      tooltipCssStyle.value = { [positionX]: "-15px", [positionY]: "100%" }
+      tooltipCssStyle.value = { [positionX.value]: "-15px", [positionY.value]: "100%" }
       arrowCssStyle.value = {
-        [positionX]: `${arroxXValue}px`,
-        [arrowPositionY]: `${bottom - top - 15}px`,
-        [`border-${arrowPositionY}`]: "10px solid #303030"
+        [arrowPositionY.value]: `${bottom - top - 15}px`,
+        [positionX.value]: `${arroxXValue}px`,
+        [`border-${arrowPositionY.value}`]: "10px solid #303030"
       }
     }
   })

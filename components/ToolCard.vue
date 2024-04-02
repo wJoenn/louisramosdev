@@ -2,11 +2,11 @@
   <div class="tool-card">
     <div class="title">
       <h3>{{ tool.name }}</h3>
-      <img :src="`/images/logos/${tool.image_url}`" :alt="`${tool.name} logo`" height="40">
+      <img :alt="`${tool.name} logo`" height="40" :src="`/images/logos/${tool.image_url}`">
     </div>
 
     <p>{{ tool.description }}</p>
-    <a :href="tool.url" target="_blank" class="btn" :aria-label="`${tool.name} documentation`">See documentation</a>
+    <a :aria-label="`${tool.name} documentation`" class="btn" :href="tool.url" target="_blank">See documentation</a>
   </div>
 </template>
 

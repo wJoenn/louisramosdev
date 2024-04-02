@@ -1,16 +1,18 @@
 <template>
   <div
-    :class="['code-block', { 'is-bash': language === 'bash' }]"
+    class="code-block"
+    :class="{ 'is-bash': language === 'bash' }"
     @click="copyFromClick"
     @copy="copyFromSelection"
-    @mouseleave="copied = false">
+    @mouseleave="copied = false"
+  >
     <span v-if="filename" class="filename">{{ filename }}</span>
 
     <slot />
 
     <span class="copy">
       <ClientOnly>
-        <fai ref="icon" :icon="['fa-solid', copied ? 'fa-check-double' : 'fa-copy']" />
+        <Icon :icon="['fa-solid', copied ? 'fa-check-double' : 'fa-copy']" />
       </ClientOnly>
     </span>
   </div>
@@ -19,34 +21,35 @@
 <script setup lang="ts">
   const props = defineProps<{
     code: string
-    highlights: number[]
-    meta: string
-    language?: string
     filename?: string
+    language?: string
   }>()
 
-  const { code, filename, language } = toRefs(props)
+  defineSlots<{
+    default: unknown
+  }>()
+
   const copied = ref(false)
 
-  const copyFromClick = () => {
+  const copyFromClick = async () => {
     copied.value = true
-    navigator.clipboard.writeText(code.value)
+    await navigator.clipboard.writeText(props.code)
   }
 
-  const copyFromSelection = () => {
+  const copyFromSelection = async () => {
     const selection = document.getSelection()!
     const formattedSelection = formatSelection(selection)
 
-    navigator.clipboard.writeText(formattedSelection)
+    await navigator.clipboard.writeText(formattedSelection)
   }
 
   const formatSelection = (selection: Selection): string => {
     const selectedRange = selection.getRangeAt(0)
     const container = document.createElement("div")
     container.appendChild(selectedRange.cloneContents())
-    const selectedElements = Array.from(container.querySelectorAll("*") as NodeListOf<HTMLElement>)
+    const selectedElements = Array.from(container.querySelectorAll<HTMLElement>("*"))
 
-    return selectedElements.map(element => (element.classList.contains("line") ? "" : element.innerText)).join("")
+    return selectedElements.map(element => element.classList.contains("line") ? "" : element.innerText).join("")
   }
 </script>
 

@@ -1,3 +1,5 @@
+type DateString = string
+
 export type GhUser = {
   id: number
   avatar_url: string
@@ -6,7 +8,7 @@ export type GhUser = {
   location: string
   login: string
   name: string
-  type: "User" | "Organization"
+  type: "Organization" | "User"
 }
 
 export type GhRepository = {
@@ -19,7 +21,7 @@ export type GhRepository = {
   forks_count: number
   stargazers_count: number
   starred: boolean
-  pushed_at: string | Date
+  pushed_at: DateString
 
   owner: GhUser
 }
@@ -27,7 +29,7 @@ export type GhRepository = {
 export type GhReaction = {
   id: number
   user_id: number
-  content: "+1" | "-1" | "confused" | "eyes" | "heart" | "hooray" | "laugh" | "rocket"
+  content: "-1" | "+1" | "confused" | "eyes" | "heart" | "hooray" | "laugh" | "rocket"
   reactable_type: "Github::Comment" | "Github::Issue" | "Github::Release"
 }
 
@@ -40,7 +42,7 @@ export type GhIssue = {
   state: "closed" | "open"
   title: string
   number: number
-  released_at: string | Date
+  released_at: DateString
 
   author: GhUser
   repository: GhRepository
@@ -55,7 +57,7 @@ export type GhRelease = {
   name: string
   tag_name: string
   read: boolean
-  released_at: string | Date
+  released_at: DateString
 
   author: GhUser
   repository: GhRepository
@@ -68,7 +70,7 @@ export type GhComment = {
   body: string
   html_url: string
   read: boolean
-  released_at: string | Date
+  released_at: DateString
 
   author: GhUser
   issue: GhIssue

@@ -1,13 +1,13 @@
 <template>
   <div class="blog-card">
-    <NuxtImg :src="blog.cover_url" :alt="`${blog.title} cover image`" height="200" width="400" />
+    <NuxtImg :alt="`${blog.title} cover image`" height="200" :src="blog.cover_url" width="400" />
 
     <div class="details">
       <em class="date">{{ dayjs(blog.date * 1000).format("MMMM Do YYYY") }}</em>
       <h3>{{ blog.title }}</h3>
       <p>{{ blog.description }}</p>
 
-      <NuxtLink :to="blog._path" class="btn">Show more</NuxtLink>
+      <NuxtLink class="btn" :to="blog._path">Show more</NuxtLink>
     </div>
   </div>
 </template>
@@ -18,9 +18,11 @@
   import dayjs from "dayjs"
   import advancedFormat from "dayjs/plugin/advancedFormat"
 
-  dayjs.extend(advancedFormat)
+  defineProps<{
+    blog: Blog
+  }>()
 
-  defineProps<{ blog: Blog }>()
+  dayjs.extend(advancedFormat)
 </script>
 
 <style scoped lang="scss">

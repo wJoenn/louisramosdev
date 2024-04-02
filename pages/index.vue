@@ -8,12 +8,23 @@
     <section id="about">
       <div>
         <h2>About me</h2>
-        <p>I am a french native speaker currently living in Belgium with a strong passion for computer technologies. I started self-teaching frontend web development a couple years ago to transition from the restaurant industry to a role that'd be more inline with my centers of interest. My journey began learning from the basics with HTML and CSS up to JavaScript and eventually Vue.js</p>
-        <p>In 2022 I decided to attend Full-Stack web development bootcamp at Le Wagon in hope of obtaining much desired backend skill too, there I gained expertise with tools like Ruby and Rails which really grew on me, Stimulus.js, PostgreSQL, Heroku, and more.</p>
+        <p>
+          I am a french native speaker currently living in Belgium with a strong passion for computer technologies. I
+          started self-teaching frontend web development a couple years ago to transition from the restaurant industry
+          to a role that'd be more inline with my centers of interest. My journey began learning from the basics with
+          HTML and CSS up to JavaScript and eventually Vue.js
+        </p>
+
+        <p>
+          In 2022 I decided to attend Full-Stack web development bootcamp at Le Wagon in hope of obtaining much desired
+          backend skill too, there I gained expertise with tools like Ruby and Rails which really grew on me,
+          Stimulus.js, PostgreSQL, Heroku, and more.
+        </p>
+
         <p>When I'm not coding, I enjoy playing video games, reading mangas, and pursuing other geeky interests.</p>
       </div>
 
-      <NuxtImg src="/images/pp.jpeg" alt="me" height="400" width="300" />
+      <NuxtImg alt="me" height="400" src="/images/pp.jpeg" width="300" />
     </section>
 
     <section id="blogs">
@@ -21,7 +32,7 @@
 
       <ul class="blog-list">
         <li v-for="blog in blogs" :key="blog._id">
-          <BlogCard :blog="blog" />
+          <BlogCard :blog />
         </li>
       </ul>
     </section>
@@ -33,9 +44,9 @@
 
   useHead({
     meta: [{
-      name: "description",
       // eslint-disable-next-line vue/max-len
-      content: "Passionate Belgium developer with a strong interest in computer technologies. Proficient in Vue.js, Ruby on Rails and Video Games. I've written a couple blogs, check them out"
+      content: "Passionate Belgium developer with a strong interest in computer technologies. Proficient in Vue.js, Ruby on Rails and Video Games. I've written a couple blogs, check them out",
+      name: "description"
     }],
     title: "Louis Ramos | RoR Fullstack Developer"
   })
@@ -54,10 +65,10 @@
 
   const shuffleText = (...elements: HTMLElement[]) => {
     elements.forEach(element => {
-      const initialText = element.dataset.text as string
+      const initialText = element.dataset.text!
 
       // This interval progress ensure that all elements begin and end their animation at the same time.
-      const intervalProgress = 1 / (4 + (initialText.length - 10) / 10 * -2)
+      const intervalProgress = 1 / (4 + ((initialText.length - 10) / (10 * -2)))
 
       let i = 0
       const interval = setInterval(() => {

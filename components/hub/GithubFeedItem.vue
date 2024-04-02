@@ -11,7 +11,7 @@
           <span>{{ dayjs(feedItem.released_at).fromNow() }}</span>
         </div>
 
-        <GithubUser :user="user" />
+        <GithubUser :user />
       </div>
     </div>
 
@@ -34,13 +34,19 @@
   import dayjs from "dayjs"
   import relativeTime from "dayjs/plugin/relativeTime"
 
-  dayjs.extend(relativeTime)
-
   defineProps<{
     feedItem: GhIssue | GhRelease
     title: string
     user: GhUser
   }>()
+
+  defineSlots<{
+    default: unknown
+    description: unknown
+    footer: unknown
+  }>()
+
+  dayjs.extend(relativeTime)
 </script>
 
 <style lang=scss>
