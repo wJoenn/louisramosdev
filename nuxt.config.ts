@@ -46,7 +46,13 @@ export default defineNuxtConfig({
   },
   typescript: {
     shim: false,
-    strict: true
+    strict: true,
+    tsConfig: {
+      compilerOptions: {
+        allowImportingTsExtensions: true,
+        moduleDetection: "force"
+      }
+    }
   },
   vite: {
     css: {
