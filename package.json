@@ -19,7 +19,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@vercel/analytics": "^1.2.2",
     "dayjs": "^1.11.11",
-    "vue": "^3.4.21",
+    "vue": "^3.4.27",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
