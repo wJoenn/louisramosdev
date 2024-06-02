@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     quality: 80
   },
   modules: [
+    "nuxt-icon",
     "@nuxt/content",
     "@nuxt/devtools",
     "@nuxt/image"
