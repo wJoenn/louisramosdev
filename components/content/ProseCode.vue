@@ -7,14 +7,8 @@
     @mouseleave="copied = false"
   >
     <span v-if="filename" class="filename">{{ filename }}</span>
-
     <slot />
-
-    <span class="copy">
-      <ClientOnly>
-        <Icon :icon="['fa-solid', copied ? 'fa-check-double' : 'fa-copy']" />
-      </ClientOnly>
-    </span>
+    <Icon class="copy" :name="copied ? 'fa6-solid:check-double' : 'fa6-solid:copy'" />
   </div>
 </template>
 
@@ -76,7 +70,7 @@
       opacity: 0.1;
       position: absolute;
       right: 10px;
-      width: 20px;
+      width: 15px;
     }
 
     .filename {

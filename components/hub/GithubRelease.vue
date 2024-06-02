@@ -29,9 +29,7 @@
         </p>
 
         <p class="tag">
-          <ClientOnly>
-            <Icon icon="fa-solid fa-tag" />
-          </ClientOnly>
+          <Icon name="fa6-solid:tag" />
           <a :href="item.html_url" target="_blank">{{ item.tag_name }}</a>
         </p>
       </template>

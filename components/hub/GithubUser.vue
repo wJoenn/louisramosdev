@@ -31,10 +31,7 @@
         </div>
 
         <p v-if="user.location" class="location">
-          <ClientOnly>
-            <Icon icon="fa-solid fa-location-dot" />
-          </ClientOnly>
-
+          <Icon name="fa6-solid:location-dot" />
           {{ user.location }}
         </p>
       </div>

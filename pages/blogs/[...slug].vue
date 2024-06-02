@@ -10,7 +10,10 @@
 
     <ResourcePanel v-if="blog?.resources" :resources="blog.resources" />
 
-    <NuxtLink v-if="blog" class="more" to="/blogs"><Icon icon="fa-solid fa-chevron-down" /> More blogs</NuxtLink>
+    <NuxtLink v-if="blog" class="more" to="/blogs">
+      <Icon name="fa6-solid:chevron-down" />
+      More blogs
+    </NuxtLink>
   </div>
 </template>
 

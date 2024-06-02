@@ -1,10 +1,7 @@
 <template>
   <div class="resource-panel">
     <span>
-      <ClientOnly>
-        <Icon icon="fa-solid fa-book-open" />
-      </ClientOnly>
-
+      <Icon name="fa6-solid:book-open" />
       More resources
     </span>
     <h3>Want to read more ?</h3>
@@ -12,18 +9,12 @@
     <nav :class="{ visible: showPanel }">
       <a v-for="[title, url] in resources" :key="title" :href="url" target="_blank">
         {{ title }}
-
-        <ClientOnly>
-          <Icon icon="fa-solid fa-up-right-from-square" />
-        </ClientOnly>
+        <Icon name="fa6-solid:up-right-from-square" />
       </a>
     </nav>
 
     <button @click="showPanel = !showPanel">
-      <ClientOnly>
-        <Icon :class="{ inverted: showPanel }" icon="fa-solid fa-chevron-down" />
-      </ClientOnly>
-
+      <Icon :class="{ inverted: showPanel }" name="fa6-solid:chevron-down" />
       {{ showPanel ? "Hide" : "Show" }} resources
     </button>
   </div>

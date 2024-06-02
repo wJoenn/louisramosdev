@@ -2,9 +2,7 @@
   <div class="github-reactions">
     <ul>
       <li ref="popUp" class="pop-up" @mouseleave="showPopUp = false" @mouseover="showPopUp = true">
-        <ClientOnly>
-          <Icon icon="fa-regular fa-face-smile" />
-        </ClientOnly>
+        <Icon name="fa6-regular:face-smile" />
 
         <Transition name="slide-up">
           <ul v-if="showPopUp">
