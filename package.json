@@ -20,7 +20,7 @@
     "@vercel/analytics": "^1.2.2",
     "dayjs": "^1.11.11",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@nuxt/content": "^2.12.1",
