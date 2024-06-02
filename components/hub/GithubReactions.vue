@@ -120,7 +120,7 @@
       reactions.value.push(data.value!)
 
       showPopUp.value = false
-    } catch (error) {
+    } catch {
       // console.log(error)
     }
   }
@@ -134,7 +134,7 @@
       reactions.value.splice(reactionIndex, 1)
 
       showPopUp.value = false
-    } catch (error) {
+    } catch {
       // console.log(error)
     }
   }

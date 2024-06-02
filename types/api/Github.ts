@@ -29,7 +29,7 @@ export type GhRepository = {
 export type GhReaction = {
   id: number
   user_id: number
-  content: "-1" | "+1" | "confused" | "eyes" | "heart" | "hooray" | "laugh" | "rocket"
+  content: "+1" | "-1" | "confused" | "eyes" | "heart" | "hooray" | "laugh" | "rocket"
   reactable_type: "Github::Comment" | "Github::Issue" | "Github::Release"
 }
 
