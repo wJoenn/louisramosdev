@@ -24,7 +24,7 @@
     "eslint": "<9.0.0",
     "eslint-config-joenn": "^1.0.5",
     "nuxt": "^3.11.1",
-    "sass": "^1.72.0",
+    "sass": "^1.77.4",
     "typescript": "^5.4.5",
     "vue-tsc": "^2.0.19"
   }
